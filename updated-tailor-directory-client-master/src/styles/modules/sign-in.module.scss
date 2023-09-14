@@ -1,0 +1,27 @@
+@import "../variables";
+
+$modal-background-color: #ECF4FF;
+$modal-color: #414042;
+
+.sign-in-modal {
+
+  .modal-body {
+
+    .top-block {
+      margin-bottom: 30px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .sign-in {
+      padding-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    .sign-up, .reset-password {
+      margin-bottom: 10px;
+    }
+  }
+}

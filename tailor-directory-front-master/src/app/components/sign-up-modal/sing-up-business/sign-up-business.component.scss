@@ -1,0 +1,57 @@
+@import "../../../../styles/variables";
+
+.form {
+
+  padding-bottom: 30px;
+
+  .top-block {
+    .icons {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+
+    .step {
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      line-height: 50px;
+      text-align: center;
+      color: $secondary-button-disabled-color;
+      background: $secondary-button-disabled-background;
+      border-radius: 50%;
+
+      &.active {
+        color: $primary-button-color;
+        background: $primary-button-background;
+      }
+    }
+
+    .dots {
+      font-size: 30px;
+      line-height: 30px;
+      color: $primary-button-background;
+      letter-spacing: 10px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.continue, .sign-up {
+  padding-top: 30px;
+}
+
+.sign-up {
+  .btn {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+#sing-map {
+  height: 300px;
+  width: 100%;
+  margin-top: 30px;
+}
+

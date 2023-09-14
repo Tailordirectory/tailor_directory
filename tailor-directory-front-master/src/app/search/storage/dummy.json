@@ -1,0 +1,157 @@
+[
+  {
+    "_id": "5e81f953cbf5ec005692247b",
+    "phone": "943026479459",
+    "name": "Test Name",
+    "city": "Berlin",
+    "country": "Germany",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        13.4048056,
+        52.51724480000001
+      ]
+    },
+    "address": "Rathausstraße 25",
+    "street": "Rathausstraße",
+    "zipCode": "60834",
+    "businessName": "Big American",
+    "businessType": "leather",
+    "ownerId": "5e81f952cbf5ec005692247a",
+    "media": [
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      },
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "createdAt": "2020-03-30T13:51:15.702Z",
+    "updatedAt": "2020-03-30T13:51:15.702Z",
+    "distance": 0.30760468119727036,
+    "emailConfirmedAt": null,
+    "phoneConfirmedAt": null,
+    "phone": "+43845458762",
+    "description": "My company name is Super Tailor. It's a company with a big history. My company specializes in tailor",
+    "email": "some@test.email",
+    "workTime": {
+      "start": {
+        "h": 14,
+        "m": 20
+      },
+      "end": {
+        "h": 7,
+        "m": 26
+      }
+    },
+    "rating": 2.6,
+    "reviewsCount": 15,
+    "tags": [
+      {
+        "_id": "5e85aaf66157bd00420e2479",
+        "name": "Trousers and shorts",
+        "createdAt": "2020-04-02T09:05:58.939Z",
+        "updatedAt": "2020-04-02T09:05:58.939Z"
+      },
+      {
+        "_id": "5e85aaf66157bd00420e247c",
+        "name": "Skirts and dresses",
+        "createdAt": "2020-04-02T09:05:58.940Z",
+        "updatedAt": "2020-04-02T09:05:58.940Z"
+      }
+    ]
+  },
+  {
+    "_id": "5e81f952cbf5ec0056922479",
+    "phone": "935552017715",
+    "city": "Berlin",
+    "country": "Germany",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        13.3979318,
+        52.5148828
+      ]
+    },
+    "address": "Werderscher Markt 11",
+    "zipCode": "72296",
+    "businessName": "Useless Clothes",
+    "businessType": "leather",
+    "ownerId": "5e81f951cbf5ec0056922478",
+    "media": [
+      {
+        "_id": "5e83389ac06a6a0046bfcd57",
+        "url": "https://www.siamemporiumtailors.com/images/img1.jpg",
+        "type": "image/jpeg"
+      }
+    ],
+    "description": "My company name is Super Tailor. It's a company with a big history. My company specializes in tailor",
+    "createdAt": "2020-03-30T13:51:14.764Z",
+    "updatedAt": "2020-03-30T13:51:14.764Z",
+    "distance": 0.7426987866597398,
+    "emailConfirmedAt": null,
+    "phoneConfirmedAt": null,
+    "phone": "+43845451234",
+    "email": "test@test.email",
+    "workTime": {
+      "start": {
+        "h": 14,
+        "m": 20
+      },
+      "end": {
+        "h": 7,
+        "m": 26
+      }
+    },
+    "rating": 2.6,
+    "reviewsCount": 15,
+    "tags": [
+      {
+        "_id": "5e85aaf66157bd00420e2479",
+        "name": "Trousers and shorts",
+        "createdAt": "2020-04-02T09:05:58.939Z",
+        "updatedAt": "2020-04-02T09:05:58.939Z"
+      },
+      {
+        "_id": "5e85aaf66157bd00420e247c",
+        "name": "Skirts and dresses",
+        "createdAt": "2020-04-02T09:05:58.940Z",
+        "updatedAt": "2020-04-02T09:05:58.940Z"
+      }
+    ]
+  }
+]

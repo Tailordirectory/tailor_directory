@@ -1,0 +1,24 @@
+.app-container {
+  min-height: calc(100vh - 166px);
+
+  .app-content {
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto;
+    height: 100%;
+  }
+
+  &:not(.login) {
+    display: flex;
+    flex-direction: row;
+    background: rgba(179, 179, 179, .1);
+  }
+
+  &.login {
+    min-height: 100vh;
+
+    app-navigation {
+      display: none;
+    }
+  }
+}

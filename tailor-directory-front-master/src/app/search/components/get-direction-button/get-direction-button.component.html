@@ -1,0 +1,21 @@
+<section class="get-direction-button-wrap"
+         [class.has-icon]="showIcon"
+         [class.has-title]="showTitle">
+  <button class="btn"
+          (click)="onClick()"
+          [ngClass]="(isButton) ? 'btn-primary' : 'btn-link'" id="{{id}}">
+    <span *ngIf="showIcon" class="icon"><i class="fas fa-directions"></i></span>
+    <span *ngIf="showTitle" class="title">{{'profile.get_direction' | translate}}</span>
+  </button>
+  <div class="sub-buttons-block" [class.hidden]="!isShowButtons">
+    <button class="btn btn-secondary" *ngIf="showDistance" (click)="onGetDirection('car',$event)">
+      <span class="icon"><i class="fas fa-car"></i></span>&nbsp;{{'global.driving' | translate}}
+    </button>
+    <button class="btn btn-secondary" *ngIf="showDistance" (click)="onGetDirection('foot',$event)">
+      <span class="icon"><i class="fas fa-walking"></i></span>&nbsp;{{'global.walking' | translate}}
+    </button>
+    <button class="btn btn-secondary" (click)="setAddress()">
+      <span class="icon"><i class="fas fa-map-marked-alt"></i></span>&nbsp;{{'global.set_address' | translate}}
+    </button>
+  </div>
+</section>

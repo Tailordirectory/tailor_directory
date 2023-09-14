@@ -1,0 +1,34 @@
+<ng-template #content>
+  <div class="modal-header">
+  </div>
+  <div class="modal-body text-center">
+    <section class="top-block" *ngIf="!isBusinessRegister && !isUserRegister">
+      <h2>{{'sign_up.title' | translate}}</h2>
+      <p>{{'sign_up.description' | translate}}</p>
+      <section class="register-type-btn">
+        <button class="btn btn-primary" (click)="onSetBusiness()">{{'sign_up.as_business' | translate}}</button>
+      </section>
+      <section class="register-type-btn">
+        <button class="btn btn-primary" (click)="onSetUser()">{{'sign_up.as_client' | translate}}</button>
+      </section>
+    </section>
+    <section class="client-register" *ngIf="isUserRegister">
+      <app-sign-up-user [callback]="callback" (onClose)="onClose($event)"></app-sign-up-user>
+    </section>
+    <section class="business-register" *ngIf="isBusinessRegister">
+      <app-sign-up-business [callback]="callback" (onClose)="onClose($event)"></app-sign-up-business>
+    </section>
+    <button class="btn btn-secondary" (click)="onCloseModal()">{{'global.close' | translate}}</button>
+    <p class="sign-in-link">{{'global.have_an_account' | translate}}
+      <button class="btn btn-link" (click)="onSignIn()">{{'global.sign_in' | translate}}</button>
+    </p>
+  </div>
+  <!--  <div class="modal-footer" *ngIf="isBusinessRegister || isUserRegister">-->
+  <!--    <section class="social-links-block">-->
+  <!--      <p class="social-links">Sign In with: <span class="social-icon"><img-->
+  <!--        src="/assets/images/social/google-big.svg"></span>-->
+  <!--        <span class="social-icon"><img src="/assets/images/social/facebook-big.svg"></span></p>-->
+  <!--    </section>-->
+  <!--  </div>-->
+</ng-template>
+<app-sign-up-close-confirmation-modal #closeModal (onClose)="onClose($event)"></app-sign-up-close-confirmation-modal>

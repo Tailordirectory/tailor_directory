@@ -1,0 +1,177 @@
+#sing-map {
+  height: 300px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.icon {
+  display: inline-block;
+  padding: 0px 2px;
+  border: 1px solid #0585F5;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 14px;
+  margin-right: 10px;
+}
+
+.add-phone {
+  color: #0585F5;
+  cursor: pointer;
+}
+
+.delete-phone {
+  color: red;
+  cursor: pointer;
+
+  .icon {
+    border-color: red;
+  }
+}
+
+.alert-success {
+  margin-top: 20px;
+}
+
+.phone-group {
+  .form-item.show-delete {
+    width: calc(100% - 46px);
+    display: inline-block;
+  }
+
+  .delete-phone {
+    display: inline-block;
+    margin-left: 10px;
+
+    .delete-icon {
+      color: red;
+      font-size: 24px;
+    }
+  }
+}
+
+.input.verified {
+  input {
+    width: calc(100% - 46px);
+    display: inline-block;
+  }
+
+  .verified-icon {
+    font-size: 24px;
+    display: inline-block;
+    color: green;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+}
+
+.service-form {
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    margin-bottom: 40px;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.media-block {
+  h4 {
+    margin-bottom: 20px;
+  }
+}
+
+.logo {
+  max-height: 277px;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 40px;
+  text-align: center;
+  min-height: 100px;
+
+  img {
+    max-width: 100%;
+  }
+
+  .update {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: #0585F5;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .empty-logo {
+    display: none;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+
+  &.no-logo {
+    height: 277px;
+    border: 1px solid #C4C4C4;
+    display: block;
+
+    .empty-logo {
+      display: block;
+    }
+
+    .update {
+      bottom: 20px;
+    }
+  }
+}
+
+.gallery {
+
+  .gallery-list {
+    margin: 0;
+    padding: 30px 0 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    li {
+      display: inline-block;
+      width: 50%;
+      min-height: 30px;
+      padding: 1px;
+      position: relative;
+
+      img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .delete-gallery-item {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        cursor: pointer;
+        background: red;
+        border-radius: 50%;
+
+        .icon {
+          margin: 0;
+          border: none;
+          padding: 5px 7px 0px;
+        }
+      }
+    }
+  }
+}

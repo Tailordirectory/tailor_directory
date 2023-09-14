@@ -1,0 +1,15 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title" *ngIf="isEdit">Edit {{service.name}}</h3>
+    <h3 class="title" *ngIf="!isEdit">Add</h3>
+  </div>
+  <div class="modal-body" [showSpinner]="isShowSpinner">
+    <section [formGroup]="editForm" class="form-group">
+      <input class="form-control" type="text" formControlName="name" placeholder="Service name">
+    </section>
+    <section class="text-right">
+      <button class="btn btn-secondary" (click)="modal.close()">Close</button>
+      <button class="btn btn-success" (click)="onSubmit()">{{(isEdit) ? 'Update' : 'Add'}}</button>
+    </section>
+  </div>
+</ng-template>

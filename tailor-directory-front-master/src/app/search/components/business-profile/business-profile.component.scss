@@ -1,0 +1,251 @@
+@import "../../../../styles/variables";
+
+.profile-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+
+  .left-bar-block {
+    min-height: $map-min-height;
+    height: $map-height;
+    width: 55%;
+    position: relative;
+    overflow-y: auto;
+
+    .content {
+      padding-top: 50px;
+      min-height: 100%;
+      position: relative;
+      box-shadow: inset 0px 4px 25px 0px rgba(5, 133, 245, 0.15);
+
+      .content-block {
+        padding: 40px 50px 20px;
+      }
+
+      .back-btn-block {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+
+    .profile {
+      .top-block {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        .image {
+          width: 165px;
+
+          img {
+            max-width: 165px;
+            border-radius: 10px;
+          }
+        }
+
+        .short-info-block {
+          width: calc(100% - 195px);
+          padding-right: 30px;
+        }
+
+        &.has-image {
+          .short-info-block {
+            width: calc(100% - 360px);
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+        }
+
+        .contact-buttons-block {
+          width: 195px;
+
+          p:last-child {
+            margin: 0;
+          }
+
+          a, .btn {
+            display: block;
+            width: 100%;
+          }
+        }
+
+        @media all and(max-width: 1300px) {
+          .image {
+            width: 100%;
+            margin-bottom: 25px;
+          }
+          .short-info-block {
+            padding-left: 0;
+            width: calc(100% - 195px);
+          }
+        }
+
+        @media all and(max-width: 1000px) {
+          .short-info-block {
+            padding-right: 0;
+            width: 100%;
+            margin-bottom: 25px;
+          }
+          .contact-buttons-block {
+            width: 100%;
+          }
+        }
+      }
+
+      .leave-comment-block {
+        padding-bottom: 0;
+      }
+
+      .contacts-block {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        .social-info {
+          width: 195px;
+          text-align: right;
+
+          .social-link {
+            margin-right: 25px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+
+            &.linked-in {
+              img {
+                width: 28px;
+              }
+            }
+          }
+        }
+
+        .contact-info {
+          width: calc(100% - 195px);
+        }
+
+        @media all and(max-width: 787px) {
+          .social-info {
+            text-align: left;
+            width: 100%;
+          }
+
+          .contact-info {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .reviews-block {
+      background: rgba(236, 244, 255, 0.5);
+      border: 1px solid #E9E9E9;
+
+      .review-item {
+        border-left: 1px solid #E9E9E9;
+        padding: 5px 0 5px 15px;
+        margin-top: 15px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+    }
+
+    .service-block {
+      background: rgba(236, 244, 255, 0.5);
+      border: 1px solid #E9E9E9;
+
+      p {
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+    }
+
+    .info-block {
+      background: #ECF4FF;
+      border-bottom: 1px solid #E9E9E9;
+      display: flex;
+      flex-direction: row;
+      flex-flow: wrap;
+
+      p {
+        color: $second-color;
+      }
+
+      .info-item {
+        width: 50%;
+        padding-right: 25px;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 40px;
+
+        h4, p {
+          margin: 0;
+        }
+
+        .left-side {
+          width: 75px;
+          padding-right: 25px;
+        }
+
+        .right-side {
+          width: calc(100% - 75px);
+        }
+
+        @media all and(max-width: 1300px) {
+          width: 100%;
+        }
+      }
+    }
+
+    .additional-info {
+
+    }
+
+    .another-services-block {
+      .content-block {
+        border-bottom: 1px solid $additional-color;
+      }
+    }
+  }
+
+  .slider-block {
+    overflow-y: auto;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      overflow-y: auto;
+      width: 100%;
+      text-align: center;
+
+      li {
+        display: inline-block;
+        max-width: 33.33%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .map-block {
+    width: 45%;
+
+    .map, .map-element {
+      width: 100%;
+      height: $map-height;
+      min-height: $map-min-height;
+    }
+
+    .map {
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}

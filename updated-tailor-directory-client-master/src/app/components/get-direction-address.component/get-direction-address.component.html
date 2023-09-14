@@ -1,0 +1,55 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">{{'profile.get_direction' | translate}}</h3>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <section class="set-address-for-direction" [formGroup]="addressForm">
+      <p>{{'global.select_direction_type'| translate}}</p>
+      <p>
+        <button class="direction-btn" title="{{'global.walking' | translate}}" [disabled]="dType==='walking'"
+                (click)="onSetDType('walking')">
+          <i class="fas fa-walking"></i>
+        </button>
+        <button class="direction-btn" title="{{'global.driving' | translate}}" [disabled]="dType==='driving'"
+                (click)="onSetDType('driving')">
+          <i class="fas fa-car"></i>
+        </button>
+      </p>
+      <p>{{'global.select_start_address'| translate}}</p>
+      <section class="form-group">
+        <ng-autocomplete
+          [data]="addressList"
+          [initialValue]="['']"
+          [debounceTime]="400"
+          [searchKeyword]=""
+          formControlName="autocomplete"
+          placeHolder="{{'sign_up_business_form.address' | translate}}"
+          (inputChanged)='onSelectAddressEvent($event)'
+          (inputCleared)="addressList = ['']"
+          [itemTemplate]="addressTemplate">
+        </ng-autocomplete>
+        <ng-template #addressTemplate let-address>
+          <a [innerHTML]="address"></a>
+        </ng-template>
+        <p class="error"
+           *ngIf="addressForm.get('autocomplete')?.touched && addressForm.get('autocomplete')?.invalid">{{'form.required' | translate}}</p>
+        <p class="error" *ngIf="isAddressError">
+          {{'form.address_error' | translate}}
+        </p>
+      </section>
+      <hr>
+      <p>{{'global.end_address' | translate}}</p>
+      <section class="form-group">
+        <input type="text" disabled class="form-control"
+               [value]="business.address + ', ' + business.zipCode + ' ' + business.city + ', ' + business.country">
+      </section>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            (click)="onSubmit()">{{'profile.get_direction' | translate}}</button>
+  </div>
+</ng-template>

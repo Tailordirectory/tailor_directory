@@ -1,0 +1,108 @@
+@import "../../../../styles/variables";
+
+.pin-card {
+  width: 355px;
+  position: absolute;
+  border: solid 1px #CBCBCB;
+  font-family: Roboto, Arial, sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px;
+  background-color: #FFF;
+  border-radius: 2px;
+  z-index: 99;
+  padding: 15px;
+
+  /* this CS forms the triangles */
+
+  &:after,
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  &.bottom-tail:after {
+    top: 100%;
+    left: calc(50% - 11px);
+    border-color: #FFF transparent transparent transparent;
+    border-width: 10px;
+  }
+
+
+  /* this brder color controlls the outside, thin border */
+
+  &.bottom-tail:before {
+    top: 100%;
+    left: calc(50% - 11px);
+    border-color: #CBCBCB transparent transparent transparent;
+    border-width: 11px;
+  }
+
+  &.top-tail:after {
+    top: -20px;
+    left: calc(50% - 11px);
+    border-color: transparent transparent #FFF transparent;
+    border-width: 10px;
+  }
+
+
+  /* this brder color controlls the outside, thin border */
+
+  &.top-tail:before {
+    top: -22px;
+    left: calc(50% - 12px);
+    border-color: transparent transparent #CBCBCB transparent;
+    border-width: 11px;
+  }
+
+
+  .pin-card-header {
+    height: 132px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .pin-card-content {
+    padding-top: 15px;
+
+    p {
+      padding: 0;
+      margin: 0 0 10px;
+    }
+
+    app-rating {
+      margin-bottom: 10px;
+    }
+
+    .top-block {
+      display: flex;
+      margin-bottom: 15px;
+
+      h4 {
+        width: calc(100% - 140px);
+        font-weight: normal;
+      }
+    }
+
+    .direction-bloc {
+      width: 120px;
+      text-align: right;
+    }
+
+    .business-type {
+      color: $second-color;
+      text-transform: capitalize;
+    }
+  }
+}

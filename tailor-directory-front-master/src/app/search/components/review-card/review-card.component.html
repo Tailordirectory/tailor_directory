@@ -1,0 +1,13 @@
+<section class="review-block">
+  <section class="raiting">
+    <p>{{review.userId.userName}} / {{review.createdAt | date:"MMM dd yyyy" }}
+      <app-rating
+        [hideReview]="true"
+        [businessId]="businessId"
+        [hideRating]="true"
+        [hideCount]="true"
+        [rating]="review.stars"></app-rating>
+    </p>
+  </section>
+  <p [innerHTML]="review.comment"></p>
+</section>

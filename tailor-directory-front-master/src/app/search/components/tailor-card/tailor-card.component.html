@@ -1,0 +1,43 @@
+<section class="tailor-card" [class.highlight]="tailor?.restrictions?.is_highlighted" [class.no-hover]="!onHover"
+         (click)="onTileClick($event)" [class.hover]="isHover"
+         (mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()">
+  <section class="image-bloc">
+    <img [src]="tailor.icon" *ngIf="tailor.icon && tailor.icon !=''" alt="image">
+  </section>
+  <section class="content-bloc">
+    <h4>{{tailor.businessName}}</h4>
+    <app-claim-request [business]="tailor"></app-claim-request>
+    <section class="rating action">
+      <app-rating [businessId]="tailor._id" [rating]="tailor.rating" [reviewCount]="tailor.reviewsCount"></app-rating>
+    </section>
+    <p class="address">{{tailor.address}}</p>
+    <p class="address">{{tailor.zipCode}}, {{tailor.city}} {{tailor.country}}</p>
+    <p class="open-time" *ngIf="tailor.workTime && tailor.workTime.end && tailor?.restrictions?.opening_hours">
+      {{'global.open_until' | translate}}
+      {{tailor.workTime.end.h}}:{{(tailor.workTime.end.m < 10) ? '0' + tailor.workTime.end.m : tailor.workTime.end.m}}
+    </p>
+  </section>
+  <section class="direction-bloc text-right">
+    <app-phone [business]="tailor" *ngIf="tailor?.restrictions?.contact_information"></app-phone>
+    <a *ngIf="tailor.email && tailor?.restrictions?.contact_information" title="{{'global.send_email' | translate}}"
+       class="action-link action"
+       href="mailto:{{tailor.email}}">
+      <span class="action-icon"><i class="fas fa-envelope"></i></span>
+    </a>
+    <section class="action-button action">
+      <app-get-direction-button
+        [showIcon]="true"
+        [endPoint]="endCoordinates"
+        [business]="tailor"
+        *ngIf="showDirection && tailor?.restrictions?.get_directions">
+      </app-get-direction-button>
+    </section>
+    <button class="action-link action btn-link btn"
+            *ngIf="tailor?.restrictions?.full_profile_page"
+            (click)="onProfileNavigate()"
+            title="{{'global.profile' | translate}}">
+      <span class="action-icon"><i class="fas fa-eye"></i></span>
+    </button>
+  </section>
+</section>

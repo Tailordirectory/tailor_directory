@@ -1,0 +1,9 @@
+<section class="left-bar-block" [class.hidden]="isHidden" [ngClass]="(isOpened) ? 'open' : 'close'">
+  <section class="toggle-button" (click)="onToggleClick()">
+    <img src="/assets/images/open-icon.svg" alt="toggle">
+  </section>
+  <section class="content-block" [class.show-profile]="isShowProfile">
+    <app-business-small-profile></app-business-small-profile>
+    <app-business-result-list></app-business-result-list>
+  </section>
+</section>

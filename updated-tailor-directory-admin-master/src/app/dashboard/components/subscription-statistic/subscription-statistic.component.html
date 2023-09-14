@@ -1,0 +1,35 @@
+<section class="subscription-statistic">
+  <h3>Owner Profiles:</h3>
+  <section [showSpinner]="isShowSpinner">
+    <section class="text-right">
+      <button class="btn file-link btn-success" (click)="getFileLink()"><i class="fas fa-file-download"></i>&nbsp;EXEL
+      </button>
+    </section>
+    <section class="chart-wrapper text-center">
+      <p class="labels-wrap">
+        <span class="total">
+          <b>Total: {{total}}</b>
+        </span>
+        <span class="basic"
+              (click)="getSortedData('basic')">Basic: {{(statisticModel?.basic) ? statisticModel?.basic : 0}}</span>
+        <span class="premium"
+              (click)="getSortedData('premium')">Premium: {{(statisticModel?.premium) ? statisticModel?.premium : 0}}</span>
+        <span class="premium-plus"
+              (click)="getSortedData('premium_plus')">Premium Plus: {{(statisticModel?.premium_plus) ? statisticModel?.premium_plus : 0}}</span>
+        <span class="premium-expired"
+              (click)="getSortedData('premium_expired')">Expired Premium: {{(statisticModel?.premium_expired) ? statisticModel?.premium_expired : 0}}</span>
+        <span class="premium-plus-expired"
+              (click)="getSortedData('premium_plus_expired')">Expired Premium Plus: {{(statisticModel?.premium_plus_expired) ? statisticModel?.premium_plus_expired : 0}}</span>
+      </p>
+      <section class="pie-chart">
+        <ngx-charts-pie-chart
+          [results]="data"
+          [legend]="false"
+          [view]="[400,300]"
+          [labels]="true">
+        </ngx-charts-pie-chart>
+      </section>
+    </section>
+  </section>
+</section>
+<app-statistic-list-modal #listModal></app-statistic-list-modal>

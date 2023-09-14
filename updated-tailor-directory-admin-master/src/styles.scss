@@ -1,0 +1,355 @@
+@import "styles/bootstrap/bootstrap";
+@import "styles/variables";
+@import "styles/modules/sorting";
+@import "styles/modules/spinner";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+html, body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $color;
+  background: $background-color;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 62px;
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 50px;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 46px;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+p {
+  margin-bottom: $paragraph-margin-bottom;
+}
+
+h1, h2, h3 {
+  margin-bottom: $headers-margin-bottom;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover, &:active, &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+ul.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    padding: 0 0 0 15px;
+    position: relative;
+    margin-bottom: 15px;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 7px;
+      content: "";
+      display: block;
+      width: 5px;
+      height: 5px;
+      background: #3C3C3C;
+      border-radius: 50%;
+    }
+  }
+}
+
+button {
+  &:hover, &:active, &:focus {
+    outline: none;
+  }
+}
+
+a.button-link {
+  text-align: center;
+  border-radius: 30px;
+  padding: 9px 30px;
+  font-size: 14px;
+  line-height: 18px;
+  display: inline-block;
+  border: 1px solid $primary-button-border-color;
+  background: $primary-button-background;
+  color: $primary-button-color;
+
+  &:active, &:hover {
+    background: $primary-button-active-background;
+    color: $primary-button-active-color;
+    border-color: $primary-button-active-border-color;
+  }
+
+  &.btn-secondary {
+    background: $secondary-button-background;
+    color: $secondary-button-color;
+    border-color: $secondary-button-border-color;
+
+    &:active, &:hover {
+      background: $secondary-button-active-background;
+      color: $secondary-button-active-color;
+      border-color: $secondary-button-active-border-color;
+    }
+  }
+}
+
+.coming-soon-msg {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.pac-container {
+  z-index: 99999;
+}
+
+.container {
+  max-width: 1170px;
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  &.small {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.btn {
+  border-radius: $button-border-radius;
+  padding: $button-padding;
+  font-size: $button-font-size;
+  line-height: $button-line-height;
+
+  &.btn-lg {
+    border-radius: $button-large-border-radius;
+    padding: $button-large-padding;
+    font-size: $button-large-font-size;
+    line-height: $button-large-line-height;
+  }
+}
+
+.btn-primary {
+  background: $primary-button-background;
+  color: $primary-button-color;
+  border-color: $primary-button-border-color;
+
+  &:disabled {
+    background: $primary-button-disabled-background;
+    color: $primary-button-disabled-color;
+    border-color: $primary-button-disabled-border-color;
+  }
+
+  &:active, &:hover {
+    background: $primary-button-active-background;
+    color: $primary-button-active-color;
+    border-color: $primary-button-active-border-color;
+  }
+}
+
+.btn-secondary {
+  background: $secondary-button-background;
+  color: $secondary-button-color;
+  border-color: $secondary-button-border-color;
+
+  &:disabled {
+    background: $secondary-button-disabled-background;
+    color: $secondary-button-disabled-color;
+    border-color: $secondary-button-disabled-border-color;
+  }
+
+  &:active, &:hover {
+    background: $secondary-button-active-background;
+    color: $secondary-button-active-color;
+    border-color: $secondary-button-active-border-color;
+  }
+}
+
+.form-group {
+  label {
+    font-size: 12px;
+    line-height: $line-height;
+    color: $input-color;
+  }
+
+  .intl-tel-input {
+    display: block;
+  }
+
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.form-control {
+  padding: 6px 15px;
+  font-family: $font-family;
+  font-size: $input-font-size;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg-color;
+  height: 40px;
+  border-radius: 2px;
+  margin-bottom: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &.ng-invalid.ng-touched {
+    border-color: red;
+  }
+}
+
+.error {
+  color: red;
+}
+
+
+select.form-control {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.ng-select {
+  .ng-select-container {
+    min-height: 40px;
+    border-radius: 2px;
+    font-family: $font-family;
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    color: $input-color;
+    background-color: $input-bg-color;
+  }
+
+  .ng-clear-wrapper {
+    color: #3C3C3C
+  }
+
+  input[type=search], text, input {
+    color: $input-color;
+  }
+
+  .ng-dropdown-panel {
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &, &.ng-option-selected, .ng-option-marked {
+          color: $input-color;
+        }
+      }
+    }
+  }
+
+  & > .ng-select-container {
+    .ng-arrow {
+      border-color: #3C3C3C transparent transparent;
+    }
+  }
+
+  &.ng-select-opened {
+    & > .ng-select-container {
+      .ng-arrow {
+        border-color: transparent transparent #3C3C3C;
+      }
+    }
+  }
+}
+
+.contact-item {
+  margin-bottom: 20px;
+
+  img {
+    margin-right: 15px;
+  }
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.social-link {
+  border-radius: 50%;
+  padding: 1px;
+  background: $primary-button-background;
+  display: inline-block;
+  margin-right: 5px;
+
+  svg {
+    fill: white;
+  }
+}
+
+.btn-link {
+  padding: 0;
+}
+
+@media all and (max-width: 1100px) {
+  .btn, .btn.btn-lg {
+    padding: $button-mobile-padding;
+  }
+}
+
+/* SNACKBAR */
+
+.snack {
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.snackbar-error {
+  border: 1px solid #dc3545;
+  border-radius: 4px !important;
+  background-color: white !important;
+  color: #dc3545 !important;
+  font-weight: 700;
+}
+
+.snack-action {
+  color: #6c757d !important;
+}
+
+.snackbar-info {
+  border: 1px solid #007bff;
+  border-radius: 4px !important;
+  background-color: white !important;
+  color: #007bff !important;
+  font-weight: 700;
+}
+
+.snackbar-success {
+  border: 1px solid #28a745;
+  border-radius: 4px !important;
+  background-color: white !important;
+  color: #28a745 !important;
+  font-weight: 700;
+}
+
+.cdk-overlay-container {
+  z-index: 9999;
+}
+
+.private-info-block {
+  border: 2px solid rgba(220, 233, 255, 1);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 30px;
+}

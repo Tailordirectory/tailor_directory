@@ -1,0 +1,46 @@
+.sortable {
+  position: relative;
+  padding-right: 20px;
+  cursor: pointer;
+
+  .sort {
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    &:before, &:after {
+      display: block;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      font-family: 'FontAwesome';
+      font-size: 12px;
+      line-height: 12px;
+    }
+
+    &:before {
+      content: "\f0dd";
+      bottom: 3px;
+    }
+
+    &:after {
+      content: "\f0de";
+      top: 3px
+    }
+
+    &.asc {
+      &:after {
+        display: none;
+      }
+    }
+
+    &.desc {
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

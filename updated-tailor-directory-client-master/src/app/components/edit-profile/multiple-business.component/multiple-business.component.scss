@@ -1,0 +1,62 @@
+@import "../../../../styles/variables";
+
+.edit {
+  color: $primary-button-background;
+  margin-left: 15px;
+}
+
+.delete {
+  color: red;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.profile {
+  color: green;
+}
+
+.edit, .delete, .profile {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.title {
+  width: 40%;
+}
+
+.address {
+  width: 40%;
+}
+
+.type {
+  width: 10%;
+  text-transform: capitalize;
+}
+
+.actions {
+  width: 10%;
+  max-width: 100px;
+}
+
+.save {
+  padding-top: 25px;
+}
+
+.business-table {
+  margin-bottom: 30px;
+}
+
+.business-list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 30px;
+
+  h4 {
+    width: calc(100% - 300px);
+  }
+
+  .add-button {
+    width: 300px;
+  }
+}

@@ -1,0 +1,81 @@
+<section class="services-page" [showSpinner]="isShowSpinner">
+  <h2>Services List:</h2>
+  <section class="filter" [formGroup]="filterForm">
+    <h3>Filter:</h3>
+    <section class="row">
+      <section class="col-sm-12 col-md-4 form-group">
+        <input type="text" class="form-control" placeholder="Service" formControlName="name">
+      </section>
+      <section class="col-sm-12 col-md-4 form-group">
+        <input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="From Date"
+               class="form-control"
+               formControlName="createdDate">
+        <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+      </section>
+      <section class="col-sm-12 col-md-4 text-right">
+        <button class="btn clear btn-secondary" (click)="clearFilter()">Clear</button>
+        <button class="btn find btn-primary" (click)="find()">Find</button>
+      </section>
+    </section>
+  </section>
+  <section class="text-center">
+    <button class="btn add btn-success" (click)="onAdd()"><i class="fas fa-plus-square"></i>&nbsp;Add</button>
+  </section>
+  <hr>
+  <section class="services-list" *ngIf="tagsList && tagsList.length > 0; else noResults">
+    <section class="row">
+      <section class="col-sm-12 col-md-2 offset-md-10">
+        <section class="form-group">
+          <ng-select
+            [items]="pageList"
+            [clearable]="false"
+            [(ngModel)]="pageLimit"></ng-select>
+        </section>
+      </section>
+    </section>
+    <section class="services-table">
+      <table class="table">
+        <thead>
+        <tr>
+          <th class="name sortable" (click)="onChangeSorting('name')">Name<span class="sort"
+                                                                                [class.asc]="sortBy === 'name' && asc"
+                                                                                [class.desc]="sortBy === 'name' && !asc"></span>
+          </th>
+          <th class="date sortable" (click)="onChangeSorting('createdAt')">Created<span class="sort"
+                                                                                        [class.asc]="sortBy === 'createdAt' && asc"
+                                                                                        [class.desc]="sortBy === 'createdAt' && !asc"></span>
+          </th>
+          <th class="actions">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let tag of tagsList">
+          <td class="name">{{tag.name}}</td>
+          <td class="date">{{tag.createdAt | date:'dd-MM-yyyy'}}</td>
+          <td class="actions">
+            <span class="edit" (click)="onEditTag(tag)"><i class="fas fa-edit"></i></span>
+            <span class="delete" (click)="onDeleteTag(tag)"><i class="fas fa-trash-alt"></i></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <section class="text-center">
+        <p class="d-inline-block">
+          <ngb-pagination [(page)]="page"
+                          [collectionSize]="total"
+                          [pageSize]="pageLimit"
+                          [boundaryLinks]="true"
+                          [maxSize]="5"
+                          [rotate]="true"
+                          (pageChange)="getList(page)"
+                          aria-label="Default pagination"></ngb-pagination>
+        </p>
+      </section>
+    </section>
+  </section>
+  <ng-template #noResults>
+    <p class="text-center">No results found.</p>
+  </ng-template>
+</section>
+<app-add-edit-service (update)="getList()" #addEditModal></app-add-edit-service>
+<app-confirm-delete-tags-modal #confirmDeleteModal (update)="getList()"></app-confirm-delete-tags-modal>

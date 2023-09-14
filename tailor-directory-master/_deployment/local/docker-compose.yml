@@ -1,0 +1,71 @@
+version: "2.4"
+services:
+  api:
+    build:
+      context: ../../.
+      args:
+        - PROD=0
+    container_name: api_endpoint
+    command: npm run start:dev
+    environment:
+      - NODE_ENV=development
+      - NODE_HOST=0.0.0.0
+      - NODE_PORT=3000
+      - NODE_LOG=on
+      - GOOGLE_CLIENT_ID=754761591607-532eacsajk6erkaf14es23ponfu9b7u0.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=aII4dtTMWo3JaHu43whBxIdJ
+      - GOOGLE_MAPS_KEY=AIzaSyCaLa_8AolnOa5IJ4egRF4-a55IUulCF70
+      - FACEBOOK_CLIENT_ID=1217577778573857
+      - FACEBOOK_CLIENT_SECRET=6e1fd784b90c3154d31649d1953e236e
+      - DATABASE=mongodb://mongo:27017/test
+      - JWT_SECRET=test
+      - SENTRY_DSN=https://274d41997d554fd8b20317bd345ae6b1@sentry.alphax-ds.de/27
+      - VERIFY_EMAIL_TEMPLATE=10079139
+      - VERIFY_EMAIL_ACTION_URL=http://localhost:3000/one-time-pass/confirm-email
+      - VERIFY_USER_EMAIL_ACTION_URL=http://localhost:3000/one-time-pass/me/confirm-email
+      - FORGOT_PASSWORD_TEMPLATE=9921763
+      - FORGOT_PASSWORD_ACTION_URL=http://localhost:3000/auth/forgot-password
+      - S3_ACCESS_KEY=AKIAXUFWHMX5LDCWXXHI
+      - S3_SECRET_KEY=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
+      - S3_REGION=us-east-1
+      - S3_BUCKET_NAME=tailor-directory-dev
+      - EMAIL_KEY=8de8aab1-25ff-4b22-be3f-49fdaea56a5c
+      - EMAIL_ENABLE=true
+      - EMAIL_FROM=mail@tailor-directory.com
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - ../../src:/var/www/html/src
+    depends_on:
+      - mongo
+    networks:
+      - common
+    restart: always
+    logging:
+      options:
+        max-size: 100m
+        max-file: "5"
+
+  mongo:
+    container_name: api_mongo
+    image: mongo:4.0.4
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - mongo:/data/db
+    networks:
+      - common
+    restart: always
+    logging:
+      options:
+        max-size: 100m
+        max-file: "5"
+
+volumes:
+  mongo:
+    driver: local
+networks:
+  common:
+    external:
+      name: common

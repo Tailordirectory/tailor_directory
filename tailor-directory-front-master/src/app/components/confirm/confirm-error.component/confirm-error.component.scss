@@ -1,0 +1,25 @@
+.container {
+  min-height: 200px;
+  height: calc(100vh - 176px);
+  position: relative;
+}
+
+.confirm-success {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+.icon {
+  font-size: 50px;
+  color: #f8d7da;
+}
+
+h3 {
+  color: #721c24;
+}

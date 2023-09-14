@@ -1,0 +1,76 @@
+@import "../variables";
+
+.auth-modal {
+  .modal-dialog {
+    max-width: 558px;
+    width: 100%;
+  }
+
+  .modal-content {
+    background: $modal-background-color;
+    border-radius: 6px;
+    color: $modal-color;
+
+    .top-block {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 30px;
+      line-height: 46px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    input {
+      color: #878787;
+    }
+
+  }
+
+  .modal-header {
+    border: 0;
+
+    .close {
+      color: $link-color;
+      font-weight: 400;
+      font-size: 27px;
+      line-height: 27px;
+    }
+  }
+
+  .modal-body {
+    padding: 0 98px;
+    margin-bottom: 20px;
+  }
+
+  .modal-footer {
+    background: #fff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    & > * {
+      margin: 0;
+    }
+
+    .social-links-block {
+      width: 100%;
+      padding: 0 120px;
+    }
+
+    .social-links {
+      margin: 0;
+      color: #878787;
+
+      .social-icon {
+        margin-left: 16px;
+        display: inline-block;
+
+        img {
+          max-width: 40px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

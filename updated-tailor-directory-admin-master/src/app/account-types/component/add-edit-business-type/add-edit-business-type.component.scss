@@ -1,0 +1,36 @@
+@import "../../../../styles/variables";
+
+.btn {
+  margin-left: 15px;
+}
+
+.logo {
+  width: 50px;
+  border-radius: 3px;
+  border: 1px solid $primary-button-background;
+  min-height: 50px;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 40px;
+  position: relative;
+  text-align: center;
+
+  img {
+    max-width: 20px;
+  }
+
+  .empty-logo {
+    font-size: 20px;
+    padding-top: 10px;
+    color: $primary-button-background;
+  }
+
+  .update {
+    cursor: pointer;
+    position: absolute;
+    bottom: -20px;
+    right: 5px;
+    color: $success-button-background;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,20 @@
+<section class="container login-page">
+  <section class="login">
+    <h2 class="text-center">Login</h2>
+    <section class="login-form" [formGroup]="loginForm">
+      <section class="form-group">
+        <label>Login</label>
+        <input class="form-control" formControlName="email" type="text">
+      </section>
+      <section class="form-group">
+        <label>Password</label>
+        <input class="form-control" formControlName="password" type="password">
+        <p class="error" *ngIf="hasError">{{'global.login_error' | translate}}</p>
+      </section>
+      <input class="form-control c-password" formControlName="confirmPassword" type="password">
+      <section class="text-center">
+        <button class="btn btn-primary" (click)="onLogin()">Login</button>
+      </section>
+    </section>
+  </section>
+</section>

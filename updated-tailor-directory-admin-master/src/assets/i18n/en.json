@@ -1,0 +1,68 @@
+{
+  "global": {
+    "sign_out": "Sign Out",
+    "terms_of_use": "Terms of use",
+    "privacy_policy": "Privacy policy",
+    "default_error_message": "Some error occured.",
+    "confirmed": "Confirmed",
+    "private_info": "This information will not be published.",
+    "welcome": "Welcome",
+    "login_error": "Incorrect login or password",
+    "upload_logo": "Upload Logo"
+  },
+  "form": {
+    "required": "This field is required",
+    "email": "Please enter valid E-Mail address",
+    "address_error": "Please enter Country, City and full address with building number.",
+    "social_link_error": "Please provide correct link to profile."
+  },
+  "edit_business_form": {
+    "business_info_form": {
+      "title": "Business Information:",
+      "bName": "Business name",
+      "bTitle": "Business title",
+      "bType": "Business type",
+      "autocomplete": "Address",
+      "address": "Street",
+      "zip": "Zip code",
+      "city": "City",
+      "country": "Country",
+      "email": "Business E-Mail",
+      "phone": "Business Phone",
+      "website": "Website",
+      "additional_phone_add": "add additional business phone",
+      "additional_phone_delete": "Delete phone",
+      "start_time": "Beginning of work",
+      "end_time": "End of work",
+      "confirm_email": "Confirm E-Mail"
+    },
+    "contact_information_form": {
+      "title": "Contact Information",
+      "contact_name": "Contact name",
+      "contact_phone": "Contact phone"
+    },
+    "business_services_form": {
+      "business_description_title": "Short description of your business:",
+      "service_description_title": "Short Description of your services:",
+      "list_service_title": "List of your services",
+      "services": "Services",
+      "established_since": "Established Since",
+      "characters_limit": "up to 500 characters",
+      "separated_by_commas": "separated by commas",
+      "title": "About your service:",
+      "number_business": "No. of Businesses",
+      "speciality": "Speciality",
+      "type_of_products": "Type Of Products"
+    },
+    "social_media_form": {
+      "title": "Social media links"
+    },
+    "logo": "Logo:",
+    "photos": "Photo gallery:",
+    "successfully_updated": "Profile has been updated",
+    "successfully_added": "Profile has been added",
+    "save_profile": "Save Profile",
+    "add_new": "Add New Business",
+    "edit_business_title": "Edit Business"
+  }
+}

@@ -1,0 +1,44 @@
+<section class="new-owners-statistic">
+  <h3>Registered Business:</h3>
+  <section [showSpinner]="isShowSpinner">
+    <section class="row" [formGroup]="filterForm">
+      <section class="col-sm-12 col-md-4"></section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input
+            [owlDateTime]="dt1"
+            [selectMode]="'range'"
+            [owlDateTimeTrigger]="dt1"
+            placeholder="From Date"
+            class="form-control"
+            formControlName="filterDate">
+          <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4 text-right">
+        <button class="btn find btn-primary" (click)="getByBusiness()">Find</button>
+        <button class="btn clear btn-secondary" (click)="onClear()">Clear</button>
+        <button class="btn file-link btn-success" (click)="getFileLink()"><i class="fas fa-file-download"></i>&nbsp;EXEL
+        </button>
+      </section>
+    </section>
+    <hr>
+    <section class="chart-wrapper text-center">
+      <p class="labels-wrap">
+        <span class="total"><b>Total: {{total}}</b></span>
+        <span class="admin" (click)="showByAdmins()">Admin: {{businessStatistic?.admin}}</span>
+        <span class="claims" (click)="showByClaims()">Claims: {{businessStatistic?.claim}}</span>
+        <span class="owner" (click)="showByOwners()">Owner: {{businessStatistic?.owner}}</span>
+      </p>
+      <section class="pie-chart">
+        <ngx-charts-pie-chart
+          [results]="data"
+          [legend]="false"
+          [view]="[400,300]"
+          [labels]="true">
+        </ngx-charts-pie-chart>
+      </section>
+    </section>
+  </section>
+</section>
+<app-list-modal #listModal></app-list-modal>

@@ -1,0 +1,38 @@
+<footer>
+  <section class="container">
+    <section class="row">
+      <section class="col-md-3">
+        <div class="logo">
+          <a routerLink="/">
+            <img src="/assets/images/footer-logo.svg" alt="TailorDirectory" title="TailorDirectory">
+          </a>
+        </div>
+      </section>
+      <section class="col-md-6 text-center">
+        <nav>
+          <ul>
+            <li><a routerLink="/" routerLinkActive="active">{{'navigation.map' | translate}}</a></li>
+            <li><a routerLink="/list" routerLinkActive="active">{{'navigation.list' | translate}}</a></li>
+            <li><a routerLink="/offers" routerLinkActive="active">{{'navigation.offers' | translate}}</a></li>
+            <li><a routerLink="/about" routerLinkActive="active">{{'navigation.about_us' | translate}}</a></li>
+            <li><a routerLink="/contact" routerLinkActive="active">{{'navigation.contact_us' | translate}}</a></li>
+          </ul>
+        </nav>
+        <section class="copyright">
+          <p>&copy; {{year}} Tailor Directory • <a href="/">{{'global.terms_of_use' | translate}}</a> • <a
+            href="/">{{'global.privacy_policy' | translate}}</a></p>
+        </section>
+      </section>
+      <section class="col-md-3 social-block text-center">
+        <p>{{'global.follow_on' | translate}}:</p>
+        <ul class="social-links">
+          <li *ngFor="let link of socialLinks">
+            <a href="{{link.link}}" [title]="link.name">
+              <img [alt]="link.name" [src]="'/assets/images/social/' + link.icon">
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</footer>

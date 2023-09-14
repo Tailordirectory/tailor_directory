@@ -1,0 +1,65 @@
+<section class="business-small-profile" *ngIf="profile">
+  <section class="back-button-block">
+    <button class="btn btn-secondary" (click)="onBackClicked()">Back</button>
+  </section>
+  <section class="top-block" [class.has-image]="profile.icon && profile.icon !== ''">
+    <section class="image">
+      <img [src]="profile.icon"
+           *ngIf="profile.icon && profile.icon !== ''"
+           [title]="profile.businessName">
+    </section>
+    <section class="info-block">
+      <h4>{{profile.businessName}}</h4>
+      <p class="type text-capitalize">{{profile.businessTypeId.name}}</p>
+      <app-claim-request [business]="profile"></app-claim-request>
+      <app-rating [businessId]="profile._id" [rating]="profile.rating"
+                  [reviewCount]="profile.reviewsCount"></app-rating>
+      <p *ngIf="profile.description != ''">{{profile.description}}</p>
+    </section>
+  </section>
+  <section class="actions-button-block"
+           *ngIf="profile?.restrictions?.contact_information || profile?.restrictions?.full_profile_page || profile?.restrictions?.get_directions">
+    <app-phone *ngIf="profile?.restrictions?.contact_information" [business]="profile" [showTitle]="true"></app-phone>
+    <section class="action-wrap" *ngIf="profile.email != '' && profile?.restrictions?.contact_information">
+      <a class="action-link" href="mailto:{{profile.email }}">
+        <span class="action-icon"><i class="fas fa-envelope"></i></span>
+        {{'profile.email_us' | translate}}
+      </a>
+    </section>
+    <section class="action-wrap" *ngIf="profile?.restrictions?.full_profile_page">
+      <button class="btn btn-link action-link" (click)="onProfileNavigate()">
+        <span class="action-icon"><i class="fas fa-eye"></i></span>
+        {{'profile.our_profile' | translate}}
+      </button>
+    </section>
+    <section class="action-wrap" *ngIf="profile?.restrictions?.get_directions">
+      <app-get-direction-button
+        [showIcon]="true"
+        [showTitle]="true"
+        [business]="profile"
+        [endPoint]="endCoordinates">
+      </app-get-direction-button>
+    </section>
+  </section>
+  <section class="bottom-block">
+    <p class="address"><img
+      src="/assets/images/map-pin-gery-icon.svg">{{profile.address}},
+      {{profile.zipCode}} {{profile.city}},
+      {{profile.country}}
+    </p>
+    <app-phone *ngIf="profile?.restrictions?.contact_information" [business]="profile" [isList]="true"></app-phone>
+    <p class="email" *ngIf="profile.email && profile?.restrictions?.contact_information">
+      <img src="/assets/images/email-grey-icon.svg">
+      <a href="mailto:{{profile.email}}">{{profile.email}}</a>
+    </p>
+    <p class="web-page" *ngIf="profile.website && profile?.restrictions?.contact_information">
+      <img src="/assets/images/globe-grey-icon.svg"><a href="{{profile.website}}">{{profile.website}}</a>
+    </p>
+    <p class="open-until"
+       *ngIf="profile?.restrictions?.opening_hours && profile.workTime && profile.workTime.end && profile.workTime.start">
+      <img src="/assets/images/clock-grey-icon.svg">{{'global.open_until' | translate}}
+      {{profile.workTime.end.h}}
+      :{{(profile.workTime.end.m < 10) ? '0' + profile.workTime.end.m : profile.workTime.end.m}}
+    </p>
+  </section>
+</section>

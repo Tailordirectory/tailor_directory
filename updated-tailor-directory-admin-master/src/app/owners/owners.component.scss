@@ -1,0 +1,49 @@
+@import "../../styles/variables";
+
+.owners-list-table {
+  .f-name {
+    width: 15%;
+    min-width: 100px;
+  }
+
+  .l-name {
+    width: 15%;
+    min-width: 100px;
+  }
+
+  .e-mail {
+    width: 15%;
+    min-width: 100px;
+  }
+
+  .business-length {
+    min-width: 50px;
+  }
+
+  .account {
+    width: 15%;
+    min-width: 150px;
+  }
+
+  .created-date {
+    width: 15%;
+    min-width: 100px;
+  }
+
+  .actions {
+    width: 100px;
+
+    span {
+      margin: 0 5px;
+      cursor: pointer;
+
+      &.edit {
+        color: $primary-button-background;
+      }
+
+      &.delete {
+        color: $danger-button-background;
+      }
+    }
+  }
+}

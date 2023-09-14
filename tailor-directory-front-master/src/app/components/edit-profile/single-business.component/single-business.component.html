@@ -1,0 +1,23 @@
+<section class="private-info-block">
+  <app-edit-owner-profile-form></app-edit-owner-profile-form>
+</section>
+<section class="hr"></section>
+<p class="text-center">
+  <button class="btn btn-primary" (click)="onAddNewBusiness()"><i
+    class="fas fa-plus-circle"></i>&nbsp;{{'edit_business_form.business_list.add_new' | translate}}</button>
+</p>
+<section class="business" *ngIf="business">
+  <section class="edit-business-profile">
+    <app-edit-business-profile-form
+      [business]="business"
+      [onSubmit]="submit">
+    </app-edit-business-profile-form>
+    <p class="text-center submit-btn-block">
+      <button class="btn btn-primary"
+              (click)="onSubmit()">{{'edit_business_form.save_profile' | translate}}</button>
+      <button class="btn btn-primary"
+              *ngIf="business?.restrictions?.full_profile_page"
+              (click)="onSubmitAndPreview()">{{'edit_business_form.save_preview' | translate}}</button>
+    </p>
+  </section>
+</section>

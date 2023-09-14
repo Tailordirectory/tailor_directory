@@ -1,0 +1,24 @@
+version: "2.4"
+services: 
+  app:
+    build: ../../.
+    environment:
+      - VIRTUAL_HOST=dev.tailor-directory.com
+      - LETSENCRYPT_HOST=dev.tailor-directory.com
+      - LETSENCRYPT_EMAIL=oleg.or@alphax-ds.de
+      - VIRTUAL_PORT=8081
+      - API_GATEWAY_URL=https://dev.tailor-directory.com
+    ports:
+      - "8081:80"
+    networks:
+      - common  
+    restart: "always"
+    logging:
+      options:
+        max-size: 100m
+        max-file: "5"
+
+networks:
+  common:
+    external:
+      name: common        

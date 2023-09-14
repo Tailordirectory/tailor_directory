@@ -1,0 +1,41 @@
+<section id="pin-card" class="pin-card bottom-tail" #pinCard *ngIf="isVisible" [style.top.px]="top"
+         [style.left.px]="left">
+  <section *ngIf="this.business">
+    <section class="pin-card-header" *ngIf="business.icon && business.icon !=''">
+      <img src="{{business.icon}}" alt="Image">
+    </section>
+    <section class="pin-card-content">
+      <section class="top-block">
+        <h4>{{business.businessName}}</h4>
+        <section class="direction-bloc">
+          <a *ngIf="business.email && business?.restrictions?.contact_information"
+             title="{{'global.send_email' | translate}}" class="action-link action"
+             href="mailto:{{business.email}}">
+            <span class="action-icon"><i class="fas fa-envelope"></i></span>
+          </a>
+          <section class="action d-inline-block">
+            <app-get-direction-button
+              *ngIf="business?.restrictions?.get_directions"
+              [showIcon]="true"
+              [business]="business"
+              [endPoint]="endCoordinates">
+            </app-get-direction-button>
+          </section>
+          <a class="action-link action" *ngIf="business?.restrictions?.full_profile_page"
+             title="{{'global.profile' | translate}}" routerLink="/profile/{{business._id}}">
+            <span class="action-icon"><i class="fas fa-eye"></i></span>
+          </a>
+        </section>
+      </section>
+      <app-claim-request [business]="business"></app-claim-request>
+      <app-rating [hideReview]="true" [businessId]="business._id" [reviewCount]="business.reviewsCount"
+                  [rating]="business.rating"></app-rating>
+      <p class="business-type text-capitalize">{{business.businessTypeId.name}}</p>
+      <p>{{business.address + ', ' + business.zipCode + ' ' + business.city + ', ' + business.country}}</p>
+      <p class="open-time"
+         *ngIf="business?.restrictions?.opening_hours && business.workTime && business.workTime.end">{{'global.open_until' | translate}}
+        {{business.workTime.end.h}}
+        :{{(business.workTime.end.m < 10) ? '0' + business.workTime.end.m : business.workTime.end.m}}</p>
+    </section>
+  </section>
+</section>

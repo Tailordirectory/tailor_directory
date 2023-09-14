@@ -1,0 +1,38 @@
+.logo-section {
+  display: flex;
+  align-items: center;
+
+  .logo-preview {
+    position: relative;
+    padding: 5px;
+    border: 1px solid rgba(179, 179, 179, 0.3);
+    border-radius: 4px;
+    background: white;
+
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+    }
+
+    .upload-logo {
+      position: absolute;
+      right: -30px;
+      top: 1px;
+    }
+
+    .upload-btn {
+      margin: 0;
+      padding: 0;
+      background: white;
+      border: none;
+      color: #28a745;
+      font-size: 27px;
+      outline: none;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}

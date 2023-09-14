@@ -1,0 +1,55 @@
+@import "../../styles/variables";
+
+.skip, .find, .add {
+  margin-left: 15px;
+}
+
+.business-list {
+  .name {
+    width: 20%;
+    min-width: 100px;
+  }
+
+  .owner {
+    width: 20%;
+    min-width: 100px;
+  }
+
+  .country {
+    width: 10%;
+    min-width: 100px;
+  }
+
+  .address {
+    width: 30%;
+    min-width: 150px;
+  }
+
+  .type {
+    width: 10%;
+    min-width: 80px;
+    text-transform: capitalize;
+  }
+
+  .created-date {
+    width: 10%;
+    min-width: 120px;
+  }
+
+  .actions {
+    width: 100px;
+
+    span {
+      margin: 0 5px;
+      cursor: pointer;
+
+      &.edit {
+        color: $primary-button-background;
+      }
+
+      &.delete {
+        color: $danger-button-background;
+      }
+    }
+  }
+}

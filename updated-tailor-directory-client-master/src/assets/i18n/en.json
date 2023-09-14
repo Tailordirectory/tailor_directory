@@ -1,0 +1,266 @@
+{
+  "global": {
+    "sign_in": "Sign In",
+    "sign_up": "Sign Up",
+    "sign_up_with": "Sign Up with",
+    "sign_in_with": "Sign In with",
+    "sign_out": "Sign Out",
+    "have_an_account": "Already have an account?",
+    "follow_on": "Follow us on",
+    "terms_of_use": "Terms of use",
+    "privacy_policy": "Privacy policy",
+    "open_until": "Open until",
+    "profile": "Profile",
+    "direction": "Direction",
+    "send_email": "E-Mail Us",
+    "call": "Call Us",
+    "coming_soon": "Coming soon",
+    "default_error_message": "Some error occured.",
+    "close": "Close",
+    "stay": "Stay",
+    "verify_email": "Verify E-Mail",
+    "verify_email_description": "Verify E-Mail Description",
+    "confirmed": "Confirmed",
+    "items": "Items",
+    "walking": "Walking",
+    "driving": "Driving",
+    "set_address": "Enter address",
+    "private_info": "This information will not be published.",
+    "public_info": "This information will be published on the Business Directory.",
+    "back": "Back",
+    "multiple_services_decr": "You can select multiple services",
+    "multiple_types_decr": "You can select multiple types",
+    "select_direction_type": "Please select you direction type",
+    "select_start_address": "Please select you start address",
+    "end_address": "End address"
+  },
+  "form": {
+    "required": "This field is required",
+    "email": "Please enter valid E-Mail address",
+    "confirm_password": "Passwords does not match",
+    "address_error": "Please enter Country, City and full address with building number.",
+    "password_length_error": "Password should have minimum 6 characters.",
+    "social_link_error": "Please provide correct link to profile."
+  },
+  "sign_in": {
+    "title": "Sign In",
+    "description": "Use your E-Mail to enter the site.",
+    "e_mail": "E-Mail",
+    "password": "Password",
+    "not_account_yet": "No account yet?",
+    "forgot_password": "Forgot your password?",
+    "reset": "Reset"
+  },
+  "sign_up": {
+    "title": "Sign Up",
+    "description": "You need to register to use all the features of the site.",
+    "as_client": "Sign up as a Client",
+    "as_business": "Sign up as a Business",
+    "confirmation_modal": {
+      "title": "Close SignUp form",
+      "description": "Are you sure? The modal window will be closed with out saving."
+    }
+  },
+  "reset_password": {
+    "title": "Reset Password",
+    "reset": "Reset",
+    "email": "E-Mail",
+    "success": "Success. We send E-Mail with confirmation on your E-Mail address. Please check your E-Mail.",
+    "error": "Error. Some error occurred. Please try again later."
+  },
+  "sign_up_business_form": {
+    "register": "Register as a Business",
+    "step_1": "Step 1. Enter basic registration data.",
+    "step_2": "Step 2. Enter data about your business.",
+    "first_name": "First Name",
+    "lat_name": "Last Name",
+    "cName": "Company Name",
+    "gName": "Group Name",
+    "gName_label": "If you want to register two or more business entries, please enter a Group Name.",
+    "phone": "Phone",
+    "user_name": "User Name",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "email": "Email",
+    "business_name": "Business Name",
+    "business_type": "Business Type",
+    "building": "Building Nr",
+    "address": "Address",
+    "zip": "Zip Code",
+    "city": "City",
+    "country": "Country",
+    "continue": "Continue",
+    "submit": "Submit",
+    "back": "Back to Step1"
+  },
+  "sign_up_user_form": {
+    "register": "Register as a Client",
+    "notice": "You need to register to use all the features of the site.",
+    "first_name": "First Name",
+    "lat_name": "Last Name",
+    "user_name": "User Name",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "email": "Email"
+  },
+  "advert_banner": {
+    "edit_profile_banner": {
+      "advanced_profile": "Advanced Profile",
+      "text_1": "To get additional options for your profile, you can pay",
+      "buy_profile": "Buy Advanced Profile"
+    }
+  },
+  "edit_business_form": {
+    "your_profile": "Your Profile",
+    "personal_form": {
+      "fName": "First Name",
+      "lName": "Last Name",
+      "cName": "Company Name",
+      "gName": "Group Name",
+      "email": "Email",
+      "password": "Password",
+      "title": "Personal Information:"
+    },
+    "change_password_form": {
+      "old_password": "Old Password",
+      "new_password": "New Password",
+      "confirm_password": "Confirm password",
+      "change_password": "Change password",
+      "success": "Password has been changed successfully"
+    },
+    "business_info_form": {
+      "title": "Business Information:",
+      "bName": "Business name",
+      "bTitle": "Business title",
+      "bType": "Business type",
+      "autocomplete": "Address",
+      "address": "Street",
+      "zip": "Zip code",
+      "city": "City",
+      "country": "Country",
+      "email": "Business E-Mail",
+      "phone": "Business Phone",
+      "website": "Website",
+      "additional_phone_add": "add additional business phone",
+      "additional_phone_delete": "Delete phone",
+      "start_time": "Beginning of work",
+      "end_time": "End of work",
+      "confirm_email": "Confirm E-Mail"
+    },
+    "contact_information_form": {
+      "title": "Contact Information",
+      "contact_name": "Contact name",
+      "contact_phone": "Contact phone"
+    },
+    "business_services_form": {
+      "business_description_title": "Short description of your business:",
+      "service_description_title": "Short Description of your services:",
+      "list_service_title": "List of your services",
+      "established_since": "Established Since",
+      "characters_limit": "up to 500 characters",
+      "separated_by_commas": "separated by commas",
+      "title": "About your service:",
+      "number_businesses": "No. of Business",
+      "speciality": "Speciality",
+      "type_of_products": "Type Of Products"
+    },
+    "social_media_form": {
+      "title": "Social media links"
+    },
+    "business_list": {
+      "title": "Business List",
+      "table": {
+        "title": "Title",
+        "type": "Type",
+        "address": "Address",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "profile": "Profile"
+      },
+      "add_new": "Add New Business"
+    },
+    "confirm_close_modal": {
+      "title": "Closing profile with out changes.",
+      "description": "Do you really want to close profile without changes?",
+      "save": "Save & Close",
+      "close": "Close"
+    },
+    "add_logo": "Add your logo or picture:",
+    "change_logo": "Change your logo or picture:",
+    "add_photos": "Add a photo of your work:",
+    "add_photo_btn": "Add photo",
+    "delete_photo": "Delete photo",
+    "successfully_updated": "Profile has been updated",
+    "successfully_added": "Profile has been added",
+    "save_profile": "Save Profile",
+    "save_preview": "Save & Preview",
+    "add_new": "Add New Business",
+    "edit_business_title": "Edit Business"
+  },
+  "navigation": {
+    "map": "Map",
+    "list": "List",
+    "about_us": "About Us",
+    "contact_us": "Contact Us",
+    "offers": "Offers"
+  },
+  "business": {
+  },
+  "search_form": {
+    "title": "Find the best business easily!",
+    "address_placeholder": "City or Address",
+    "distance": "Distance",
+    "find_a_business": "Find a Business"
+  },
+  "search_results": {
+    "found_results": "We found {{results}} results",
+    "found_one_result": "We found only one result",
+    "title": "Most popular Businesses",
+    "update": "Update",
+    "search_radius": "Search Radius",
+    "type": "Type",
+    "placeholder_type": "All",
+    "services": "Services",
+    "placeholder_service": "Select Service",
+    "no_result_found": "No result found."
+  },
+  "profile": {
+    "our_sore": "Our store",
+    "our_sores": "Our stores",
+    "get_direction": "Get Directions",
+    "phone_us": "Call Us",
+    "email_us": "E-Mail Us",
+    "our_contacts": "Our Contacts",
+    "our_services": "Our Services",
+    "established_since": "Established Since",
+    "speciality": "Speciality",
+    "no_of_business": "No. of Businesses",
+    "type_of_products": "Type Of Products",
+    "our_products": "Our Products",
+    "no_profile_found": "No Profile Found",
+    "recommend": "Recommend",
+    "reviews": "Reviews",
+    "follow_us_on": "Follow Us On",
+    "our_profile": "Our Profile"
+  },
+  "leave_review": {
+    "title": "Leave a Review",
+    "leave_a_review": "Leave a review",
+    "comment": "Comment",
+    "success": "Your review has been successfully added.",
+    "want_to_be_the_first": "Want to be the first?",
+    "title": "Please click to leave a review"
+  },
+  "claim_request": {
+    "link_title": "Is this your business?",
+    "title": "Claim Ownership Request",
+    "send": "Send request",
+    "cancel": "Cancel",
+    "description": "Short description",
+    "success": "Claim request has been successfully send."
+  },
+  "offers": {
+    "our_offers_title": "Our Offers"
+  }
+}

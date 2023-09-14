@@ -1,0 +1,9 @@
+<section class="container content">
+  <section class="confirm-success text-center" *ngIf="message">
+    <p class="icon"><i class="fas fa-exclamation-triangle"></i></p>
+    <h3>Error</h3>
+    <section class="alert alert-danger">
+      <span>{{message | translate}}</span>
+    </section>
+  </section>
+</section>

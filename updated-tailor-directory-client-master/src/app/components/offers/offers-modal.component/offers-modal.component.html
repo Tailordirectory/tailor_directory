@@ -1,0 +1,62 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h5 class="modal-title">{{'offers.our_offers_title' | translate}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <section class="offer-wrap">
+      <section class="offer basic">
+        <h4 class="text-center">Basic</h4>
+        <p class="text-center">Free account.</p>
+        <ul>
+          <li>Map Entry/Search list</li>
+          <li>Business Name, Contacts</li>
+          <li>Service Offering</li>
+          <li>Opening Hours</li>
+          <li>Contact features</li>
+          <li>Routing</li>
+        </ul>
+        <section class="text-center bottom">
+          <p class="price">For <span>Free</span></p>
+          <button class="btn btn-primary" (click)="onChangeOffer('basic')" [disabled]="user.profileType === 'basic'">
+            Choose
+          </button>
+        </section>
+      </section>
+      <section class="offer premium">
+        <h4 class="text-center">Premium</h4>
+        <p class="text-center">In addition to Basic</p>
+        <ul>
+          <li>Picture Gallery</li>
+          <li>Rating/Comments</li>
+          <li>Social Media links</li>
+          <li>Highlighted in search result</li>
+          <li>Rank high on search list (Top in results)</li>
+        </ul>
+        <section class="text-center bottom">
+          <p class="price">For: <span>5 euro/Month</span></p>
+          <button class="btn btn-primary" (click)="onChangeOffer('premium')"
+                  [disabled]="user.profileType === 'premium'">Choose
+          </button>
+        </section>
+      </section>
+      <section class="offer premium_plus">
+        <h4 class="text-center">Premium Plus</h4>
+        <p class="text-center">In addition to Premium</p>
+        <ul>
+          <li>Manage several stores</li>
+          <li>Multi account management</li>
+          <li>Company profile & Store profile</li>
+        </ul>
+        <section class="text-center bottom">
+          <p class="price">For: <span>10 euro/Month</span></p>
+          <button class="btn btn-primary" (click)="onChangeOffer('premium_plus')"
+                  [disabled]="user.profileType === 'premium_plus'">Choose
+          </button>
+        </section>
+      </section>
+    </section>
+  </div>
+</ng-template>

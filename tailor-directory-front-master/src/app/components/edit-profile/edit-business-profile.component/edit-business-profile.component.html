@@ -1,0 +1,38 @@
+<section class="edit-business-profile">
+  <section class="container">
+    <h3>{{'edit_business_form.your_profile' | translate}}</h3>
+    <section class="banner-block" *ngIf="showBannerBlock">
+      <section class="banner">
+        <section class="banner-left-side">
+          <img class="lef-image" src="/assets/images/banner-arrows.svg">
+          <h3>{{'advert_banner.edit_profile_banner.advanced_profile' | translate}}</h3>
+        </section>
+        <section class="banner-right-side">
+          <section class="left-side text-center">
+            <p>{{'advert_banner.edit_profile_banner.text_1' | translate}}</p>
+            <h4>"{{'advert_banner.edit_profile_banner.advanced_profile' | translate}}"</h4>
+          </section>
+          <section class="right-side text-center">
+            <button class="btn btn-primary">{{'advert_banner.edit_profile_banner.buy_profile' | translate}}</button>
+          </section>
+        </section>
+        <section class="close-btn" (click)="onHideBannerBlock()">
+          <span class="icon">X</span>
+        </section>
+      </section>
+    </section>
+    <section class="hr" *ngIf="showBannerBlock"></section>
+    <section *ngIf="owner">
+      <app-multiple-profile
+        *ngIf="this.owner.profileType === 'premium_plus'"
+        [businessList]="businessList"
+        (getBusiness)="getBusiness()">
+      </app-multiple-profile>
+      <app-single-business-profile
+        *ngIf="this.owner.profileType != 'premium_plus' && businessList"
+        [business]="businessList[0]"
+        (getBusiness)="getBusiness()">
+      </app-single-business-profile>
+    </section>
+  </section>
+</section>

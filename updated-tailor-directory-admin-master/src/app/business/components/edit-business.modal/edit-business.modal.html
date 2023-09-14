@@ -1,0 +1,14 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">Edit {{business.businessName}}</h3>
+  </div>
+  <div class="modal-body">
+    <app-edit-business-form
+      [business]="business"
+      [onSubmit]="submit"
+      (onSuccess)="onSuccess()"></app-edit-business-form>
+    <section class="text-right">
+      <button class="btn btn-success" (click)="onSubmit()">Update</button>
+    </section>
+  </div>
+</ng-template>

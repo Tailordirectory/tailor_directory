@@ -1,0 +1,29 @@
+<p class="action-link" *ngIf="(!business?.ownerId?._id || business?.ownerId?._id === '') && !requestSend">
+  <button class="btn btn-link"
+          (click)="onShowModal()">
+    {{'claim_request.link_title' | translate}}
+  </button>
+</p>
+<div class="alert alert-success" *ngIf="requestSend">
+  <p class="mb-0">{{'claim_request.success' | translate}}</p>
+</div>
+
+<ng-template #content>
+  <div class="modal-header">
+    <h5 class="modal-title">{{'claim_request.title' | translate}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <section class="form-group">
+      <label>{{'claim_request.description' | translate}}</label>
+      <textarea class="form-control" [(ngModel)]="description" rows="4"></textarea>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modal.dismiss('Cross click')">{{'global.close' | translate}}</button>
+    <button class="btn btn-primary" [disabled]="onSendRequest"
+            (click)="onClaimClick()">{{'claim_request.send' | translate}}</button>
+  </div>
+</ng-template>

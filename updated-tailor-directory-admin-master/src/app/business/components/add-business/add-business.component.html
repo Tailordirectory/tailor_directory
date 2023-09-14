@@ -1,0 +1,8 @@
+<h2>Add new business<span *ngIf="owner"> for {{owner.firstName}} {{owner.lastName}}</span></h2>
+<section [showSpinner]="isLoading">
+  <app-edit-business-form [ownerId]="ownerId" (onSuccess)="onSubmit()" [onSubmit]="submit"></app-edit-business-form>
+  <hr>
+  <section class="text-right">
+    <button class="btn btn-success" (click)="submit.next()">Add</button>
+  </section>
+</section>

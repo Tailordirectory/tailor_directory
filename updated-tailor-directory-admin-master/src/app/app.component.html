@@ -1,0 +1,9 @@
+<app-header *ngIf="!isHidden"></app-header>
+<section class="app-container" [class.login]="isHidden">
+  <app-navigation></app-navigation>
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+</section>
+<app-footer *ngIf="!isHidden"></app-footer>
+<ngx-snackbar position="bottom-center"></ngx-snackbar>

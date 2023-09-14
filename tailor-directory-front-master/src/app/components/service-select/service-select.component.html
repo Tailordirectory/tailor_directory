@@ -1,0 +1,25 @@
+<ng-select
+  [items]="tags"
+  placeholder="{{'search_results.placeholder_service' | translate}}"
+  [multiple]="true"
+  bindLabel="name"
+  bindValue="_id"
+  [loading]="tagsLoading"
+  [virtualScroll]="true"
+  loadingText="Loading..."
+  (clear)="onSearch({ term: '' })"
+  (scrollToEnd)="onLoadTags()"
+  (search)="onSearch($event)"
+  [formControl]="control">
+  <ng-template ng-header-tmp>
+    <div *ngIf="!hideClear">
+      <button class="btn btn-link"
+              (click)="onSelectTagsAll()">Select All
+      </button>
+      ,
+      <button class="btn btn-link"
+              (click)="onClearTagsAll()">Clear All
+      </button>
+    </div>
+  </ng-template>
+</ng-select>

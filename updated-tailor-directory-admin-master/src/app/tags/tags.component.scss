@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.services-page {
+  .filter {
+    .clear, .find {
+      margin-left: 15px;
+    }
+  }
+
+  .services-table {
+    .name {
+      width: 75%;
+      min-width: 500px;
+    }
+
+    .date {
+      width: 15%;
+      min-width: 120px;
+    }
+
+    .actions {
+      width: 10%;
+      min-width: 100px;
+
+      span {
+        cursor: pointer;
+      }
+
+      .edit {
+        color: $primary-button-background;
+      }
+
+      .delete {
+        margin-left: 15px;
+        color: $danger-button-background;
+      }
+    }
+  }
+}

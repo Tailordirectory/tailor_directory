@@ -1,0 +1,26 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title" *ngIf="isEdit">Edit Owner</h3>
+    <h3 class="title" *ngIf="!isEdit">Add New Owner</h3>
+  </div>
+  <div class="modal-body">
+    <p class="text-center" *ngIf="isEdit">
+      <button class="btn btn-success" (click)="onAddNewBusiness()"><i class="fas fa-plus-square"></i>&nbsp;Add new
+        business
+      </button>
+    </p>
+    <app-add-owner-form
+      [submit]="submit"
+      (onSubmit)="onAdd($event)"
+      *ngIf="!isEdit"></app-add-owner-form>
+    <app-edit-owner-form
+      [submit]="submit"
+      [owner]="owner"
+      (onSubmit)="onEdit($event)"
+      *ngIf="isEdit"></app-edit-owner-form>
+    <p class="text-right">
+      <button class="btn btn-secondary" (click)="modal.close()">Close</button>
+      <button class="btn btn-success" (click)="onSave()">Save</button>
+    </p>
+  </div>
+</ng-template>

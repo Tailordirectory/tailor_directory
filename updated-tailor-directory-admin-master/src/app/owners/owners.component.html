@@ -1,0 +1,130 @@
+<h2>Owners List</h2>
+<section [showSpinner]="isShowSpinner">
+  <section class="filter" [formGroup]="filterForm">
+    <h3>Filter:</h3>
+    <section class="row">
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" placeholder="First Name" type="text" formControlName="fName">
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" placeholder="Last Name" type="text" formControlName="lName">
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" placeholder="E-Mail" type="text" formControlName="email">
+        </section>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <ng-select
+            [items]="profileTypes"
+            placeholder="Subscription"
+            formControlName="subscription">
+          </ng-select>
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="From Date"
+                 class="form-control"
+                 formControlName="createdDate">
+          <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="row">
+          <section class="col-sm-6">
+            <button class="btn btn-secondary btn-block" (click)="onClear()">Clear</button>
+          </section>
+          <section class="col-sm-6">
+            <button class="btn btn-primary btn-block" (click)="onGetOwners(1)">Find</button>
+          </section>
+        </section>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-sm-12 col-md-2 offset-md-10">
+        <section class="form-group">
+          <ng-select
+            [items]="limitList"
+            [clearable]="false"
+            formControlName="limit"></ng-select>
+        </section>
+      </section>
+    </section>
+  </section>
+  <hr>
+  <p class="text-center">
+    <button class="btn btn-success" (click)="onAddNewOwner()"><i class="fas fa-plus-square"></i>&nbsp;Add new</button>
+  </p>
+  <section class="owners-list" *ngIf="ownersList && ownersList.length > 0; else noResults">
+    <table class="table owners-list-table">
+      <thead>
+      <tr>
+        <th class="f-name sortable" (click)="onChangeSorting('firstName')">First Name <span class="sort"
+                                                                                            [class.asc]="sortBy === 'firstName' && asc"
+                                                                                            [class.desc]="sortBy === 'firstName' && !asc"></span>
+        </th>
+        <th class="l-name sortable" (click)="onChangeSorting('lastName')">Last Name<span class="sort"
+                                                                                         [class.asc]="sortBy === 'lastName' && asc"
+                                                                                         [class.desc]="sortBy === 'lastName' && !asc"></span>
+        </th>
+        <th class="e-mail sortable" (click)="onChangeSorting('email')">E-Mail<span class="sort"
+                                                                                   [class.asc]="sortBy === 'email' && asc"
+                                                                                   [class.desc]="sortBy === 'email' && !asc"></span>
+        </th>
+        <th class="business-length">Businesses</th>
+        <th class="account sortable" (click)="onChangeSorting('profileType')">Subscription<span class="sort"
+                                                                                                [class.asc]="sortBy === 'profileType' && asc"
+                                                                                                [class.desc]="sortBy === 'profileType' && !asc"></span>
+        </th>
+        <th class="created-date sortable" (click)="onChangeSorting('createdAt')">Created<span class="sort"
+                                                                                              [class.asc]="sortBy === 'createdAt' && asc"
+                                                                                              [class.desc]="sortBy === 'createdAt' && !asc"></span>
+        </th>
+        <th class="actions">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let owner of ownersList">
+        <td class="f-name">{{owner.firstName}}</td>
+        <td class="l-name">{{owner.lastName}}</td>
+        <td class="e-mail">{{owner.email}}</td>
+        <td class="business-length text-center">{{owner.business.length}}</td>
+        <td class="account">{{owner.profileType}}</td>
+        <td class="created-date">{{owner.createdAt | date:'dd-MM-yyyy'}}</td>
+        <td class="actions">
+          <span class="edit" (click)="onEditOwner(owner)"><i class="fas fa-edit"></i></span>
+          <span class="delete" (click)="onDeleteOwner(owner)"><i class="fas fa-trash-alt"></i></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <section class="text-center">
+      <p class="d-inline-block">
+        <ngb-pagination [(page)]="page"
+                        [collectionSize]="total"
+                        [pageSize]="limit"
+                        [boundaryLinks]="true"
+                        [maxSize]="5"
+                        [rotate]="true"
+                        (pageChange)="onGetOwners(page)"
+                        aria-label="Default pagination"></ngb-pagination>
+      </p>
+    </section>
+    <p class="text-center">
+      <button class="btn btn-success" (click)="onAddNewOwner()"><i class="fas fa-plus-square"></i>&nbsp;Add new</button>
+    </p>
+  </section>
+  <ng-template #noResults>
+    <p class="text-center">No results found.</p>
+  </ng-template>
+</section>
+<app-delete-owner-modal (onClose)="onConfirmDelete($event)" #deleteModal></app-delete-owner-modal>
+<app-add-edit-owner-modal #addEditModal (onUpdate)="onGetOwners(1)"></app-add-edit-owner-modal>

@@ -1,0 +1,72 @@
+<section class="result-block">
+  <section class="header-block">
+    <section class="title-block">
+      <h3>{{'search_results.title' | translate}}</h3>
+    </section>
+    <section class="filter-form" [formGroup]="filterForm">
+      <section class="row">
+        <section class="col-md-6 col-sm-12">
+          <label>{{'search_results.type' | translate}}</label>
+          &nbsp;<span
+          ngbTooltip="{{'global.multiple_types_decr'| translate}}"><i
+          class="fas fa-question-circle"></i>
+          </span>
+          <p class="small">{{'global.multiple_types_decr'| translate}}</p>
+          <ng-select
+            [items]="$businessTypes | async"
+            bindLabel="name"
+            bindValue="name"
+            class="text-capitalize"
+            [multiple]="true"
+            placeholder="{{'search_results.placeholder_type' | translate}}"
+            formControlName="businessType">
+          </ng-select>
+        </section>
+        <section class="col-md-6 col-sm-12">
+          <label>{{'search_results.services' | translate}}</label>
+          &nbsp;<span
+          ngbTooltip="{{'global.multiple_services_decr'| translate}}"><i
+          class="fas fa-question-circle"></i>
+          </span>
+          <p class="small">{{'global.multiple_services_decr'| translate}}</p>
+          <app-service-selector [control]="this.filterForm.get('tags')"></app-service-selector>
+        </section>
+      </section>
+      <section class="row">
+        <section class="col-sm-12 col-md-6">
+          <section class="form-group">
+            <label>{{'search_results.search_radius' | translate}}</label>
+            <ng-select
+              formControlName="distance"
+              [items]="distanceList"
+              (clear)="onClearDistance()"
+              [placeholder]="'search_form.distance' | translate">
+              <ng-template ng-label-tmp let-item="item">
+                {{item}} km
+              </ng-template>
+            </ng-select>
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-6">
+          <section class="refresh-block text-right">
+            <button (click)="onUpdateFilter()" class="btn btn-primary">{{'search_results.update' | translate}}</button>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+  <section class="list-block" *ngIf="resultList$ | async; let resultList">
+    <section *ngIf="resultList.length > 0; else noResults">
+      <section class="count-block">
+        <p> {{results}}</p>
+      </section>
+      <section class="list-item"
+               *ngFor="let tailor of resultList; index as i">
+        <app-tailor-card [tailor]="tailor" [address]="searchState"></app-tailor-card>
+      </section>
+    </section>
+    <ng-template #noResults>
+      <p class="text-center no-results">{{'search_results.no_result_found' | translate}}</p>
+    </ng-template>
+  </section>
+</section>

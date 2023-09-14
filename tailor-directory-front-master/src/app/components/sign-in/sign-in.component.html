@@ -1,0 +1,51 @@
+<ng-template #content>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <section class="top-block">
+      <h2>{{'sign_in.title' | translate}}</h2>
+      <p>{{'sign_in.description' | translate}}</p>
+    </section>
+    <section class="form" [formGroup]="signInForm">
+      <section class="form-group">
+        <input class="form-control" type="email" placeholder="{{'sign_in.e_mail' | translate}}"
+               (keypress)="($event.keyCode === 13) ? onSignIn() : ''" formControlName="email">
+        <p class="error" *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.invalid">
+          <span *ngIf="signInForm.get('email')?.errors.required">
+            {{'form.required' | translate}}
+          </span>
+          <span *ngIf="signInForm.get('email')?.errors.email">
+            {{'form.email' | translate}}
+          </span>
+        </p>
+      </section>
+      <section class="form-group">
+        <input class="form-control" type="password" placeholder="{{'sign_in.password' | translate}}"
+               (keypress)="($event.keyCode === 13) ? onSignIn() : ''"
+               formControlName="password">
+        <p class="error" *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.invalid">
+          {{'form.required' | translate}}
+        </p>
+      </section>
+    </section>
+    <section class="text-center sign-in">
+      <button class="btn btn-primary" [disabled]="isLoaded"
+              (click)="onSignIn()">{{'sign_in.title' | translate}}</button>
+    </section>
+    <p class="reset-password">
+      {{'sign_in.forgot_password' | translate}}
+      <button class="btn btn-link" (click)="onResetPassword()">{{'sign_in.reset' | translate}}</button>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <section class="social-links-block">
+      <p class="social-links">{{'global.sign_in_with' | translate}}:
+        <span class="social-icon" (click)="onSingInGoogle()"><img src="/assets/images/social/google-big.svg"></span>
+        <span class="social-icon" (click)="onSingInFacebook()"><img src="/assets/images/social/facebook-big.svg"></span>
+      </p>
+    </section>
+  </div>
+</ng-template>

@@ -1,0 +1,32 @@
+<header>
+  <section class="container">
+    <h1 class="logo">
+      <a class="navbar-brand" routerLink="/">
+        <img src="/assets/images/logo.svg" title="BusinessDirectory" alt="BusinessDirectory">
+      </a>
+    </h1>
+    <section class="right-nav-links">
+      <section class="user-block" *ngIf="user">
+        <span class="action-link">{{'global.welcome' | translate}} {{user.name}}</span>
+      </section>
+<!--      <div class="link">-->
+      <!--              <span class="lang-block" (mouseenter)="showLanguages = true" (mouseleave)="showLanguages = false">-->
+      <!--                <span class="lang-btn">-->
+      <!--                  <img src="/assets/images/globe-icon.svg"> {{selectedLanguage.name}}-->
+      <!--                </span>-->
+      <!--                <span class="lang" *ngIf="showLanguages">-->
+      <!--                  <span class="lang-item-wrap" *ngFor="let l of languageList">-->
+      <!--                    <span class="lang-item" *ngIf="l.lang !== selectedLanguage.lang"-->
+      <!--                          (click)="onChangeLanguage(l.lang)"><img-->
+      <!--                      src="/assets/images/globe-white.svg"> {{l.name}}</span>-->
+      <!--                  </span>-->
+      <!--                </span>-->
+      <!--              </span>-->
+      <!--      </div>-->
+      <section class="sign-block">
+        <button *ngIf="user" class="btn btn-secondary sign-out-button"
+                (click)="onLogOut()">{{'global.sign_out' | translate}}</button>
+      </section>
+    </section>
+  </section>
+</header>

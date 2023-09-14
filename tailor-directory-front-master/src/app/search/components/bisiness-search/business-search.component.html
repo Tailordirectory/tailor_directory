@@ -1,0 +1,41 @@
+<section class="search-component" [class.is-show-result]="isShowResult">
+  <section class="search-form" [formGroup]="searchForm">
+    <section class="container">
+      <section class="search-block">
+        <h2 class="text-center">{{'search_form.title' | translate}}</h2>
+        <section class="search-form-block">
+          <section class="address-block column form-group">
+            <input type="text" #address class="form-control"
+                   (keyup)="($event.keyCode === 13) ? onAddressPress() : null"
+                   placeholder="{{'search_form.address_placeholder' | translate}}" formControlName="address">
+          </section>
+          <section class="categories-block column form-group">
+            <app-service-selector [control]="this.searchForm.get('tags')"></app-service-selector>
+          </section>
+          <section class="distance-block column form-group">
+            <ng-select
+              formControlName="distance"
+              [items]="distanceList"
+              (clear)="onClearDistance()"
+              [placeholder]="'search_form.distance' | translate">
+              <ng-template ng-label-tmp let-item="item">
+                {{item}} km
+              </ng-template>
+            </ng-select>
+          </section>
+          <section class="button-block column form-group">
+            <button i18n class="btn btn-primary find-button btn-lg"
+                    (click)="findTailors()">{{'search_form.find_a_tailor' | translate}}</button>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+  <section class="map-block">
+    <section class="map">
+      <app-pin-card></app-pin-card>
+      <section class="map-element" #mapRef></section>
+    </section>
+  </section>
+  <app-search-left-bar></app-search-left-bar>
+</section>

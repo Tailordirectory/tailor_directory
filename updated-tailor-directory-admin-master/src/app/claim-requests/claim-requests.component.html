@@ -1,0 +1,128 @@
+<section class="claim-request-page" [showSpinner]="isLoading">
+  <h2>Claim Requests:</h2>
+  <section class="filter" [formGroup]="filterForm">
+    <h3>Filter:</h3>
+    <section class="row">
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input type="text" class="form-control" formControlName="fName" placeholder="Ownership First Name">
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input type="text" class="form-control" formControlName="lName" placeholder="Ownership Last Name">
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input type="text" class="form-control" formControlName="businessName" placeholder="Business">
+        </section>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input type="text" class="form-control" formControlName="country" placeholder="Country">
+        </section>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <ng-select
+          [items]="statusList"
+          [clearable]="true"
+          placeholder="Status"
+          class="text-capitalize"
+          formControlName="status"></ng-select>
+      </section>
+      <section class="col-sm-12 col-md-4">
+        <section class="form-group">
+          <input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="From Date"
+                 class="form-control"
+                 formControlName="date">
+          <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+        </section>
+      </section>
+    </section>
+    <section class="text-center">
+      <button class="btn skip btn-secondary" (click)="skipFilter()">Clear</button>
+      <button class="btn find btn-primary" (click)="getList(1)">Find</button>
+    </section>
+  </section>
+  <hr>
+  <section class="claim-request-list" *ngIf="claimRequestList && claimRequestList.length > 0; else noResults">
+    <section class="row">
+      <section class="col-sm-12 col-md-2 offset-md-10">
+        <section class="form-group">
+          <ng-select
+            [items]="pageList"
+            [clearable]="false"
+            [(ngModel)]="pageSize"></ng-select>
+        </section>
+      </section>
+    </section>
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="client">Ownership</th>
+        <th class="business">Business</th>
+        <th class="country sortable" (click)="onChangeSorting('businessId.country')">Country<span class="sort"
+                                                                                       [class.asc]="sortBy === 'businessId.country' && asc"
+                                                                                       [class.desc]="sortBy === 'businessId.country' && !asc"></span>
+        </th>
+        <th class="address">Address</th>
+        <th class="comments">Comments</th>
+        <th class="reply">History</th>
+        <th class="status sortable" (click)="onChangeSorting('status')">Status<span class="sort"
+                                                                                    [class.asc]="sortBy === 'status' && asc"
+                                                                                    [class.desc]="sortBy === 'status' && !asc"></span>
+        </th>
+        <th class="date sortable" (click)="onChangeSorting('createdAt')">Created<span class="sort"
+                                                                                      [class.asc]="sortBy === 'createdAt' && asc"
+                                                                                      [class.desc]="sortBy === 'createdAt' && !asc"></span>
+        </th>
+        <th class="date">Updated</th>
+        <th class="actions">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let request of claimRequestList">
+        <td class="client">{{request.userId?.firstName}} {{request.userId?.lastName}}</td>
+        <td class="business">{{request.businessId?.businessName}}</td>
+        <td class="country">{{request.businessId?.country}}</td>
+        <td class="address">{{request.businessId?.city}}, {{request.businessId?.address}}</td>
+        <td class="comments">{{request.message}}</td>
+        <td class="reply">
+          <p *ngFor="let reply of request.historyReplies">
+            {{reply.createdAt | date: 'dd/MM/yyyy'}}
+            <span class="reply-message">{{reply.message}}</span>
+          </p>
+        </td>
+        <td class="status"><span class="{{request.status}}">{{request.status}}</span></td>
+        <td class="date">{{request.createdAt | date: 'dd-MM-yyyy'}}</td>
+        <td class="date">{{request.updatedAt | date: 'dd-MM-yyyy'}}</td>
+        <td class="actions">
+          <span class="edit" (click)="onSetNotice(request)"><i class="fas fa-edit"></i></span>
+          <span class="accept" (click)="onAccept(request._id)"><i class="fas fa-check-circle"></i></span>
+          <span class="decline" (click)="onDecline(request)"><i class="fas fa-trash-alt"></i></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <section class="text-center">
+      <p class="d-inline-block">
+        <ngb-pagination [(page)]="page"
+                        [collectionSize]="total"
+                        [pageSize]="currentPageSize"
+                        [boundaryLinks]="true"
+                        [maxSize]="5"
+                        [rotate]="true"
+                        (pageChange)="getList(page)"
+                        aria-label="Default pagination"></ngb-pagination>
+      </p>
+    </section>
+  </section>
+  <ng-template #noResults>
+    <p class="text-center">No results found.</p>
+  </ng-template>
+</section>
+<app-set-notice-modal (update)="getList()" #setNotice></app-set-notice-modal>
+<app-delete-claim-request-modal (update)="getList()" #deleteModal></app-delete-claim-request-modal>

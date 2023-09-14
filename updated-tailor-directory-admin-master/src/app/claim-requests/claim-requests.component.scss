@@ -1,0 +1,110 @@
+@import "../../styles/variables";
+
+.claim-request-page {
+  .filter {
+    .find {
+      margin-left: 15px;
+    }
+  }
+
+  .claim-request-list {
+    .table {
+      .client {
+        width: 15%;
+        min-width: 150px;
+      }
+
+      .business {
+        width: 15%;
+        min-width: 150px;
+      }
+
+      .business {
+        width: 15%;
+        min-width: 150px;
+      }
+
+      .country {
+        width: 10%;
+        min-width: 100px;
+      }
+
+      .address {
+        width: 15%;
+        min-width: 150px;
+      }
+
+      .comments {
+        width: 10%;
+        min-width: 150px;
+      }
+
+      .reply {
+        width: 10%;
+        min-width: 150px;
+
+        .reply-message {
+          display: block;
+        }
+      }
+
+      .date {
+        width: 5%;
+        min-width: 120px;
+      }
+
+      .status {
+        width: 5%;
+        min-width: 100px;
+
+        span {
+          display: inline-block;
+          padding: 5px;
+          border-radius: 3px;
+
+          &.pending {
+            border: 1px solid $primary-button-border-color;
+            background: $primary-button-background;
+            color: white;
+          }
+
+          &.declined {
+            border: 1px solid $danger-button-border-color;
+            background: $danger-button-background;
+            color: white;
+          }
+
+          &.accepted {
+            border: 1px solid $success-button-border-color;
+            background: $success-button-background;
+            color: white;
+          }
+        }
+      }
+
+      .actions {
+        width: 10%;
+        min-width: 100px;
+
+        span {
+          cursor: pointer;
+        }
+
+        .edit {
+          color: $primary-button-background;
+        }
+
+        .accept {
+          color: $success-button-background;
+          margin-left: 10px;
+        }
+
+        .decline {
+          color: $danger-button-background;
+          margin-left: 10px;
+        }
+      }
+
+    }
+  }
+}

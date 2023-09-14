@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.direction-btn {
+  display: inline-block;
+  margin: 0 0 0 5px;
+  padding: 10px;
+  border: 1px solid $primary-button-border-color;
+  border-radius: 6px;
+  color: $primary-button-color;
+  background: $primary-button-background;
+  min-width: 50px;
+
+  &:disabled {
+    border-color: $primary-button-disabled-border-color;
+    background: $primary-button-disabled-background;
+    color: $primary-button-disabled-color;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

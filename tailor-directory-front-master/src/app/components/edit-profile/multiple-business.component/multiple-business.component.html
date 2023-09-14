@@ -1,0 +1,51 @@
+<section class="private-info-block">
+  <app-edit-owner-profile-form></app-edit-owner-profile-form>
+</section>
+<section class="hr"></section>
+<section class="business-list" *ngIf="businessList && businessList.length > 0">
+  <section class="business-list-title">
+    <h4>{{'edit_business_form.business_list.title' | translate}}:</h4>
+    <section class="add-button text-right">
+      <button class="btn btn-primary" (click)="onAddNewBusiness()"><i
+        class="fas fa-plus-circle"></i>&nbsp;{{'edit_business_form.business_list.add_new' | translate}}</button>
+    </section>
+  </section>
+  <table class="business-table table">
+    <thead>
+    <tr>
+      <th class="title">{{'edit_business_form.business_list.table.title' | translate}}</th>
+      <th class="type">{{'edit_business_form.business_list.table.type' | translate}}</th>
+      <th class="address">{{'edit_business_form.business_list.table.address' | translate}}</th>
+      <th class="actions">{{'edit_business_form.business_list.table.actions' | translate}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let business of businessList">
+      <td class="title">{{business.businessName}}</td>
+      <td class="type text-capitalize">{{business.businessTypeId.name}}</td>
+      <td class="address">{{business.address}},
+        {{business.zipCode}} {{business.city}},
+        {{business.country}}
+      </td>
+      <td class="actions">
+        <a class="profile" routerLink="/profile/{{business._id}}"
+           title="{{'edit_business_form.business_list.table.profile' | translate}}">
+          <i class="fas fa-address-card"></i></a>
+        <span class="edit" title="{{'edit_business_form.business_list.table.edit' | translate}}"
+              (click)="onEditBusiness(business)"><i class="fas fa-edit"></i></span>
+        <span class="delete"
+              title="{{'edit_business_form.business_list.table.delete' | translate}}"
+              *ngIf="businessList.length >1"
+              (click)="onDeleteBusiness(business)"><i class="far fa-times-circle"></i></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="text-center">
+    <button class="btn btn-primary" (click)="onAddNewBusiness()"><i
+      class="fas fa-plus-circle"></i>&nbsp;{{'edit_business_form.business_list.add_new' | translate}}</button>
+  </p>
+</section>
+<app-business-profile-modal *ngIf="businessList" (onSuccess)="getBusiness.emit()"
+                            [showPreviewButton]="businessList[0]?.restrictions?.full_profile_page"
+                            #editModal></app-business-profile-modal>

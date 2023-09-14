@@ -1,0 +1,164 @@
+<h3>{{'sign_up_business_form.register' | translate}}</h3>
+<!--Owner form-->
+<section class="form" [class.hidden]="!showOwnerForm" [formGroup]="ownerForm">
+  <section class="top-block">
+    <section class="icons">
+      <section class="step active">1</section>
+      <section class="dots">...</section>
+      <section class="step">2</section>
+    </section>
+    <p>{{'sign_up_business_form.step_1' | translate}}</p>
+  </section>
+  <p>{{'global.private_info' | translate}}</p>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.cName' | translate}}"
+           formControlName="companyName">
+    <p class="error"
+       *ngIf="ownerForm.get('companyName')?.touched && ownerForm.get('companyName')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.first_name' | translate}}"
+           formControlName="firstName">
+    <p class="error"
+       *ngIf="ownerForm.get('firstName')?.touched && ownerForm.get('firstName')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.lat_name' | translate}}"
+           formControlName="lastName">
+    <p class="error"
+       *ngIf="ownerForm.get('lastName')?.touched && ownerForm.get('lastName')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <ngx-intl-tel-input
+      [cssClass]="'form-control'"
+      [preferredCountries]="preferredCountries"
+      [enableAutoCountrySelect]="true"
+      [enablePlaceholder]="false"
+      [searchCountryFlag]="true"
+      [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+      [selectFirstCountry]="false"
+      [selectedCountryISO]="'de'"
+      [maxLength]="15"
+      [tooltipField]="TooltipLabel.Name"
+      [separateDialCode]="true"
+      [phoneValidation]="false"
+      name="phone"
+      formControlName="phone"></ngx-intl-tel-input>
+    <p class="error"
+       *ngIf="ownerForm.get('phone')?.touched && ownerForm.get('phone')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="email" class="form-control" placeholder="{{'sign_up_business_form.email' | translate}}"
+           formControlName="email">
+    <p class="error" *ngIf="ownerForm.get('email')?.invalid">
+      <span
+        *ngIf="ownerForm.get('email')?.touched && ownerForm.get('email')?.errors.required">{{'form.required' | translate}}</span>
+      <span
+        *ngIf="ownerForm.get('email')?.touched && ownerForm.get('email')?.errors.email">{{'form.email' | translate}}</span>
+    </p>
+  </section>
+  <section class="form-group">
+    <input type="password" class="form-control" placeholder="{{'sign_up_business_form.password' | translate}}"
+           formControlName="password">
+    <p class="error"
+       *ngIf="ownerForm.get('password')?.touched && ownerForm.get('password')?.invalid">
+      <span *ngIf="ownerForm.get('password')?.errors.required">{{'form.required' | translate}}</span>
+      <span *ngIf="ownerForm.get('password')?.errors.minlength">{{'form.password_length_error' | translate}}</span>
+    </p>
+  </section>
+  <section class="form-group">
+    <input type="password" class="form-control"
+           placeholder="{{'sign_up_business_form.confirm_password' | translate}}"
+           formControlName="confirmPassword">
+    <p class="error" *ngIf="ownerForm.get('confirmPassword')?.touched && ownerForm.get('confirmPassword')?.invalid">
+      <span *ngIf="ownerForm.get('confirmPassword')?.errors.required">{{'form.required' | translate}}</span>
+      <span *ngIf="ownerForm.get('confirmPassword')?.errors.confirm">{{'form.confirm_password' | translate}}</span>
+    </p>
+  </section>
+  <section class="text-center continue">
+    <button class="btn btn-secondary"
+            (click)="onShowBusinessForm()"
+            [disabled]="ownerForm.invalid">{{'sign_up_business_form.continue' | translate}}</button>
+  </section>
+</section>
+<!--Business Form-->
+<section class="form" [class.hidden]="showOwnerForm" [formGroup]="businessForm">
+  <section class="top-block">
+    <section class="icons">
+      <section class="step">1</section>
+      <section class="dots">...</section>
+      <section class="step active">2</section>
+    </section>
+    <p>{{'sign_up_business_form.step_2' | translate}}</p>
+  </section>
+  <p>{{'global.public_info' | translate}}</p>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.business_name' | translate}}"
+           formControlName="name">
+    <p class="error"
+       *ngIf="businessForm.get('name')?.touched && businessForm.get('name')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <ng-select
+      class="text-capitalize text-left"
+      bindLabel="name"
+      bindValue="_id"
+      [items]="$businessTypes | async"
+      placeholder="{{'sign_up_business_form.business_type' | translate}}"
+      formControlName="type">
+    </ng-select>
+    <p class="error"
+       *ngIf="businessForm.get('type')?.touched && businessForm.get('type')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <ng-autocomplete
+      [data]="addressList"
+      [initialValue]="['']"
+      [debounceTime]="400"
+      [searchKeyword]=""
+      formControlName="autocomplete"
+      placeHolder="{{'sign_up_business_form.address' | translate}}"
+      (inputChanged)='onSelectAddressEvent($event)'
+      (inputCleared)="addressList = ['']"
+      [itemTemplate]="addressTemplate">
+    </ng-autocomplete>
+    <ng-template #addressTemplate let-address>
+      <a [innerHTML]="address"></a>
+    </ng-template>
+    <p class="error"
+       *ngIf="businessForm.get('autocomplete')?.touched && businessForm.get('autocomplete')?.invalid">{{'form.required' | translate}}</p>
+    <p class="error" *ngIf="isAddressError">
+      {{'form.address_error' | translate}}
+    </p>
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.country' | translate}}"
+           formControlName="country">
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.city' | translate}}"
+           formControlName="city">
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.address' | translate}}"
+           formControlName="address">
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_business_form.building' | translate}}"
+           formControlName="building">
+  </section>
+  <section class="form-group">
+    <input class="form-control" placeholder="{{'sign_up_business_form.zip' | translate}}" type="text"
+           formControlName="zip">
+    <p class="error"
+       *ngIf="businessForm.get('zip')?.touched && businessForm.get('zip')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section #signMapRef id="sing-map"></section>
+  <!--Bottom buttons-->
+  <section class="text-center sign-up">
+    <button class="btn btn-outline-primary" *ngIf="!showOwnerForm"
+            (click)="onShowOwnerForm()">{{'sign_up_business_form.back' | translate}}</button>
+    <button class="btn btn-primary" *ngIf="!showOwnerForm"
+            (click)="onSubmit()">{{'sign_up_business_form.submit' | translate}}</button>
+  </section>
+</section>

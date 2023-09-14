@@ -1,0 +1,128 @@
+@import "../../../../styles/variables";
+
+.edit-business-profile {
+  padding-bottom: 40px;
+}
+
+.banner-block {
+  padding-top: 30px;
+
+  .banner {
+    margin: 0 auto;
+    border-radius: 10px;
+    background: linear-gradient(270deg, #46FAFA 0.87%, #339FFF 98.1%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+
+    .close-btn {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      padding: 2px 5px 0px;
+      background: #0585F5;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+
+      .icon {
+        border: none;
+        margin: 0;
+      }
+    }
+
+    .banner-left-side, .banner-right-side {
+      width: 50%;
+      position: relative;
+    }
+
+    .banner-left-side {
+      position: relative;
+      height: 100%;
+
+      img {
+        width: 100%;
+      }
+
+      h3 {
+        position: absolute;
+        text-align: right;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        margin: 0;
+        padding: 0 50px 0 0;
+        color: white;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 50px;
+        text-transform: uppercase;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+      }
+    }
+
+    .banner-right-side {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .left-side, .right-side {
+        width: 50%;
+      }
+
+      .left-side {
+        color: #024075;
+        padding: 0 20px;
+
+        p {
+          margin: 0;
+        }
+
+        h4 {
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: bold;
+          margin: 0;
+        }
+      }
+    }
+
+    @media all and (max-width: 1000px) {
+      .banner-left-side {
+        h3 {
+          font-size: 28px;
+          line-height: 40px;
+        }
+      }
+      .banner-right-side {
+        font-size: 10px;
+        line-height: 16px;
+
+        .left-side {
+          padding: 0;
+        }
+
+        h4 {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.hr {
+  margin: 40px 0;
+  background: #93CCFF;
+  border-radius: 2px;
+  height: 2px;
+}

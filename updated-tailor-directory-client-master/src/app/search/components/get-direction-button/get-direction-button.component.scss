@@ -1,0 +1,71 @@
+@import "../../../../styles/variables";
+
+.get-direction-button-wrap {
+  position: relative;
+
+  .sub-buttons-block {
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 170px;
+    right: 50%;
+    background: white;
+    border-radius: 6px;
+    padding: 5px;
+    border: 1px solid #ddd;
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0 5px;
+      border: 0;
+      margin-top: 5px;
+      text-align: left;
+
+      .icon {
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &.has-icon {
+    display: inline-block;
+  }
+
+  .btn-link {
+    .icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: transparent;
+      border: 1px solid $primary-button-background;
+      text-align: center;
+      padding: 5px;
+      line-height: 22px;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $primary-button-background;
+    }
+  }
+
+  &.has-title {
+    &.has-icon {
+      .icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+  }
+}

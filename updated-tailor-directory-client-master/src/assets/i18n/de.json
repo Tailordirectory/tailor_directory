@@ -1,0 +1,263 @@
+{
+  "global": {
+    "sign_in": "Einloggen",
+    "sign_up": "Anmelden",
+    "sign_up_with": "Anmelden mit",
+    "sign_in_with": "Einloggen mit",
+    "sign_out": "Ausloggen",
+    "have_an_account": "Sie haben bereits ein Konto?",
+    "follow_on": "Follow Business Directory on",
+    "terms_of_use": "Terms of use",
+    "privacy_policy": "Privacy policy",
+    "open_until": "Open until",
+    "profile": "Profile",
+    "direction": "Direction",
+    "send_email": "Send E-Mail ",
+    "call": "Call",
+    "coming_soon": "Coming soon",
+    "default_error_message": "Es ist ein Fehler aufgetreten.",
+    "close": "Schließen",
+    "stay": "Bleibe",
+    "verify_email": "Verify E-Mail",
+    "verify_email_description": "Verify E-Mail Description",
+    "confirmed": "Bestätigt",
+    "items": "Artikel",
+    "walking": "Gehen",
+    "driving": "Fahren",
+    "set_address": "Adresse eingeben",
+    "private_info": "Diese Informationen werden nicht veröffentlicht.",
+    "public_info": "Diese Informationen werden auf der Website veröffentlicht Business Directory.",
+    "back": "Zurück",
+    "multiple_services_decr": "Sie können mehrere Dienste auswählen",
+    "multiple_types_decr": "Sie können mehrere Art auswählen",
+    "select_direction_type": "Bitte wählen Sie Ihren Richtungstyp",
+    "select_start_address": "Bitte wählen Sie Ihre Startadresse",
+    "end_address": "Endadresse"
+  },
+  "form": {
+    "required": "Dieses Feld wird benötigt",
+    "email": "Bitte geben Sie eine gültige E-Mail Adresse an",
+    "confirm_password": "Passwort ist falsch",
+    "address_error": "Bitte geben Sie Land, Stadt und vollständige Adresse mit der Hausnummer ein.",
+    "password_length_error": "Das Passwort sollte mindestens 6 Zeichen lang sein.",
+    "social_link_error": "Bitte geben Sie den korrekten Link zum Profil an."
+  },
+  "sign_in": {
+    "title": "Einloggen",
+    "description": "Use your E-Mail  to enter the site.",
+    "e_mail": "E-Mail",
+    "password": "Passwort",
+    "not_account_yet": "No account yet?",
+    "forgot_password": "Forgot your password?",
+    "reset": "Reset"
+  },
+  "sign_up": {
+    "title": "Anmelden",
+    "description": "Sie müssen sich registrieren, um alle Funktionen der Website nutzen zu können.",
+    "as_client": "Melden Sie sich als Kunde",
+    "as_business": "Melden Sie sich als Schneider",
+    "confirmation_modal": {
+      "title": "Schließen Sie das Anmeldeformular",
+      "description": "Bist du sicher? Das modale Fenster wird ohne Speichern geschlossen."
+    }
+  },
+  "reset_password": {
+    "title": "Reset Password",
+    "reset": "Reset",
+    "email": "E-Mail",
+    "success": "Success. We send E-Mail  with confirmation on your E-Mail  address. Please check your E-Mail .",
+    "error": "Error. Some error occurred. Please try again later."
+  },
+  "sign_up_business_form": {
+    "register": "Registrieren Sie sich als Unternehmen",
+    "step_1": "1. Schritt Geben Sie die grundlegenden Registrierungsdaten ein.",
+    "step_2": "2. Schritt Geben Sie Daten zu Ihrem Unternehmen ein.",
+    "first_name": "Vorname",
+    "lat_name": "Nachname",
+    "cName": "Name der Firma",
+    "gName": "Gruppenname",
+    "gName_label": "Wenn Sie zwei oder mehr Geschäftseinträge registrieren möchten, geben Sie bitte einen Gruppennamen ein.",
+    "phone": "Telefon",
+    "user_name": "Nutzername",
+    "password": "Passwort",
+    "confirm_password": "Bestätige das Passwort",
+    "email": "E-Mail",
+    "business_name": "Firmenname",
+    "business_type": "Unternehmensart",
+    "building": "Hausnummer",
+    "address": "Adresse",
+    "zip": "Postleitzahl",
+    "city": "Stadt",
+    "country": "Land",
+    "continue": "Fortsetzen",
+    "submit": "Einreichen",
+    "back": "Zurück zu Schritt 1"
+  },
+  "sign_up_user_form": {
+    "register": "Registrieren Sie sich als Kunde",
+    "notice": "Sie müssen sich registrieren, um alle Funktionen der Website nutzen zu können.",
+    "first_name": "Vorname",
+    "lat_name": "Nachname",
+    "user_name": "Nutzername",
+    "password": "Passwort",
+    "confirm_password": "Bestätige das Passwort",
+    "email": "E-Mail"
+  },
+  "advert_banner": {
+    "edit_profile_banner": {
+      "advanced_profile": "Advanced Profile",
+      "text_1": "To get additional options for your profile, you can pay",
+      "buy_profile": "Buy Advanced Profile"
+    }
+  },
+  "edit_business_form": {
+    "your_profile": "Your Profile",
+    "personal_form": {
+      "fName": "Vorname",
+      "lName": "Nachname",
+      "cName": "Name der Firma",
+      "gName": "Gruppenname",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "title": "Persönliche Daten:"
+    },
+    "change_password_form": {
+      "old_password": "Old Password",
+      "new_password": "New Password",
+      "confirm_password": "Confirm password",
+      "change_password": "Change password",
+      "success": "Password has been changed successfully"
+    },
+    "business_info_form": {
+      "title": "Unternehmensdaten:",
+      "bName": "Unternehmensname",
+      "bTitle": "Titel",
+      "bType": "Unternehmenstyp",
+      "autocomplete": "Addresse",
+      "address": "Straße",
+      "zip": "Postleitzahl",
+      "city": "Stadt",
+      "country": "Land",
+      "email": "E-Mail (geschäftlich)",
+      "phone": "Telefon (geschäftlich)",
+      "website": "Website",
+      "additional_phone_add": "Telefon (geschäftlich) hinzufügen",
+      "additional_phone_delete": "Telefon löschen",
+      "start_time": "Öffnungszeit Start",
+      "end_time": "Öffnungszeit Ende",
+      "confirm_email": "Bestätigungs-E-Mail"
+    },
+    "contact_information_form": {
+      "title": "Kontakt Informationen",
+      "contact_name": "Kontaktname",
+      "contact_phone": "Kontakt-Telefon"
+    },
+    "business_services_form": {
+      "business_description_title": "Kurze Beschreibung ihres Unternehmens:",
+      "service_description_title": "Kurze Beschreibung ihrer Leistungen:",
+      "list_service_title": "Liste ihrer Leistungen",
+      "established_since": "Gegründet am",
+      "characters_limit": "Bis zu 500 Zeichen",
+      "separated_by_commas": "getrennt bei Komma",
+      "title": "Über ihre Leisutngen:",
+      "number_businesses": "Anzahl der Geschäfte",
+      "speciality": "Spezialisierung",
+      "type_of_products": "Produkttypen"
+    },
+    "social_media_form": {
+      "title": "Social Media Links"
+    },
+    "business_list": {
+      "title": "Geschäftsliste",
+      "table": {
+        "title": "Titel",
+        "type": "Art",
+        "address": "Adresse",
+        "actions": "Aktionen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen",
+        "profile": "Profil"
+      },
+      "add_new": "Neues Geschäft hinzufügen"
+    },
+    "confirm_close_modal": {
+      "title": "Profil ohne Änderungen schließen.",
+      "description": "Möchten Sie das Profil wirklich ohne Änderungen schließen?",
+      "save": "Speichern & Schließen",
+      "close": "Schließen"
+    },
+    "add_logo": "Logo oder Bild hinzufügen:",
+    "change_logo": "Logo oder Bild ändern:",
+    "add_photos": "Foto ihrer Arbeit hinzufügen:",
+    "add_photo_btn": "Foto hinzufügen",
+    "delete_photo": "Foto löschen",
+    "successfully_updated": "Profil aktualisiert",
+    "successfully_added": "Profil wurde hinzugefügt",
+    "save_profile": "Profil speichern",
+    "save_preview": "Speichern & Vorschau",
+    "add_new": "Add New Business",
+    "edit_business_title": "Geschäft bearbeiten"
+  },
+  "navigation": {
+    "map": "Karte",
+    "list": "Liste",
+    "about_us": "Über uns",
+    "contact_us": "Kontakt",
+    "offers": "Bietet an"
+  },
+  "business": {
+  },
+  "search_form": {
+    "title": "Finden sie einfach das beste geschäft!",
+    "address_placeholder": "Stadt oder Adresse",
+    "distance": "Entfernung",
+    "find_a_business": "Finden Sie Geschäft"
+  },
+  "search_results": {
+    "found_results": "{{results}} Ergebnisse gefunden.",
+    "found_one_result": "Nur dieses Ergebniss gefunden.",
+    "title": "Beliebteste Unternehmen",
+    "update": "Aktualisieren",
+    "search_radius": "Suchradius",
+    "type": "Art",
+    "placeholder_type": "Alle",
+    "services": "Dienstleistungen",
+    "placeholder_service": "Wählen Sie Service",
+    "no_result_found": "Keine Einträge gefunden."
+  },
+  "profile": {
+    "our_sore": "Unser Geschäft",
+    "our_sores": "Unsere Geschäfte",
+    "get_direction": "Richtung holen",
+    "phone_us": "Rufen Sie uns an",
+    "email_us": "Schreiben Sie uns eine E-Mail",
+    "our_contacts": "Unsere Kontakte",
+    "our_services": "Unsere Leistungen",
+    "established_since": "Gegründet seit",
+    "speciality": "Spezialität",
+    "no_of_business": "Anzahl der Unternehmen",
+    "type_of_products": "Art der Produkte",
+    "our_products": "Unsere Produkte",
+    "no_profile_found": "Kein Profil gefunden",
+    "recommend": "Empfehlen",
+    "reviews": "Rezension",
+    "follow_us_on": "Folge Uns Auf",
+    "our_profile": "Unsere Profil"
+  },
+  "leave_review": {
+    "title": "Hinterlassen Sie eine Bewertung",
+    "leave_a_review": "Hinterlassen Sie eine Bewertung",
+    "comment": "Kommentar",
+    "success": "Ihre Bewertung wurde erfolgreich hinzugefügt.",
+    "want_to_be_the_first": "Willst du der Erste sein?",
+    "title": "Bitte klicken Sie, um eine Bewertung abzugeben"
+  },
+  "claim_request": {
+    "link_title": "Ist das dein Geschäft?",
+    "title": "Anspruchsanfrage",
+    "send": "Anfrage senden",
+    "cancel": "Stornieren",
+    "description": "Kurze Beschreibung",
+    "success": "Anspruchsanforderung wurde erfolgreich gesendet."
+  }
+}

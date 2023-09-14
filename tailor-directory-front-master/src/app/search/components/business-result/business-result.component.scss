@@ -1,0 +1,71 @@
+@import "../../../../styles/variables";
+
+.result-block {
+  .title-block {
+    padding: 0 $left-block-padding-lg 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+
+  }
+
+  .filter-form {
+    padding: 0 $left-block-padding-lg 0;
+  }
+
+  .refresh-block {
+    padding-top: 28px;
+  }
+
+  .count-block {
+    padding: 20px $left-block-padding-lg 20px;
+    border-bottom: 1px solid #bbb;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .slider-wrap {
+    position: relative;
+
+    .slider-bock {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  .no-results {
+    padding-top: 30px;
+  }
+
+  &.hidden {
+    visibility: hidden;
+  }
+
+  @media all and (max-width: 1500px) {
+    .count-block {
+      padding: 20px $left-block-padding-md 20px;
+    }
+
+    .title-block {
+      padding: 0 $left-block-padding-md 30px;
+    }
+    .filter-form {
+      padding: 0 $left-block-padding-md;
+    }
+  }
+
+  @media all and (max-width: 1000px) {
+    .title-block {
+      padding: 0 $left-block-padding-sm 30px;
+    }
+    .filter-form {
+      padding: 0 $left-block-padding-sm 0;
+    }
+    .count-block {
+      padding: 0 $left-block-padding-sm 20px;
+    }
+  }
+}

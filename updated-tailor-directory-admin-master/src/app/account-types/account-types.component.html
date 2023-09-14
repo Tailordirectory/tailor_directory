@@ -1,0 +1,29 @@
+<section class="business-types-page" [showSpinner]="isLoading">
+  <h2>Business Types: </h2>
+  <p class="text-center">
+    <button class="btn btn-success" (click)="onAddType()"><i class="fas fa-plus-square"></i>&nbsp;Add new</button>
+  </p>
+  <section class="list">
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="name">Name</th>
+        <th class="icon">Icon</th>
+        <th class="actions">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let type of types$ | async">
+        <td class="name">{{type.name}}</td>
+        <td class="icon"><img *ngIf="type.icon && type.icon !== ''" [src]="type.icon"></td>
+        <td class="actions">
+          <span class="edit" (click)="onEditType(type)"><i class="fas fa-edit"></i></span>
+          <span class="delete" (click)="onDeleteType(type)"><i class="fas fa-trash-alt"></i></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>
+<add-edit-business-type #addEditModal (onClose)="onGetTypes()"></add-edit-business-type>
+<app-delete-business-types-modal #deleteModal (onClose)="onGetTypes()"></app-delete-business-types-modal>

@@ -1,0 +1,70 @@
+<header>
+  <section class="container">
+    <nav class="navbar navbar-expand-lg">
+      <h1 class="logo">
+        <a class="navbar-brand" routerLink="/">
+          <img src="/assets/images/logo.svg" title="TailorDirectory" alt="TailorDirectory">
+        </a>
+      </h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+               routerLinkActive="active">{{'navigation.map' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/list" routerLinkActive="active">{{'navigation.list' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/offers" routerLinkActive="active">{{'navigation.offers' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="active">{{'navigation.about_us' | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact"
+               routerLinkActive="active">{{'navigation.contact_us' | translate}}</a>
+          </li>
+        </ul>
+        <section class="right-nav-links">
+          <div class="link">
+              <span class="lang-block" (mouseenter)="showLanguages = true" (mouseleave)="showLanguages = false">
+                <span class="lang-btn">
+                  <img src="/assets/images/globe-icon.svg"> {{selectedLanguage.name}}
+                </span>
+                <span class="lang" *ngIf="showLanguages">
+                  <span class="lang-item-wrap" *ngFor="let l of languageList">
+                    <span class="lang-item" *ngIf="l.lang !== selectedLanguage.lang"
+                          (click)="onChangeLanguage(l.lang)"><img
+                      src="/assets/images/globe-white.svg"> {{l.name}}</span>
+                  </span>
+                </span>
+              </span>
+          </div>
+          <section class="sign-block">
+            <button *ngIf="!user" class="btn btn-secondary sign-in-button"
+                    (click)="onSignIn()">{{'global.sign_in' | translate}}</button>
+            <button *ngIf="user" class="btn btn-secondary sign-out-button"
+                    (click)="onSignOut()">{{'global.sign_out' | translate}}</button>
+            <button *ngIf="!user" (click)="onSignUp()"
+                    class="btn btn-secondary sign-out-button">{{'global.sign_up' | translate}}</button>
+          </section>
+          <section class="user-block" *ngIf="user">
+            <a *ngIf="user.type === 'business'; else client" routerLink="/edit">{{user.name}}</a>
+            <ng-template #client>
+              <span class="action-link">{{user.name}}</span>
+            </ng-template>
+          </section>
+        </section>
+      </div>
+    </nav>
+  </section>
+</header>
+<app-sign-in></app-sign-in>
+<app-sign-up></app-sign-up>
+<app-reset-password></app-reset-password>

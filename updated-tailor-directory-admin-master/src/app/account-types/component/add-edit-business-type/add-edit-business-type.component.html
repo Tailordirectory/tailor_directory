@@ -1,0 +1,41 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title" *ngIf="isEdit">Edit {{type.name}}</h3>
+    <h3 class="title" *ngIf="!isEdit">Add Business Type</h3>
+  </div>
+  <div class="modal-body" [showSpinner]="isLoading">
+    <section [formGroup]="addEditForm">
+      <section class="row">
+        <section class="col-xs-12" [className]="isEdit ? 'col-md-6' : 'col-md-12'">
+          <section class="form-group">
+            <input type="text" formControlName="name" class="form-control">
+          </section>
+        </section>
+        <section class="col-xs-12 col-md-6 text-right" *ngIf="isEdit">
+          <section class="logo no-logo" [class.no-logo]="!type?.icon || type?.icon === ''">
+            <section class="empty-logo" *ngIf="!type?.icon || type?.icon === ''; else logo">
+              <i class="fas fa-map-pin"></i>
+            </section>
+            <ng-template #logo>
+              <img src="{{type?.icon}}">
+            </ng-template>
+            <section class="update" (click)="onUpdateLogo()"
+                     title="Change icon">
+              <i class="fas fa-file-upload"></i>
+            </section>
+            <input
+              accept=".svg"
+              class="hidden"
+              type="file"
+              id="upload-logo-input"
+              (change)="onLogoUpload($event)">
+          </section>
+        </section>
+      </section>
+    </section>
+    <section class="text-right">
+      <button class="btn btn-secondary" (click)="modal.close(false)">Close</button>
+      <button class="btn btn-success" (click)="onSave()">Save</button>
+    </section>
+  </div>
+</ng-template>

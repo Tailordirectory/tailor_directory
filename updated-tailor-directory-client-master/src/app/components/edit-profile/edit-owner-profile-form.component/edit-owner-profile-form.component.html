@@ -1,0 +1,109 @@
+<section class="form-block">
+  <section class="personal-form">
+    <h4>{{'edit_business_form.personal_form.title' | translate}}</h4>
+    <span>{{'global.private_info' | translate}}</span>
+    <section [formGroup]="personalForm">
+      <section class="row">
+        <section class="col-sm-4">
+          <section class="form-group">
+            <label>{{'edit_business_form.personal_form.gName' | translate}}</label>
+            <input type="text" appFocus class="form-control" formControlName="groupName">
+            <p class="error"
+               *ngIf="personalForm.get('groupName')?.touched && personalForm.get('groupName')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+        </section>
+        <section class="col-sm-4">
+          <section class="form-group">
+            <label>{{'edit_business_form.personal_form.cName' | translate}}</label>
+            <input type="text" class="form-control" formControlName="companyName">
+            <p class="error"
+               *ngIf="personalForm.get('companyName')?.touched && personalForm.get('companyName')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+        </section>
+        <section class="col-sm-4"></section>
+      </section>
+      <section class="row">
+        <section class="col-sm-4">
+          <section class="form-group">
+            <label>{{'edit_business_form.personal_form.lName' | translate}}</label>
+            <input type="text" class="form-control" formControlName="lastName">
+            <p class="error"
+               *ngIf="personalForm.get('lastName')?.touched && personalForm.get('lastName')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+        </section>
+        <section class="col-sm-4">
+          <section class="form-group">
+            <label>{{'edit_business_form.personal_form.fName' | translate}}</label>
+            <input type="text" appFocus class="form-control" formControlName="firstName">
+            <p class="error"
+               *ngIf="personalForm.get('firstName')?.touched && personalForm.get('firstName')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+        </section>
+        <section class="col-sm-4">
+          <section class="save">
+            <button class="btn btn-primary"
+                    (click)="onSubmitOwner()">{{'edit_business_form.save_profile' | translate}}</button>
+          </section>
+        </section>
+      </section>
+      <section class="change-password-block">
+        <button class="btn-link btn" *ngIf="!isShowChangePassword" (click)="onShowChangePasswordForm()">
+          {{'edit_business_form.change_password_form.change_password' | translate}}
+        </button>
+        <section class="change-password-form" *ngIf="isShowChangePassword"
+                 [formGroup]="changePasswordForm">
+          <section class="hr"></section>
+          <section class="row">
+            <section class="col-sm-4">
+              <section class="form-group">
+                <label>{{'edit_business_form.change_password_form.old_password' | translate}}</label>
+                <input type="password" class="form-control" formControlName="oldPassword">
+                <p class="error"
+                   *ngIf="changePasswordForm.get('oldPassword')?.touched && changePasswordForm.get('oldPassword')?.invalid">
+                  {{'form.required' | translate}}
+                </p>
+              </section>
+            </section>
+            <section class="col-sm-4">
+              <section class="form-group">
+                <label>{{'edit_business_form.change_password_form.new_password' | translate}}</label>
+                <input type="password" class="form-control" formControlName="newPassword">
+                <p class="error"
+                   *ngIf="changePasswordForm.get('newPassword')?.touched && changePasswordForm.get('newPassword')?.invalid">
+                  {{'form.required' | translate}}
+                </p>
+              </section>
+            </section>
+            <section class="col-sm-4">
+              <section class="form-group">
+                <label>{{'edit_business_form.change_password_form.confirm_password' | translate}}</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+                <p class="error"
+                   *ngIf="changePasswordForm.get('confirmPassword')?.touched && changePasswordForm.get('confirmPassword')?.invalid">
+                    <span
+                      *ngIf="changePasswordForm.get('confirmPassword')?.errors.required">{{'form.required' | translate}}</span>
+                  <span
+                    *ngIf="changePasswordForm.get('confirmPassword')?.errors.confirm">{{'form.confirm_password' | translate}}</span>
+                </p>
+              </section>
+            </section>
+          </section>
+          <button class="btn btn-primary" (click)="onChangePassword()">
+            {{'edit_business_form.change_password_form.change_password' | translate}}
+          </button>
+        </section>
+        <div class="alert alert-success" *ngIf="isPasswordChanged">
+          <p class="mb-0">{{'edit_business_form.change_password_form.success' | translate}}</p>
+        </div>
+      </section>
+    </section>
+  </section>
+</section>

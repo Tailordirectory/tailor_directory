@@ -1,0 +1,68 @@
+{
+  "global": {
+    "sign_out": "Ausloggen",
+    "terms_of_use": "Terms of use",
+    "privacy_policy": "Privacy policy",
+    "default_error_message": "Es ist ein Fehler aufgetreten.",
+    "confirmed": "Bestätigt",
+    "private_info": "Diese Informationen werden nicht veröffentlicht.",
+    "welcome": "Willkommen",
+    "login_error": "Falsche Anmeldung oder falsches Passwort",
+    "upload_logo": "Logo hochladen"
+  },
+  "form": {
+    "required": "Dieses Feld wird benötigt",
+    "email": "Bitte geben Sie eine gültige E-Mail Adresse an",
+    "address_error": "Bitte geben Sie Land, Stadt und vollständige Adresse mit der Hausnummer ein.",
+    "social_link_error": "Bitte geben Sie den korrekten Link zum Profil an."
+  },
+  "edit_business_form": {
+    "business_info_form": {
+      "title": "Unternehmensdaten:",
+      "bName": "Unternehmensname",
+      "bTitle": "Titel",
+      "bType": "Unternehmenstyp",
+      "autocomplete": "Addresse",
+      "address": "Straße",
+      "zip": "Postleitzahl",
+      "city": "Stadt",
+      "country": "Land",
+      "email": "E-Mail (geschäftlich)",
+      "phone": "Telefon (geschäftlich)",
+      "website": "Website",
+      "additional_phone_add": "Telefon (geschäftlich) hinzufügen",
+      "additional_phone_delete": "Telefon löschen",
+      "start_time": "Öffnungszeit Start",
+      "end_time": "Öffnungszeit Ende",
+      "confirm_email": "Bestätigungs-E-Mail"
+    },
+    "contact_information_form": {
+      "title": "Kontakt Informationen",
+      "contact_name": "Kontaktname",
+      "contact_phone": "Kontakt-Telefon"
+    },
+    "business_services_form": {
+      "business_description_title": "Kurze Beschreibung ihres Unternehmens:",
+      "service_description_title": "Kurze Beschreibung ihrer Leistungen:",
+      "list_service_title": "Liste ihrer Leistungen",
+      "services": "Dienstleistungen",
+      "established_since": "Gegründet am",
+      "characters_limit": "Bis zu 500 Zeichen",
+      "separated_by_commas": "getrennt bei Komma",
+      "title": "Über ihre Leisutngen:",
+      "number_business": "Anzahl der Unternehmen",
+      "speciality": "Spezialisierung",
+      "type_of_products": "Produkttypen"
+    },
+    "social_media_form": {
+      "title": "Social Media Links"
+    },
+    "logo": "Logo:",
+    "photos": "Foto:",
+    "successfully_updated": "Profil aktualisiert",
+    "successfully_added": "Profil wurde hinzugefügt",
+    "save_profile": "Profil speichern",
+    "add_new": "Add New Business",
+    "edit_business_title": "Geschäft bearbeiten"
+  }
+}

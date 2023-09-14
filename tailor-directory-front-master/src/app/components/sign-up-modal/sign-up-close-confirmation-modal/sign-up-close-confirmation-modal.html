@@ -1,0 +1,14 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">{{'sign_up.confirmation_modal.title' | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{'sign_up.confirmation_modal.description' | translate}}</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary"
+            (click)="close()">{{'global.close' | translate}}</button>
+    <button class="btn btn-secondary"
+            (click)="onStay()">{{'global.stay' | translate}}</button>
+  </div>
+</ng-template>

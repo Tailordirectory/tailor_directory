@@ -1,0 +1,19 @@
+<h2>Manage</h2>
+<section class="manage-page">
+  <h3>Logo</h3>
+  <section class="logo-section">
+    <section class="logo-preview">
+      <img class="logo-img" [src]="logoImage" alt="Logo">
+      <section class="upload-logo">
+        <button [title]="'global.upload_logo' | translate" (click)="logoRef.click()" class="upload-btn"><i class="fas fa-file-upload"></i></button>
+      </section>
+    </section>
+    <input
+      accept=".svg"
+      class="hidden"
+      type="file"
+      id="upload-logo-input"
+      #logoRef
+      (change)="onLogoUpload($event)">
+  </section>
+</section>

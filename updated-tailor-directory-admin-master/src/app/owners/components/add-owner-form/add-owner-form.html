@@ -1,0 +1,32 @@
+<section class="add-owner-form" [formGroup]="ownerForm">
+  <section class="row">
+    <section class="col-sm-12 col-md-4">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName">
+      <p class="error"
+         *ngIf="ownerForm.get('firstName')?.touched && ownerForm.get('firstName')?.invalid">
+        {{'form.required' | translate}}
+      </p>
+    </section>
+    <section class="col-sm-12 col-md-4">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName">
+      <p class="error"
+         *ngIf="ownerForm.get('lastName')?.touched && ownerForm.get('lastName')?.invalid">
+        {{'form.required' | translate}}
+      </p>
+    </section>
+    <section class="col-sm-12 col-md-4">
+      <label>E-Mail</label>
+      <input type="email" class="form-control" formControlName="email">
+      <p class="error" *ngIf="ownerForm.get('email')?.touched && ownerForm.get('email')?.invalid">
+          <span *ngIf="ownerForm.get('email')?.errors.required">
+            {{'form.required' | translate}}
+          </span>
+        <span *ngIf="ownerForm.get('email')?.errors.email">
+            {{'form.email' | translate}}
+          </span>
+      </p>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,21 @@
+version: "2.4"
+services:
+  app:
+    build: ../../.
+    container_name: td_admin
+    environment:
+      - VIRTUAL_HOST=dev.admin.tailor-directory.com
+      - LETSENCRYPT_HOST=dev.admin.tailor-directory.com
+      - LETSENCRYPT_EMAIL=oleg.or@alphax-ds.de
+      - VIRTUAL_PORT=9000
+      - API_GATEWAY_URL=https://dev.tailor-directory.com
+    ports:
+      - "9000:80"
+    networks:
+      - common
+    restart: always
+
+networks:
+  common:
+    external:
+      name: common

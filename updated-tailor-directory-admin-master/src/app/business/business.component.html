@@ -1,0 +1,172 @@
+<h2>Business List</h2>
+<section [showSpinner]="isLoading">
+  <section class="import-list text-right">
+    <!--    <button class="btn btn-success" (click)="listRef.click()">Upload list</button>-->
+    <button class="btn btn-success" (click)="listRef.click()">Upload list</button>
+    <input
+      accept=".xlsx"
+      class="hidden"
+      type="file"
+      #listRef
+      (change)="onListUpload($event)">
+  </section>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="!showDuplicates" (click)="onChangeTabs(false)" [routerLink]="">List</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="showDuplicates" (click)="onChangeTabs(true)" [routerLink]="">Duplicates</a>
+    </li>
+  </ul>
+  <section class="business-list-wrap" *ngIf="!showDuplicates">
+    <section class="filter" [formGroup]="filterForm">
+      <h3>Filter:</h3>
+      <section class="row">
+        <section class="col-sm-12 col-md-4">
+          <section class="form-group">
+            <input class="form-control" placeholder="Name" type="text" formControlName="name">
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-4">
+          <section class="form-group">
+            <input class="form-control" placeholder="Owner First Name" type="text" formControlName="ownerFName">
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-4">
+          <section class="form-group">
+            <input class="form-control" placeholder="Owner Last Name" type="text" formControlName="ownerLName">
+          </section>
+        </section>
+      </section>
+      <section class="row">
+        <section class="col-sm-12 col-md-3">
+          <section class="form-group">
+            <input class="form-control" placeholder="Country" type="text" formControlName="country">
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-3">
+          <section class="form-group">
+            <input class="form-control" placeholder="Type" type="text" formControlName="businessType">
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-3">
+          <section class="form-group">
+            <input class="form-control" placeholder="ZIP" type="text" formControlName="zip">
+          </section>
+        </section>
+        <section class="col-sm-12 col-md-3">
+          <section class="form-group">
+            <input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="From Date"
+                   class="form-control"
+                   formControlName="createdDate">
+            <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+          </section>
+        </section>
+      </section>
+      <section class="text-center">
+        <button class="btn skip btn-secondary" (click)="onSkipFilter()">Clear</button>
+        <button class="btn find btn-primary" (click)="onGetBusiness(1)">Find</button>
+        <a routerLink="/business/add/" class="btn btn-success add"><i class="fas fa-plus-square"></i>&nbsp;Add new</a>
+      </section>
+      <hr>
+      <section class="row">
+        <section class="col-sm-12 col-md-2 offset-md-10">
+          <section class="form-group">
+            <ng-select
+              [items]="limitList"
+              [clearable]="false"
+              formControlName="limit"></ng-select>
+          </section>
+        </section>
+      </section>
+    </section>
+    <section class="business-list" *ngIf="businessList && businessList.length > 0; else noResults">
+      <table class="table businesss-list-table">
+        <thead>
+        <tr>
+          <th class="name sortable" (click)="onChangeSorting('businessName')">Name <span class="sort"
+                                                                                         [class.asc]="sortBy === 'businessName' && asc"
+                                                                                         [class.desc]="sortBy === 'businessName' && !asc"></span>
+          </th>
+          <th class="owner sortable" (click)="onChangeSorting('ownerId.firstName')">Owner<span class="sort"
+                                                                                               [class.asc]="sortBy === 'ownerId.firstName' && asc"
+                                                                                               [class.desc]="sortBy === 'ownerId.firstName' && !asc"></span>
+          </th>
+          <th class="country sortable" (click)="onChangeSorting('country')">Country<span class="sort"
+                                                                                         [class.asc]="sortBy === 'country' && asc"
+                                                                                         [class.desc]="sortBy === 'country' && !asc"></span>
+          </th>
+          <th class="address sortable" (click)="onChangeSorting('city')">Address<span class="sort"
+                                                                                      [class.asc]="sortBy === 'city' && asc"
+                                                                                      [class.desc]="sortBy === 'city' && !asc"></span>
+          </th>
+          <th class="type sortable" (click)="onChangeSorting('businessTypeId.name')">Type<span class="sort"
+                                                                                               [class.asc]="sortBy === 'businessTypeId.name' && asc"
+                                                                                               [class.desc]="sortBy === 'businessTypeId.name' && !asc"></span>
+          </th>
+          <th class="created-date sortable" (click)="onChangeSorting('createdAt')">Created<span class="sort"
+                                                                                                [class.asc]="sortBy === 'createdAt' && asc"
+                                                                                                [class.desc]="sortBy === 'createdAt' && !asc"></span>
+          </th>
+          <th class="actions">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let business of businessList">
+          <td class="name">{{business.businessName}}</td>
+          <td class="owner">{{business.ownerId?.firstName}} {{business.ownerId?.lastName}}</td>
+          <td class="country">{{business.country}}</td>
+          <td class="address">{{business.address}}<br>{{business.zipCode}}, {{business.city}}</td>
+          <td class="type">{{business.businessTypeId.name}}</td>
+          <td class="created-date">{{business.createdAt | date:'dd-MM-yyyy'}}</td>
+          <td class="actions">
+            <span class="edit" (click)="onEditBusiness(business)"><i class="fas fa-edit"></i></span>
+            <span class="delete" (click)="onDeleteBusiness(business)"><i class="fas fa-trash-alt"></i></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <section class="text-center">
+        <p class="d-inline-block">
+          <ngb-pagination [(page)]="page"
+                          [collectionSize]="total"
+                          [pageSize]="limit"
+                          [boundaryLinks]="true"
+                          [maxSize]="5"
+                          [rotate]="true"
+                          (pageChange)="onGetBusiness(page)"
+                          aria-label="Default pagination"></ngb-pagination>
+        </p>
+      </section>
+    </section>
+  </section>
+  <section *ngIf="showDuplicates" class="business-duplicates">
+    <section class="duplicates-list" *ngIf="businessDuplicatesList && businessDuplicatesList.length > 0; else noResults">
+      <table class="table-bordered">
+        <thead>
+        <tr>
+          <th></th>
+        </tr>
+        </thead>
+      </table>
+      <section class="text-center">
+        <p class="d-inline-block">
+          <ngb-pagination [(page)]="duplicatesPage"
+                          [collectionSize]="totalDuplicates"
+                          [pageSize]="20"
+                          [boundaryLinks]="true"
+                          [maxSize]="5"
+                          [rotate]="true"
+                          (pageChange)="getDuplicates(page)"
+                          aria-label="Default pagination"></ngb-pagination>
+        </p>
+      </section>
+    </section>
+  </section>
+</section>
+<ng-template #noResults>
+  <p class="text-center">No results found.</p>
+</ng-template>
+<app-delete-business-modal (onClose)="onGetBusiness()" #deleteModal></app-delete-business-modal>
+<app-edit-business #editModal (onUpdate)="onGetBusiness()"></app-edit-business>
+<app-import-business-list-error #importBusinessListErrorModal></app-import-business-list-error>

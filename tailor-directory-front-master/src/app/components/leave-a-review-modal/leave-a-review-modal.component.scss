@@ -1,0 +1,26 @@
+.stars {
+  margin-bottom: 20px;
+
+  .star {
+    background-image: url("/assets/images/star-inactive.svg");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    cursor: pointer;
+
+    &:not(one) {
+      padding-left: 5px;
+    }
+
+    &.active {
+      background-image: url("/assets/images/star-active.svg");
+    }
+  }
+}
+
+.comment textarea {
+  resize: none;
+}

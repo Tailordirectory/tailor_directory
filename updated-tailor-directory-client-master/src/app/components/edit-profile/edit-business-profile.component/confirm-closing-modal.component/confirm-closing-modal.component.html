@@ -1,0 +1,14 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">{{'edit_business_form.confirm_close_modal.title' | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{'edit_business_form.confirm_close_modal.description' | translate}}</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary"
+            (click)="close()">{{'edit_business_form.confirm_close_modal.close' | translate}}</button>
+    <button class="btn btn-primary"
+            (click)="closeAndSave()">{{'edit_business_form.confirm_close_modal.save' | translate}}</button>
+  </div>
+</ng-template>

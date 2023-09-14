@@ -1,0 +1,13 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">Comment for {{review.businessId.businessName}}</h3>
+  </div>
+  <div class="modal-body">
+    <app-rating [rating]="review.stars"></app-rating>
+    <p class="comment" [innerHTML]="review.comment"></p>
+  </div>
+  <section class="modal-footer">
+    <button class="btn btn-danger" (click)="this.onDeleteReview()">Delete</button>
+    <button class="btn btn-secondary" (click)="modal.close(true)">Close</button>
+  </section>
+</ng-template>

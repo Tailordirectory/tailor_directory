@@ -1,0 +1,15 @@
+.pie-chart {
+  display: inline-block;
+}
+
+.labels-wrap {
+
+  span {
+    display: inline-block;
+
+    &:not(.total) {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
+}

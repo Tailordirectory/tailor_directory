@@ -1,0 +1,132 @@
+@import "../../../styles/variables";
+
+header {
+  padding: 10px 0;
+
+  .container {
+    max-width: $content-width;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar-nav {
+    white-space: nowrap;
+  }
+
+  .logo {
+    margin: 0 70px 0 0;
+    line-height: 100%;
+
+    a {
+      padding: 0;
+      display: block;
+    }
+
+    img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  nav {
+    .nav-item {
+      padding: 10px;
+    }
+
+    .nav-link {
+      font-size: $header-link-font-size;
+      line-height: $header-link-line-height;
+      color: $header-link-color;
+
+      &:hover {
+        color: $header-link-color;
+        border-bottom: 1px solid $header-link-hover-border-color;
+      }
+
+      &.active {
+        color: $header-link-active-color;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .right-nav-links {
+    display: flex;
+    align-items: center;
+
+    .lang-block {
+      font-size: $header-link-font-size;
+      line-height: $header-link-line-height;
+      color: $secondary-button-color;
+      position: relative;
+      text-transform: uppercase;
+      background: $header-language-background-color;
+      border-radius: 50px;
+      padding: 10px;
+      z-index: 99;
+      width: 102px;
+      display: block;
+
+      &:hover {
+        border-radius: 23px 23px 0 0;
+      }
+
+      .lang-btn {
+        img {
+          width: 24px;
+          margin-right: 5px;
+        }
+      }
+
+      .lang {
+        cursor: pointer;
+        position: absolute;
+        background: #ECF3FF;
+        border-radius: 0 0 23px 23px;
+        font-size: $header-link-font-size;
+        line-height: $header-link-line-height;
+        width: 100%;
+        top: 100%;
+        left: 0;
+
+        .lang-item-wrap {
+          display: block;
+
+          .lang-item {
+            display: block;
+            width: 102px;
+            padding: 10px;
+            color: $primary-button-color;
+            background: $primary-button-background;
+            border-radius: 50px;
+
+            img {
+              width: 24px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .link {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .user-block {
+      margin-left: 15px;
+      word-wrap: break-word;
+    }
+
+    .sign-block {
+      white-space: nowrap;
+      .sign-in-button {
+        margin-right: 15px;
+      }
+    }
+  }
+}

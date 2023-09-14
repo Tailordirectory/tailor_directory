@@ -1,0 +1,26 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title" *ngIf="isEdit">{{'edit_business_form.edit_business_title' | translate}}</h3>
+    <h3 class="title" *ngIf="!isEdit">{{'edit_business_form.add_new' | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <section class="edit-business-profile">
+      <app-edit-business-profile-form
+        [onSubmit]="submit"
+        (onSuccess)="success()"
+        [business]="business">
+      </app-edit-business-profile-form>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary"
+            (click)="onCloseModal()">{{'edit_business_form.confirm_close_modal.close' | translate}}
+    </button>
+    <button class="btn btn-primary"
+            (click)="onSubmit()">{{'edit_business_form.save_profile' | translate}}</button>
+    <button class="btn btn-primary"
+            *ngIf="showPreviewButton"
+            (click)="onSubmitAndPreview()">{{'edit_business_form.save_preview' | translate}}</button>
+  </div>
+</ng-template>
+<app-confirm-closing-modal (onClose)="onClose($event)" #closingModal></app-confirm-closing-modal>

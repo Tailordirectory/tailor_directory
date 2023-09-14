@@ -1,0 +1,6 @@
+<section class="edit-profile-page">
+  <section class="profile" *ngIf="(user$ | async) as user">
+    <app-edit-business-profile [id]="user.id" *ngIf="user.type === 'business'"></app-edit-business-profile>
+    <app-edit-client-profile [id]="user.id" *ngIf="user.type === 'client'"></app-edit-client-profile>
+  </section>
+</section>

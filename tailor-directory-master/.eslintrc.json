@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "ecmaVersion": 2019
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".mjs"]
+      }
+    }
+  },
+  "rules": {
+    "comma-dangle": "off",
+    "camelcase": "off"
+  },
+  "env": {
+    "jest": true,
+    "node": true,
+    "mongo": true
+  }
+}

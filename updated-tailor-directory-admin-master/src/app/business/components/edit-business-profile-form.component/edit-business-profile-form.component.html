@@ -1,0 +1,259 @@
+<section class="edit-business-profile">
+  <section class="form-block">
+    <section class="row">
+      <section class="col-sm-6 col-xs-12" [ngClass]="(isEdit) ? 'col-md-4 ' : 'col-md-6'">
+        <section class="business-info-form" [formGroup]="businessForm">
+          <h4>{{'edit_business_form.business_info_form.title' | translate}}</h4>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.bName' | translate}}</label>
+            <input type="text" class="form-control" formControlName="businessName">
+            <p class="error"
+               *ngIf="businessForm.get('businessName')?.touched && businessForm.get('businessName')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.bType' | translate}}</label>
+            <ng-select
+              bindLabel="name"
+              bindValue="_id"
+              class="text-capitalize"
+              [items]="$businessTypes | async"
+              formControlName="type">
+            </ng-select>
+            <p class="error"
+               *ngIf="businessForm.get('type')?.touched && businessForm.get('type')?.invalid">
+              {{'form.required' | translate}}
+            </p>
+          </section>
+          <section class="form-group">
+            <ng-autocomplete
+              [data]="addressList"
+              [initialValue]="''"
+              [debounceTime]="400"
+              [searchKeyword]=""
+              formControlName="autocomplete"
+              placeHolder="{{'edit_business_form.business_info_form.autocomplete' | translate}}"
+              (inputChanged)='onSelectAddressEvent($event)'
+              (inputCleared)="addressList = ['']"
+              [itemTemplate]="addressTemplate">
+            </ng-autocomplete>
+            <ng-template #addressTemplate let-address>
+              <a [innerHTML]="address"></a>
+            </ng-template>
+            <p class="error"
+               *ngIf="businessForm.get('autocomplete')?.touched && businessForm.get('autocomplete')?.invalid">{{'form.required' | translate}}</p>
+            <p class="error" *ngIf="isAddressError">
+              {{'form.address_error' | translate}}
+            </p>
+          </section>
+          <section id="sing-map"></section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.country' | translate}}</label>
+            <input type="text" class="form-control" formControlName="country">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.city' | translate}}</label>
+            <input type="text" class="form-control" formControlName="city">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.address' | translate}}</label>
+            <input type="text" class="form-control" formControlName="address">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.zip' | translate}}</label>
+            <input type="text" class="form-control" formControlName="zip">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.website' | translate}}</label>
+            <input type="text" class="form-control" formControlName="website">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_info_form.email' | translate}}</label>
+            <input type="email" class="form-control"
+                   *ngIf="!business?.emailVerifiedAt; else verified"
+                   formControlName="email">
+            <ng-template #verified>
+              <section class="input verified">
+                <input type="email" class="form-control"
+                       formControlName="email">
+                <section class="verified-icon" title="{{'global.confirmed' | translate}}"><i
+                  class="far fa-check-circle"></i></section>
+              </section>
+            </ng-template>
+            <p class="error"
+               *ngIf="businessForm.get('email')?.touched && businessForm.get('email')?.invalid">
+              {{'form.email' | translate}}
+            </p>
+          </section>
+          <section formArrayName="phones">
+            <section class="form-group phone-group"
+                     *ngFor="let p of businessForm.get('phones')?.controls; let i = index">
+              <section class="form-item" [formGroup]="p"
+                       [class.show-delete]="businessForm.get('phones')?.controls.length > 1">
+                <section class="form-group">
+                  <label>{{'edit_business_form.business_info_form.phone' | translate}}</label>
+                  <ngx-intl-tel-input
+                    [cssClass]="'form-control'"
+                    [preferredCountries]="preferredCountries"
+                    [enableAutoCountrySelect]="true"
+                    [enablePlaceholder]="false"
+                    [searchCountryFlag]="true"
+                    [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                    [selectFirstCountry]="false"
+                    [selectedCountryISO]="(business?.phones[0]?.countryIsoCode) ? business?.phones[0]?.countryIsoCode : countryShortName"
+                    [maxLength]="15"
+                    [tooltipField]="TooltipLabel.Name"
+                    [separateDialCode]="true"
+                    [phoneValidation]="false"
+                    name="phone"
+                    formControlName="phone"></ngx-intl-tel-input>
+                </section>
+              </section>
+              <section class="delete-phone"
+                       title="{{'edit_business_form.business_info_form.additional_phone_delete' | translate}}"
+                       (click)="deletePhone(i)" *ngIf="businessForm.get('phones')?.controls.length > 1">
+                <span class="delete-icon"><i class="far fa-times-circle"></i></span>
+              </section>
+            </section>
+          </section>
+          <p class="add-phone text-center"
+             (click)="onAddPhone()"><i
+            class="fas fa-plus-circle"></i> {{'edit_business_form.business_info_form.additional_phone_add' | translate}}
+          </p>
+          <section class="row">
+            <section class="col-sm-6">
+              <section class="form-group">
+                <label>{{'edit_business_form.business_info_form.start_time' | translate}}</label>
+                <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" class="form-control"
+                       formControlName="startTime">
+                <owl-date-time #dt1 pickerType="timer"></owl-date-time>
+              </section>
+            </section>
+            <section class="col-sm-6">
+              <section class="form-group">
+                <label>{{'edit_business_form.business_info_form.end_time' | translate}}</label>
+                <input [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" class="form-control"
+                       formControlName="endTime">
+                <owl-date-time #dt2 pickerType="timer"></owl-date-time>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+      <section class="col-sm-6 col-xs-12" [ngClass]="(isEdit) ? 'col-md-4 ' : 'col-md-6'">
+        <section class="contact-form private-info-block " [formGroup]="contactForm">
+          <h4>{{'edit_business_form.contact_information_form.title' | translate}}</h4>
+          <span>{{'global.private_info' | translate}}</span>
+          <section class="form-group">
+            <label>{{'edit_business_form.contact_information_form.contact_name' | translate}}</label>
+            <input type="text"
+                   formControlName="contactName"
+                   class="form-control">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.contact_information_form.contact_phone' | translate}}</label>
+            <ngx-intl-tel-input
+              [cssClass]="'form-control'"
+              [preferredCountries]="preferredCountries"
+              [enableAutoCountrySelect]="true"
+              [enablePlaceholder]="false"
+              [searchCountryFlag]="true"
+              [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+              [selectFirstCountry]="false"
+              [selectedCountryISO]="(business?.contactPhone?.countryIsoCode) ? business?.contactPhone?.countryIsoCode : countryShortName"
+              [maxLength]="15"
+              [tooltipField]="TooltipLabel.Name"
+              [separateDialCode]="true"
+              [phoneValidation]="false"
+              name="contactPhone"
+              formControlName="contactPhone"></ngx-intl-tel-input>
+          </section>
+        </section>
+        <section class="service-form" [formGroup]="serviceForm">
+          <h4>{{'edit_business_form.business_services_form.business_description_title' | translate}}</h4>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_services_form.characters_limit' | translate}}</label>
+            <textarea formControlName="businessDescription"
+                      rows="6"
+                      placeholder="{{'edit_business_form.business_services_form.established_since' | translate}}"
+                      class="form-control"></textarea>
+          </section>
+          <section>
+            <h4>{{'edit_business_form.business_services_form.list_service_title' | translate}}</h4>
+            <section class="form-group">
+              <label>{{'edit_business_form.business_services_form.services' | translate}}</label>
+              <app-service-selector [control]="this.serviceForm.get('listOfServices')"></app-service-selector>
+            </section>
+          </section>
+          <h4>{{'edit_business_form.business_services_form.title' | translate}}</h4>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_services_form.established_since' | translate}}</label>
+            <input type="text" class="form-control" formControlName="science">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_services_form.number_business' | translate}}</label>
+            <input type="text" class="form-control" formControlName="businessCount">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_services_form.speciality' | translate}}</label>
+            <input type="text" class="form-control" formControlName="speciality">
+          </section>
+          <section class="form-group">
+            <label>{{'edit_business_form.business_services_form.type_of_products' | translate}}</label>
+            <input type="text" class="form-control" formControlName="typeOfProducts">
+          </section>
+        </section>
+        <section class="social-media-block"
+                 [formGroup]="socialMediaForm">
+          <h4>{{'edit_business_form.social_media_form.title' | translate}}</h4>
+          <section class="form-group">
+            <label>Facebook</label>
+            <input type="text" class="form-control" formControlName="facebook">
+            <p class="error"
+               *ngIf="socialMediaForm.get('facebook')?.touched && socialMediaForm.get('facebook')?.invalid">
+              {{'form.social_link_error' | translate}}
+            </p>
+          </section>
+          <section class="form-group">
+            <label>Instagram</label>
+            <input type="text" class="form-control" formControlName="instagram">
+            <p class="error"
+               *ngIf="socialMediaForm.get('instagram')?.touched && socialMediaForm.get('instagram')?.invalid">
+              {{'form.social_link_error' | translate}}
+            </p>
+          </section>
+          <section class="form-group">
+            <label>LinkedIn</label>
+            <input type="text" class="form-control" formControlName="linkedIn">
+            <p class="error"
+               *ngIf="socialMediaForm.get('linkedIn')?.touched && socialMediaForm.get('linkedIn')?.invalid">
+              {{'form.social_link_error' | translate}}
+            </p>
+          </section>
+        </section>
+      </section>
+      <section class="col-md-4 col-sm-6 col-xs-12" *ngIf="isEdit">
+        <section class="media-block">
+          <h4>{{'edit_business_form.logo' | translate}}</h4>
+          <section class="logo no-logo" [class.no-logo]="!business?.icon || business?.icon === ''">
+            <section class="empty-logo" *ngIf="!business?.icon || business?.icon === ''; else logo">
+              <img src="/assets/images/empty-logo-icon.svg">
+            </section>
+            <ng-template #logo>
+              <img src="{{business?.icon}}">
+            </ng-template>
+          </section>
+          <section class="gallery">
+            <h4>{{'edit_business_form.photos' | translate}}</h4>
+            <ul class="gallery-list" *ngIf="business?.media && business?.media.length >0">
+              <li class="gallery-item" *ngFor="let media of business?.media; let i = index">
+                <img src="{{media.url}}">
+              </li>
+            </ul>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+</section>

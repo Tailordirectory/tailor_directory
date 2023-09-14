@@ -1,0 +1,11 @@
+@import "../../../styles/variables";
+
+footer {
+  padding: 20px;
+  background: $footer-background-color;
+
+  .title {
+    margin: 0;
+    padding-top: 10px;
+  }
+}

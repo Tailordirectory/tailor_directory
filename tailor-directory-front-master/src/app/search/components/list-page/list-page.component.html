@@ -1,0 +1,118 @@
+<section class="list-page">
+  <section class="container">
+    <section class="header-block">
+      <section class="title-block">
+        <h3>{{'search_results.title' | translate}}</h3>
+      </section>
+      <section class="filter-form" [formGroup]="searchForm">
+        <section class="row">
+          <section class="col-md-5 col-sm-12">
+            <label>{{'search_form.address_placeholder' | translate}}</label>
+            <input type="text" #address class="form-control"
+                   formControlName="address">
+          </section>
+          <section class="col-md-3 col-sm-12">
+            <label>{{'search_results.services' | translate}}</label>&nbsp;<span
+            ngbTooltip="{{'global.multiple_services_decr'| translate}}"><i
+            class="fas fa-question-circle"></i>
+            </span>
+            <app-service-selector [control]="this.searchForm.get('tags')"></app-service-selector>
+          </section>
+          <section class="col-md-2 col-sm-12">
+            <label>{{'search_results.type' | translate}}</label>&nbsp;<span
+            ngbTooltip="{{'global.multiple_types_decr'| translate}}"><i
+            class="fas fa-question-circle"></i>
+          </span>
+            <ng-select
+              [items]="$businessTypes | async"
+              class="capitalize"
+              bindLabel="name"
+              bindValue="name"
+              [multiple]="true"
+              placeholder="{{'search_results.placeholder_type' | translate}}"
+              formControlName="businessType">
+            </ng-select>
+          </section>
+          <section class="col-sm-12 col-md-2">
+            <label>{{'search_results.search_radius' | translate}}</label>
+            <ng-select
+              formControlName="distance"
+              [items]="distanceList"
+              (clear)="onClearDistance()"
+              [placeholder]="'search_form.distance' | translate">
+              <ng-template ng-label-tmp let-item="item">
+                {{item}} km
+              </ng-template>
+            </ng-select>
+          </section>
+        </section>
+        <section class="refresh-block text-center">
+          <p>
+            <button (click)="findTailors()"
+                    class="btn btn-primary">{{'search_form.find_a_tailor' | translate}}</button>
+          </p>
+        </section>
+        <section class="row">
+          <section class="col-sm-12 col-md-2 offset-md-10">
+            <section class="form-group">
+              <label>{{'global.items' | translate}}</label>
+              <ng-select
+                [items]="['10', '20', '40', '60']"
+                [clearable]="false"
+                formControlName="pageCount"></ng-select>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+    <section class="list-block" *ngIf="resultList">
+      <section *ngIf="resultList.length > 0; else noResults">
+        <section class="count-block">
+          <p>{{results}}</p>
+        </section>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Address</th>
+            <th>Services</th>
+            <th>Phones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let business of resultList">
+            <td>{{business.businessName}}</td>
+            <td class="text-capitalize">{{business.businessTypeId.name}}</td>
+            <td>{{business.address}},
+              {{business.zipCode}} {{business.city}},
+              {{business.country}}</td>
+            <td>
+              <section *ngIf="business?.restrictions?.service_offering">
+                <p *ngFor="let s of business.tags">{{s.name}}</p>
+              </section>
+            </td>
+            <td>
+              <section *ngIf="business?.restrictions?.contact_information">
+                <p *ngFor="let p of business.phones"><a
+                  href="tel:{{p.countryCode + p.phone | phone:p.countryIsoCode:true}}">{{p.countryCode + p.phone | phone:p.countryIsoCode}}</a>
+                </p>
+              </section>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <section class="text-center">
+          <section class="d-inline-block">
+            <ngb-pagination [(page)]="page" [collectionSize]="total" [pageSize]="pageCount"
+                            (pageChange)="findTailors()"
+                            aria-label="Default pagination"></ngb-pagination>
+          </section>
+        </section>
+      </section>
+      <ng-template #noResults>
+        <p class="text-center no-results">{{'search_results.no_result_found' | translate}}</p>
+      </ng-template>
+    </section>
+  </section>
+</section>

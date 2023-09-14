@@ -1,0 +1,73 @@
+{
+  "restrictions": {
+    "picture_gallery": false,
+    "full_profile_page": false,
+    "social_media_links": false,
+    "reviews_comments": false,
+    "is_highlighted": false,
+    "is_on_top": false,
+    "opening_hours": false,
+    "contact_information": false,
+    "get_directions": false,
+    "service_offering": false,
+    "multiple_stores": false
+  },
+  "accounts": {
+    "basic": {
+      "opening_hours": true,
+      "contact_information": true,
+      "service_offering": true,
+      "get_directions": true
+    },
+    "premium": {
+      "full_profile_page": true,
+      "picture_gallery": true,
+      "social_media_links": true,
+      "reviews_comments": true,
+      "is_highlighted": true,
+      "is_on_top": true,
+      "opening_hours": true,
+      "contact_information": true,
+      "get_directions": true,
+      "service_offering": true
+    },
+    "premium_expired": {
+      "full_profile_page": true,
+      "picture_gallery": true,
+      "social_media_links": true,
+      "reviews_comments": true,
+      "is_highlighted": true,
+      "is_on_top": true,
+      "opening_hours": true,
+      "contact_information": true,
+      "get_directions": true,
+      "service_offering": true
+    },
+    "premium_plus": {
+      "full_profile_page": true,
+      "picture_gallery": true,
+      "social_media_links": true,
+      "reviews_comments": true,
+      "is_highlighted": true,
+      "is_on_top": true,
+      "opening_hours": true,
+      "contact_information": true,
+      "get_directions": true,
+      "service_offering": true,
+      "multiple_stores": true
+    },
+    "premium_plus_expired": {
+      "full_profile_page": true,
+      "picture_gallery": true,
+      "social_media_links": true,
+      "reviews_comments": true,
+      "is_highlighted": true,
+      "is_on_top": true,
+      "opening_hours": true,
+      "contact_information": true,
+      "get_directions": true,
+      "service_offering": true,
+      "multiple_stores": true
+    }
+  }
+}

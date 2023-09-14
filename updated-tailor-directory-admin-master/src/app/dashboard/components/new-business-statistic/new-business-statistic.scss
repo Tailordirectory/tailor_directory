@@ -1,0 +1,21 @@
+@import "../../../../styles/variables";
+
+.file-link, .clear {
+  margin-left: 15px;
+}
+
+.pie-chart {
+  display: inline-block;
+}
+
+.labels-wrap {
+
+  span {
+    display: inline-block;
+
+    &:not(.total) {
+      margin-left: 15px;
+      cursor: pointer;
+    }
+  }
+}

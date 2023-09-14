@@ -1,0 +1,50 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">{{title}}</h3>
+  </div>
+  <div class="modal-body" [showSpinner]="isShowSpinner">
+    <p class="text-right">
+      <button class="btn find btn-primary" (click)="importToCSV()"><i class="fas fa-file-download"></i>&nbsp;CSV
+      </button>
+    </p>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Owner</th>
+        <th>Country</th>
+        <th>Address</th>
+        <th>Type</th>
+        <th>Created</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let business of list">
+        <td>{{business.businessName}}</td>
+        <td>{{business.ownerId?.firstName}} {{business.ownerId?.lastName}}</td>
+        <td>{{business.country}}</td>
+        <td>{{business.city}}, {{business.address}}</td>
+        <td>{{business.businessTypeId.name}}</td>
+        <td>{{business.createdAt | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <section class="text-center">
+      <p class="d-inline-block">
+        <ngb-pagination [(page)]="page"
+                        [collectionSize]="total"
+                        [pageSize]="limit"
+                        [boundaryLinks]="true"
+                        [maxSize]="5"
+                        [rotate]="true"
+                        (pageChange)="getData(page)"
+                        aria-label="Default pagination"></ngb-pagination>
+      </p>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <section class="text-right">
+      <button class="btn btn-primary" (click)="modal.close()">Close</button>
+    </section>
+  </div>
+</ng-template>

@@ -1,0 +1,60 @@
+<h3>{{'sign_up_user_form.register' | translate}}</h3>
+<p class="notice">{{'sign_up_user_form.notice' | translate}}</p>
+<section class="form" [formGroup]="userForm">
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_user_form.first_name' | translate}}"
+           formControlName="firstName">
+    <p class="error"
+       *ngIf="userForm.get('firstName')?.touched && userForm.get('firstName')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_user_form.lat_name' | translate}}"
+           formControlName="lastName">
+    <p class="error"
+       *ngIf="userForm.get('lastName')?.touched && userForm.get('lastName')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="email" class="form-control" placeholder="{{'sign_up_user_form.email' | translate}}"
+           formControlName="email">
+    <p class="error" *ngIf="userForm.get('email')?.invalid">
+      <span
+        *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors.required">{{'form.required' | translate}}</span>
+      <span
+        *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors.email">{{'form.email' | translate}}</span>
+    </p>
+  </section>
+  <section class="form-group">
+    <input type="text" class="form-control" placeholder="{{'sign_up_user_form.user_name' | translate}}"
+           formControlName="name">
+    <p class="error"
+       *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">{{'form.required' | translate}}</p>
+  </section>
+  <section class="form-group">
+    <input type="password" class="form-control" placeholder="{{'sign_up_user_form.password' | translate}}"
+           formControlName="password">
+    <p class="error"
+       *ngIf="userForm.get('password')?.touched && userForm.get('password')?.invalid">
+      <span *ngIf="userForm.get('password')?.errors.required">{{'form.required' | translate}}</span>
+      <span *ngIf="userForm.get('password')?.errors.minlength">{{'form.password_length_error' | translate}}</span>
+    </p>
+  </section>
+  <section class="form-group">
+    <input type="password" class="form-control"
+           placeholder="{{'sign_up_user_form.confirm_password' | translate}}"
+           formControlName="confirmPassword">
+    <p class="error" *ngIf="userForm.get('confirmPassword')?.touched && userForm.get('confirmPassword')?.invalid">
+      <span *ngIf="userForm.get('confirmPassword')?.errors.required">{{'form.required' | translate}}</span>
+      <span *ngIf="userForm.get('confirmPassword')?.errors.confirm">{{'form.confirm_password' | translate}}</span>
+    </p>
+  </section>
+  <p class="text-center submit">
+    <button class="btn btn-primary" (click)="submit()">{{'global.sign_up' | translate}}</button>
+  </p>
+</section>
+<!--<section class="social-links-block">-->
+<!--  <section class="social-links">-->
+<!--    <p>{{'global.sign_up_with' | translate}}:</p>-->
+<!--    <span class="social-icon" (click)="onSingInGoogle()"><img src="/assets/images/social/google-big.svg"></span>-->
+<!--    <span class="social-icon" (click)="onSingInFacebook()"><img src="/assets/images/social/facebook-big.svg"></span>-->
+<!--  </section>-->
+<!--</section>-->

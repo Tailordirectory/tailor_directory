@@ -1,0 +1,102 @@
+<section class="reviews-block" [showSpinner]="isShowSpinner">
+  <h2>Reviews:</h2>
+  <section class="filter" [formGroup]="filterForm">
+    <h3>Filter:</h3>
+    <section class="row">
+      <section class="col-xs-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" type="text" placeholder="Business" formControlName="businessName">
+        </section>
+      </section>
+      <section class="col-xs-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" type="text" placeholder="Client First Name" formControlName="fName">
+        </section>
+      </section>
+      <section class="col-xs-12 col-md-4">
+        <section class="form-group">
+          <input class="form-control" type="text" placeholder="Client Last Name" formControlName="lName">
+        </section>
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-xs-12 col-md-4">
+        <section class="form-group">
+          <input [owlDateTime]="dt1" [selectMode]="'range'" [owlDateTimeTrigger]="dt1" placeholder="From Date"
+                 class="form-control"
+                 formControlName="createdDate">
+          <owl-date-time #dt1 pickerType="calendar"></owl-date-time>
+        </section>
+      </section>
+      <section class="col-xs-12 col-md-8 text-right">
+        <button class="btn clear btn-secondary" (click)="clearFilter()">Clear</button>
+        <button class="btn find btn-primary" (click)="find()">Find</button>
+      </section>
+    </section>
+  </section>
+  <hr>
+  <section *ngIf="reviews && reviews.length > 0; else noResults">
+    <section class="row">
+      <section class="col-sm-12 col-md-2 offset-md-10">
+        <section class="form-group">
+          <ng-select
+            [items]="limitList"
+            [clearable]="false"
+            [(ngModel)]="pageLimit"></ng-select>
+        </section>
+      </section>
+    </section>
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="business">Business</th>
+        <th class="client">Client</th>
+        <th class="comment">Comment</th>
+        <th class="date sortable" (click)="onChangeSorting('createdAt')">Date<span class="sort"
+                                                                                   [class.asc]="sortBy === 'createdAt' && asc"
+                                                                                   [class.desc]="sortBy === 'createdAt' && !asc"></span>
+        </th>
+        <th class="actions">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let review of reviews">
+        <td class="business">{{review.businessId.businessName}}</td>
+        <td class="client">{{review.userId.firstName}} {{review.userId.lastName}}</td>
+        <td class="comment">
+          <app-rating [rating]="review.stars"></app-rating>
+          <section *ngIf="review.comment.length > 50; else smallComment">
+            {{review.comment | slice:0:50}}
+            <button class="btn btn-link" (click)="onShowComment(review)">...</button>
+          </section>
+          <ng-template #smallComment>
+            <section>{{review.comment}}</section>
+          </ng-template>
+        </td>
+        <td class="date">
+          {{review.createdAt | date:'dd-MM-yyyy'}}
+        </td>
+        <td class="actions">
+          <span class="delete" (click)="onDelete(review._id)"><i class="fas fa-trash-alt"></i></span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <section class="text-center">
+      <p class="d-inline-block">
+        <ngb-pagination [(page)]="page"
+                        [collectionSize]="total"
+                        [pageSize]="pageLimit"
+                        [boundaryLinks]="true"
+                        [maxSize]="5"
+                        [rotate]="true"
+                        (pageChange)="getList(page)"
+                        aria-label="Default pagination"></ngb-pagination>
+      </p>
+    </section>
+  </section>
+  <ng-template #noResults>
+    <p class="text-center">No results found.</p>
+  </ng-template>
+</section>
+<app-show-comment-modal (onDelete)="onDelete($event)" #showComment></app-show-comment-modal>

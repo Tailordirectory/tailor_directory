@@ -1,0 +1,11 @@
+<section class="rating-block">
+  <span class="rating" *ngIf="!hideRating && rating>0">{{rating}}</span>
+  <span class="stars" [class.has-rating]="!hideRating && rating>0">
+    <span class="star" [ngClass]="star" *ngFor="let star of stars"></span>
+  </span>
+  <span class="review-count" *ngIf="!hideCount && reviewsCount>0">({{reviewsCount}})</span>
+  <section class="leave-review-link"
+           *ngIf="reviewsCount === 0 && isShowLeaveComment && !hideReview"
+           title="{{'leave_review.title' | translate}}"
+           (click)="onLeaveReview()">{{'leave_review.want_to_be_the_first' | translate}}</section>
+</section>

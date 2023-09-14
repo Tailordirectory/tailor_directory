@@ -1,0 +1,26 @@
+<ng-template #content>
+  <div class="modal-header">
+    <h3 class="title">{{'leave_review.title' | translate}}</h3>
+  </div>
+  <div class="modal-body">
+    <section class="stars">
+      <section class="star one" (mouseenter)="onHoverInStar($event, 1)" (mouseleave)="onHoverOutStar($event)"
+               (click)="setReviewStar(1)"></section>
+      <section class="star two" (mouseenter)="onHoverInStar($event, 2)" (mouseleave)="onHoverOutStar($event)"
+               (click)="setReviewStar(2)"></section>
+      <section class="star three" (mouseenter)="onHoverInStar($event, 3)" (mouseleave)="onHoverOutStar($event)"
+               (click)="setReviewStar(3)"></section>
+      <section class="star four" (mouseenter)="onHoverInStar($event, 4)" (mouseleave)="onHoverOutStar($event)"
+               (click)="setReviewStar(4)"></section>
+      <section class="star five" (mouseenter)="onHoverInStar($event, 5)" (mouseleave)="onHoverOutStar($event)"
+               (click)="setReviewStar(5)"></section>
+    </section>
+    <section class="comment form-group">
+      <label>{{'leave_review.comment' | translate}}</label>
+      <textarea class="form-control" rows="3" [(ngModel)]="reviewComment"></textarea>
+    </section>
+    <button class="btn btn-primary"
+            [disabled]="isSending"
+            (click)="onLeaveReview()">{{'leave_review.leave_a_review' | translate}}</button>
+  </div>
+</ng-template>

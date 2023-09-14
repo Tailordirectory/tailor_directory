@@ -1,0 +1,48 @@
+<section *ngIf="!isList && !isButton" class="d-inline-block">
+  <a *ngIf="!!business.contactPhone; else noContactPhone" title="{{business.contactName}}"
+     class="action-link action"
+     href="tel:{{business.contactPhone.countryCode + business.contactPhone.phone | phone:business.contactPhone.countryIsoCode:true}}">
+    <span class="action-icon"><i class="fas fa-phone-alt"></i></span>
+    <span *ngIf="showTitle">&nbsp;{{'global.call' | translate}}</span>
+  </a>
+  <ng-template #noContactPhone>
+    <a *ngIf="!!business.phones && business.phones.length > 0" title="{{'global.call' | translate}}"
+       class="action-link action"
+       href="tel:{{business.phones[0].countryCode + business.phones[0].phone | phone:business.phones[0].countryIsoCode:true}}">
+      <span class="action-icon"><i class="fas fa-phone-alt"></i></span>
+      <span *ngIf="showTitle">&nbsp;{{'global.call' | translate}}</span>
+    </a>
+  </ng-template>
+</section>
+<section *ngIf="isButton">
+  <a *ngIf="!!business.contactPhone; else noContactPhone" title="{{business.contactName}}"
+     class="button-link btn-primary d-block"
+     href="tel:{{business.contactPhone.countryCode + business.contactPhone.phone | phone:business.contactPhone.countryIsoCode:true}}">
+    {{'global.call' | translate}}
+  </a>
+  <ng-template #noContactPhone>
+    <a *ngIf="!!business.phones && business.phones.length > 0" title="{{'global.call' | translate}}"
+       class="button-link btn-primary d-block"
+       href="tel:{{business.phones[0].countryCode + business.phones[0].phone | phone:business.phones[0].countryIsoCode:true}}">
+      {{'global.call' | translate}}
+    </a>
+  </ng-template>
+</section>
+<section *ngIf="isList && ((business.phones && business.phones?.length > 0) || business.contactPhone)"
+         class="contact-item">
+  <img src="/assets/images/phone-grey-icon.svg">
+  <a *ngIf="!!business.contactPhone" title="{{business.contactName}}"
+     href="tel:{{business.contactPhone.countryCode + business.contactPhone.phone | phone:business.contactPhone.countryIsoCode:true}}">
+    {{business.contactPhone.countryCode + business.contactPhone.phone | phone:business.contactPhone.countryIsoCode}}
+  </a>
+  <span *ngIf="!!business.contactPhone">, </span>
+  <section class="d-inline-block" *ngIf="!!business.phones && business.phones.length > 0">
+    <section class="d-inline-block" *ngFor="let phone of business.phones; let i = index">
+      <span *ngIf="i>0">, </span>
+      <a class="action-link action"
+         href="tel:{{phone.countryCode + phone.phone | phone:phone.countryIsoCode:true}}">
+        {{phone.countryCode + phone.phone | phone:phone.countryIsoCode}}
+      </a>
+    </section>
+  </section>
+</section>

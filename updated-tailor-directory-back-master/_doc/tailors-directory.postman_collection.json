@@ -1,0 +1,5295 @@
+{
+	"info": {
+		"_postman_id": "8b919c1a-3fec-414e-abe1-175a403b8752",
+		"name": "tailors directory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign up",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dce9b154-b5de-4b3f-9f1a-20e096bccae4",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oleg.or@room4.team\",\n\t\"password\": \"password\",\n\t\"userName\": \"oleja\",\n\t\"firstName\": \"Oleg\",\n\t\"lastName\": \"Orel\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6af26024-aad2-48a5-a1ff-3fafed308d6e",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-cpass",
+								"value": "hdfDgKHSuG6whu49T3Tv7SFK4QK5dDSPW6BsSYsy",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oleg.or@room4.team\",\n\t\"password\": \"password\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.dev.tailor-directory.com/auth/signin",
+							"protocol": "https",
+							"host": [
+								"api",
+								"dev",
+								"tailor-directory",
+								"com"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6dd00716-2aa8-4c61-8645-266a6aabdabe",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/verify-email/{{token}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"verify-email",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resend verification email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e0307fa-81f8-485a-9081-4bec68926a46",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/resend-verification-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"resend-verification-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81bba95d-02ff-49da-9225-f1d9a2c4f1fe",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@example.com\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/forgot-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up tailor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c84db60c-7784-4f07-b7d4-72407be05346",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"oleg.orr@room4.team\",\n\t\"password\": \"password\",\n\t\"firstName\": \"Oleg\",\n\t\"lastName\": \"Orel\",\n    \"phone\":\"380985069447\",\n    \"openingHours\":\"9:00-12:00\",\n    \"address\":\"My street\",\n    \"city\": \"New York\",\n    \"country\": \"Soviet Union\",\n    \"location\": {\n    \t\"type\": \"Point\",\n    \t\"coordinates\": [20,40]\n    },\n    \"zipCode\":\"22831\",\n    \"businessName\": \"super business\",\n    \"businessType\" : \"tailor\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.dev.tailor-directory.com/auth/signup/tailor",
+							"protocol": "https",
+							"host": [
+								"api",
+								"dev",
+								"tailor-directory",
+								"com"
+							],
+							"path": [
+								"auth",
+								"signup",
+								"tailor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password (email link)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0687a7bc-2816-4fe2-bb82-857b63193ae7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/forgot-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzQxZWUzMGJmZDI5NzIyYjIzNWI1ZjMiLCJpYXQiOjE1NDgxNjE2MzksImV4cCI6MTU0ODI0ODAzOX0.pWA1UkLyQTSF6ZWMJnGCMaSFkydr4cyMg6WLbF5KRGw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"forgot-password",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1YzQxZWUzMGJmZDI5NzIyYjIzNWI1ZjMiLCJpYXQiOjE1NDgxNjE2MzksImV4cCI6MTU0ODI0ODAzOX0.pWA1UkLyQTSF6ZWMJnGCMaSFkydr4cyMg6WLbF5KRGw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"oldPassword\": \"password\",\n\t\"newPassword\": \"29tonfarfora\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "52875254-1951-4399-b170-568d48d42b28",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-cpass",
+								"value": "hdfDgKHSuG6whu49T3Tv7SFK4QK5dDSPW6BsSYsy",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTk4MWRmMTI4ODhkNzAwMmE3NjU5ODYiLCJ0eXBlIjoicmVmcmVzaFRva2VuIiwiaWF0IjoxNTg3MDM5Mjg0LCJleHAiOjE1ODcwMzk0MDR9.gXvIRBPOovwg-yljAjglNbA9wyVTKMhVlSUuG1J82To\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.dev.tailor-directory.com/auth/signin/refresh",
+							"protocol": "https",
+							"host": [
+								"api",
+								"dev",
+								"tailor-directory",
+								"com"
+							],
+							"path": [
+								"auth",
+								"signin",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "devices",
+			"item": [
+				{
+					"name": "create device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "992c6bb3-b9e1-45ea-8f7f-6a40589fe84f",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"deviceId\": \"newdeviceid1skdoadkpoa\",\n\t\"deviceType\": 0\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/devices/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"devices",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1041a9db-7a32-4c88-bffd-c7df9aaa40ad",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/devices/me/5e04811d8dc266021503fddb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"devices",
+								"me",
+								"5e04811d8dc266021503fddb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get devices types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5a8849d6-8d84-4b9e-968a-a97001c1e7e1",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/devices/types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"devices",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"john.doe@example.com\",\n\t\"password\": \"password\",\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Doe\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users (filtered)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users?page=1&limit=10&filter=john&sort[createdAt]=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "filter",
+									"value": "john"
+								},
+								{
+									"key": "sort[createdAt]",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5c371c1a7b7767075ecf2a36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get self",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"john.doe@example.com\",\n\t\"oldPassword\": \"password\",\n\t\"newPassword\": \"password\",\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Doe\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5c4f294683ce1218776dc7e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5c4f294683ce1218776dc7e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update self",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"john.doe@example.com\",\n\t\"oldPassword\": \"password\",\n\t\"newPassword\": \"password\",\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Doe\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5c371c1a7b7767075ecf2a36"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ban user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36/ban",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5c371c1a7b7767075ecf2a36",
+								"ban"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unban user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36/unban",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5c371c1a7b7767075ecf2a36",
+								"unban"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "get tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b1e92be-6353-407b-ac9c-a16530f17b63",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create tag (admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "321a684e-59d7-4539-bcc9-e8e0ba8e64af",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"newTag\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tag (admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba461b7f-0e34-48ad-93bb-74b2e8a30875",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"equals": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"newTag1\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tags/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tag (admin)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4794fb0f-484f-4e18-a359-b63f69e0b0bd",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tags/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tags",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "business",
+			"item": [
+				{
+					"name": "Search by coordinates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4749250b-4aed-437e-a382-48e0d719a8cc",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWE4M2M5YTJlNjkwZjAwMmE3NmI5MWYiLCJyb2xlIjoidXNlciIsImlhdCI6MTU4ODMzMTQzOSwiZXhwIjoxNTg4MzMyMzM5fQ.6f0dK6XAWxYpEhPAXWk1SNxkYH88bEGEWlgQpGgDjuE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"stars\": 3,\n\t\"comment\": \"nice one\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://api.dev.tailor-directory.com/reviews/business/5eaadb315707ea01b441929f",
+							"protocol": "https",
+							"host": [
+								"api",
+								"dev",
+								"tailor-directory",
+								"com"
+							],
+							"path": [
+								"reviews",
+								"business",
+								"5eaadb315707ea01b441929f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search by filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a39b9d1f-100b-4fdf-be5a-8d96fff8ac7b",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business?filter[country]=Soviet Union&filter[city]=LENINGRAD&filter[zipCode]=87141",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business"
+							],
+							"query": [
+								{
+									"key": "filter[country]",
+									"value": "Soviet Union"
+								},
+								{
+									"key": "filter[city]",
+									"value": "LENINGRAD"
+								},
+								{
+									"key": "filter[zipCode]",
+									"value": "87141"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneBusiness",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9733d176-ef24-4b0d-9c6d-c11ffee07c76",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f64a26c0-fdab-46a7-ac58-718bef9b9494",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"businessName\": \"SUPER WAR FOR CHILD\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07074c1b-2bdd-42cb-b45f-e1cab771ca5d",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"businessName\": \"SUPER\",\n\t\"businessType\": \"leather\",\n\t\"phone\": \"+380999999999\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a65e2d05-8537-4025-ae2c-48420a597088",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"businessName\": \"SUPER\",\n\t\"businessType\": \"leather\",\n\t\"phone\": \"+380999999999\",\n\t\"address\": \"Sevastopolskaya 1\",\n\t\"city\":\"Kiev\",\n\t\"country\": \"Ukraine\",\n\t\"location\": {\n\t\t\"type\": \"Point\",\n\t\t\"coordinates\": [20, 40]\n\t},\n\t\"zipCode\": \"22811\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get business types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c96f5b7e-9bd2-470a-b328-7370a36fa989",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/business/types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get another business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ff7e6de7-e460-4258-9adc-e6f33777b096",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\":659551\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/business/another/5e943d8d3f0c54026e1eac0d",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								"another",
+								"5e943d8d3f0c54026e1eac0d"
+							]
+						},
+						"description": "get another business"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload icon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/oleg/Pictures/Screenshot from 2019-10-21 16-01-37.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/business/icon/5e9a132542be02003bbcaf8b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								"icon",
+								"5e9a132542be02003bbcaf8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload media",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "multipart/mixed"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"contentType": "image/png",
+									"type": "file",
+									"src": "/home/oleg/Pictures/Screenshot from 2019-12-19 15-15-10.png"
+								},
+								{
+									"key": "files",
+									"contentType": "image/png",
+									"type": "file",
+									"src": "/home/oleg/Pictures/Screenshot from 2019-11-12 13-32-04.png"
+								},
+								{
+									"key": "files",
+									"contentType": "image/png",
+									"type": "file",
+									"src": "/home/oleg/Pictures/Screenshot from 2019-11-28 13-00-00.png"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/business/media/5e9a132542be02003bbcaf8b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								"media",
+								"5e9a132542be02003bbcaf8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete media",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"ids\": [\"5ea00292f6024902683ff118\", \"5ea00292f6024902683ff11a\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/business/media/5e9a132542be02003bbcaf8b",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"business",
+								"media",
+								"5e9a132542be02003bbcaf8b"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "reviews",
+			"item": [
+				{
+					"name": "create review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "824de3da-9c6c-4c23-8347-b68ddc17f674",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"stars\":5,\n\t\"comment\": \"nice one\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reviews/business/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								"business",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get reviews by business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a74f3b5-fc5e-4301-b6c8-5fcabf19b7b9",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reviews/business/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								"business",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my reviews",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50ea1409-9703-4ed6-99cb-0f1e86620fba",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reviews/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ef460960-971e-42c3-b401-9739cdece106",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reviews/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "184b2264-52d1-45f5-a226-12417eb2d9a7",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reviews/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check is user review already exists for business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c54ba60-5edd-4e61-8bb3-8dd8c4ffc295",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/reviews/business/is-exists/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								"business",
+								"is-exists",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "proposal-request",
+			"item": [
+				{
+					"name": "create proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "28e932db-7f4e-46e6-814d-a2019adf3ce3",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"businessId\":\":id\",\n\t\"details\":\"I need new shoes!\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proposal-request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get my proposal requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d04f137-e093-40e5-8b55-1449798679a9",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a7d0d53-f360-48df-8eb7-08424847fa89",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete one proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cdab44e1-7f1b-4cfc-a2d7-b7892ad946f5",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update one proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8b42f69-ff4a-4ac2-862e-b583663bdfd3",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"details\":\"I need new coat!\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept proposal request (only for tailor)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4d3a5b33-bb2a-4b6e-b967-a42cec8748b4",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id",
+								"accept"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decline proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb7a65c5-38ae-457b-88af-d857aaff556b",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id/decline",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id",
+								"decline"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create reply for proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e27c786-af9a-4f00-9f79-66a382fc10f6",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"message\":\"I remember that I need a jacket, too.\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id/reply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id",
+								"reply"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update reply for proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0660d743-76ae-4cc6-b505-c8d148da325a",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"message\":\"I remember that I need a jacket, too. The count of needed jackets is 3.\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id/reply/:replyId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id",
+								"reply",
+								":replyId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "replyId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove reply for proposal request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "449ff36b-3cd6-45e8-99c6-27603d63ce78",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proposal-request/:id/reply/:replyId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proposal-request",
+								":id",
+								"reply",
+								":replyId"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "replyId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "i18n",
+			"item": [
+				{
+					"name": "english error message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8dc87f03-2870-4fd1-a50e-79b621210e9a",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/i18n/en",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"i18n",
+								"en"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "de error messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd1281cc-5b25-49e4-8156-f6d54eae4c16",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/i18n/en",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"i18n",
+								"en"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "media",
+			"item": [
+				{
+					"name": "upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45a54544-4f91-434b-9a70-0736d9774f35",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/media/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"media",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "xls",
+			"item": [
+				{
+					"name": "upload business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "69ebaf57-8e3b-4c77-beb6-8c88ea9822c0",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/oleg/Downloads/out (12).xlsx"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/xls/business",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xls",
+								"business"
+							]
+						},
+						"description": "upload business\n"
+					},
+					"response": []
+				},
+				{
+					"name": "download business",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4ee0e01b-d94e-47f6-81b6-f8dbd33b27ac",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/xls/business",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"xls",
+								"business"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "one-time-pass",
+			"item": [
+				{
+					"name": "init-email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "109d393b-0df3-4432-b84b-bb66e9400037",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/one-time-pass/init-email/5e8f659d4e798103cceb23b6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"init-email",
+								"5e8f659d4e798103cceb23b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm-email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1bc7b319-0e2a-4bed-a7b7-50433e9c71a2",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/one-time-pass/confirm-email/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTkzMjcxZjljYTNiZjAwYjFiNTMzZTIiLCJidXNpbmVzc0lkIjoiNWU4ZjY1OWQ0ZTc5ODEwM2NjZWIyM2I2IiwidG9rZW4iOiIyOTIwNTciLCJ0eXBlIjoiZW1haWwiLCJleHBpcmVzQXQiOiIyMDIwLTA0LTIyVDE0OjM1OjExLjU0MloiLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTEyVDE0OjM1OjExLjU1N1oiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTEyVDE0OjM1OjExLjU1N1oiLCJpYXQiOjE1ODY3MDIxMTEsImV4cCI6MTU4Njc4ODUxMX0.KozYYJfB-AcfAe7muVX9oJzxBKQkjZYwefNlsWWnV9A",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"confirm-email",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTkzMjcxZjljYTNiZjAwYjFiNTMzZTIiLCJidXNpbmVzc0lkIjoiNWU4ZjY1OWQ0ZTc5ODEwM2NjZWIyM2I2IiwidG9rZW4iOiIyOTIwNTciLCJ0eXBlIjoiZW1haWwiLCJleHBpcmVzQXQiOiIyMDIwLTA0LTIyVDE0OjM1OjExLjU0MloiLCJjcmVhdGVkQXQiOiIyMDIwLTA0LTEyVDE0OjM1OjExLjU1N1oiLCJ1cGRhdGVkQXQiOiIyMDIwLTA0LTEyVDE0OjM1OjExLjU1N1oiLCJpYXQiOjE1ODY3MDIxMTEsImV4cCI6MTU4Njc4ODUxMX0.KozYYJfB-AcfAe7muVX9oJzxBKQkjZYwefNlsWWnV9A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "init phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "68339011-a3fc-412b-add1-0225e06472dd",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/one-time-pass/init-phone/5e8f659d4e798103cceb23b6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"init-phone",
+								"5e8f659d4e798103cceb23b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm phone",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4719e6c-59be-4368-a368-63c977946acd",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\":659551\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/one-time-pass/confirm-phone/5e8f659d4e798103cceb23b6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"confirm-phone",
+								"5e8f659d4e798103cceb23b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "init user email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19a49cf4-835b-43cc-8b27-6b6e73b2a809",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFhZGIzMDU3MDdlYTAxYjQ0MTkyOWUiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE1ODgzMjY0NzAsImV4cCI6MTU4ODMyNzM3MH0.XqSaOBdFa-OyfrhYt7hsYhmsnQRg9LDKu_AI7r_M-4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/one-time-pass/me/init-email",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"me",
+								"init-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm user email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9fc26323-2c20-4181-a318-3806703fc0e0",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", data.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFhZGIzMDU3MDdlYTAxYjQ0MTkyOWUiLCJyb2xlIjoiYnVzaW5lc3MiLCJpYXQiOjE1ODgzMjY0NzAsImV4cCI6MTU4ODMyNzM3MH0.XqSaOBdFa-OyfrhYt7hsYhmsnQRg9LDKu_AI7r_M-4Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/one-time-pass/me/confirm-email/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWFiZjA2YTUxNzkxYTAwYzFlODU0NDIiLCJ1c2VySWQiOiI1ZWFhZGIzMDU3MDdlYTAxYjQ0MTkyOWUiLCJ0eXBlIjoiZW1haWxfdXNlciIsInRva2VuIjoiNTU5MTY0IiwiZXhwaXJlc0F0IjoiMjAyMC0wNS0xMVQwOTo0ODoyNi4xOTJaIiwiY3JlYXRlZEF0IjoiMjAyMC0wNS0wMVQwOTo0ODoyNi4xOTZaIiwidXBkYXRlZEF0IjoiMjAyMC0wNS0wMVQwOTo0ODoyNi4xOTZaIiwiaWF0IjoxNTg4MzI2NTA2LCJleHAiOjE1ODg0MTI5MDZ9.3a1Q_6TgiM0B_3cijZawXEm-mWAhedgZUccqAhXdHZ4",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"one-time-pass",
+								"me",
+								"confirm-email",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWFiZjA2YTUxNzkxYTAwYzFlODU0NDIiLCJ1c2VySWQiOiI1ZWFhZGIzMDU3MDdlYTAxYjQ0MTkyOWUiLCJ0eXBlIjoiZW1haWxfdXNlciIsInRva2VuIjoiNTU5MTY0IiwiZXhwaXJlc0F0IjoiMjAyMC0wNS0xMVQwOTo0ODoyNi4xOTJaIiwiY3JlYXRlZEF0IjoiMjAyMC0wNS0wMVQwOTo0ODoyNi4xOTZaIiwidXBkYXRlZEF0IjoiMjAyMC0wNS0wMVQwOTo0ODoyNi4xOTZaIiwiaWF0IjoxNTg4MzI2NTA2LCJleHAiOjE1ODg0MTI5MDZ9.3a1Q_6TgiM0B_3cijZawXEm-mWAhedgZUccqAhXdHZ4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Claim Request",
+			"item": [
+				{
+					"name": "create claim request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWFhZGIzMDU3MDdlYTAxYjQ0MTkyOWUiLCJyb2xlIjoidXNlciIsImlhdCI6MTU4ODY5Mzc3MywiZXhwIjoxNTg4Njk0NjczfQ.WLsxmyLOEOHzaUqmwQohGwGP6_OFKYkN_Gaxz1OV1bw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"businessId\": \"5e9a132542be02003bbcaf8b\",\n\t\"message\":\"Hello I am owner of this business!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/claim-request",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"claim-request"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "profiles",
+			"item": [
+				{
+					"name": "get permissions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fece16f2-ac1a-4937-875e-a89735e4d465",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set(\"access_token\", data.token);",
+									"",
+									"tests[\"Login succeeded\"] = (data.token && data.token.length > 0);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/profiles/permissions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								"permissions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change profile type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"profileType\":\"basic\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/profiles/profile-type",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"profiles",
+								"profile-type"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "tags",
+					"item": [
+						{
+							"name": "get tags",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba689ec5-8bb8-4de8-8e1e-8173b1736f4b",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create tag (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "347d828f-6224-46aa-b9cc-eea7084adadc",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjA5NzIzLCJleHAiOjE1OTIyMTA2MjN9.wZmn8ng8SUw9EYBnsX5MsRjNmbkkWOXe4uAUG9BW2Os",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"newTag\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update tag (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ffbe77d7-e290-47dc-b320-07749632c481",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjA5NzIzLCJleHAiOjE1OTIyMTA2MjN9.wZmn8ng8SUw9EYBnsX5MsRjNmbkkWOXe4uAUG9BW2Os",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"equals": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"newTag1\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/tags/5ee7319e03b189069db96df8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"tags",
+										"5ee7319e03b189069db96df8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete tag (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "46a4c52a-5e93-4a17-966c-dcce3600e8da",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjA5NzIzLCJleHAiOjE1OTIyMTA2MjN9.wZmn8ng8SUw9EYBnsX5MsRjNmbkkWOXe4uAUG9BW2Os",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/admin/tags/5ee7319e03b189069db96df8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"tags",
+										"5ee7319e03b189069db96df8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d577559c-bab5-4c2c-ab42-5bfd707618c6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa17c502-45b8-4b63-9b6c-621ee9bd338f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "business",
+					"item": [
+						{
+							"name": "Search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "196ee4ee-24aa-41cb-b4d2-d91b80b72926",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search by filter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "84783829-e200-488d-a22b-76f1db525f3b",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business?filter[country]=Soviet Union&filter[city]=LENINGRAD&filter[zipCode]=87141",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business"
+									],
+									"query": [
+										{
+											"key": "filter[country]",
+											"value": "Soviet Union"
+										},
+										{
+											"key": "filter[city]",
+											"value": "LENINGRAD"
+										},
+										{
+											"key": "filter[zipCode]",
+											"value": "87141"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOneBusiness",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "064aca3d-b3c0-48ae-abc8-e48ec779e09a",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ea03ce06-4ee8-497d-832a-ee3f790bf9f7",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"businessName\": \"SUPER WAR FOR CHILD\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d0b0a7df-1e1c-4565-9306-3e04b69f9e96",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"businessName\": \"SUPER WAR FOR CHILD\",\n\t\"businessType\": \"leather\",\n\t\"phone\": \"+380999999999\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9270abb7-c0c4-441c-a4a9-029422adb6d7",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMTY3MDk0LCJleHAiOjE1OTIxNjc5OTR9.siLwHIBcqmkxPCnDC_qYddV5WLUtzxg4hQLOuCpExQw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"businessName\": \"SUPER WAR FOR CHILD\",\n\t\"businessType\": \"laundry\",\n\t\"phone\": \"+380999999999\",\n\t\"address\": \"Sevastopolskaya 1\",\n\t\"city\":\"Kiev\",\n\t\"country\": \"Ukraine\",\n\t\"location\": {\n\t\t\"type\": \"Point\",\n\t\t\"coordinates\": [20, 40]\n\t},\n\t\"zipCode\": \"22811\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get business types",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f03ba3a0-c21c-4967-9562-ba5da65965bc",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business/types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										"types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "download business as XLS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fbb82495-16f6-4af5-a1d1-019ca00da495",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business/xls",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										"xls"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get another business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b0421872-2dbd-4307-b780-b76e6c3589fb",
+										"exec": [
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"token\":659551\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/admin/business/another/5e943d8d3f0c54026e1eac0d",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business",
+										"another",
+										"5e943d8d3f0c54026e1eac0d"
+									]
+								},
+								"description": "get another business"
+							},
+							"response": []
+						},
+						{
+							"name": "Upload icon",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/oleg/Pictures/Screenshot from 2019-10-21 16-01-37.png"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/business/admin/icon/5e9a132542be02003bbcaf8b",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"business",
+										"admin",
+										"icon",
+										"5e9a132542be02003bbcaf8b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload media",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "multipart/mixed"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"contentType": "image/png",
+											"type": "file",
+											"src": "/home/oleg/Pictures/Screenshot from 2019-12-19 15-15-10.png"
+										},
+										{
+											"key": "files",
+											"contentType": "image/png",
+											"type": "file",
+											"src": "/home/oleg/Pictures/Screenshot from 2019-11-12 13-32-04.png"
+										},
+										{
+											"key": "files",
+											"contentType": "image/png",
+											"type": "file",
+											"src": "/home/oleg/Pictures/Screenshot from 2019-11-28 13-00-00.png"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/business/admin/media/5e9a132542be02003bbcaf8b",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"business",
+										"admin",
+										"media",
+										"5e9a132542be02003bbcaf8b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete media",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"ids\": [\"5ea00292f6024902683ff118\", \"5ea00292f6024902683ff11a\"]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/business/admin/media/5e9a132542be02003bbcaf8b",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"business",
+										"admin",
+										"media",
+										"5e9a132542be02003bbcaf8b"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9003a976-4e3f-4bc3-97c7-7364318cf5f4",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "77ca1a27-76ea-4eb8-9ef6-26b374865652",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Auth",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/admin/auth",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJ0eXBlIjoicmVmcmVzaFRva2VuIiwiaWF0IjoxNTkxOTkwNTM2LCJleHAiOjE1OTI4NTQ1MzZ9.a1GMmlbqH6fhB_G8Z-9KL9e4miTb1MGj_Uc0DCQzPgc\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/admin/auth/refresh",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "Create user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjEyMjY5LCJleHAiOjE1OTIyMTMxNjl9.XYk51imVGzCtlc39dEgwps6WW0DNsKpue3F6UtUyjNY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"john.doe@example.com\",\n\t\"password\": \"password\",\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Doe\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get users (filtered)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjIyNDM5LCJleHAiOjE1OTIyMjMzMzl9.9V9EGej3wq6qWboy4RWlw4MWLmXrBNiyxdobvjLD4ZI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/users?page=1&limit=10&filter[role]=user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "filter[role]",
+											"value": "user"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get one user",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"5c371c1a7b7767075ecf2a36"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update user",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"john.doe@example.com\",\n\t\"password\": \"password\",\n\t\"firstName\": \"John\",\n\t\"lastName\": \"Doe\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/users/5c4f294683ce1218776dc7e5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"users",
+										"5c4f294683ce1218776dc7e5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/users/5c371c1a7b7767075ecf2a36",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users",
+										"5c371c1a7b7767075ecf2a36"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create business user",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjE1NzgwLCJleHAiOjE1OTIyMTY2ODB9.CYBNx1nvWHUr2Xnq86MpvyAJvAQPH1BGU7semV7TFp4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"oleg.or@room4.team\",\n    \"password\": \"password\",\n    \"role\": \"business\" ,\n    \"emailVerifiedAt\": \"2020-04-20T08:18:31.160Z\",\n    \"firstName\": \"Oleg\",\n    \"lastName\":\"Orel\",\n    \"userName\": \"Jack\",\n    \"companyName\": \"room4\",\n    \"phone\": {\n        \"countryIsoCode\": \"+380\",\n        \"countryCode\": \"UA\",\n        \"phone\": \"679466214\"\n    },\n    \"business\":[],\n    \"profileType\": \"basic\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get business users",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjI1MTgzLCJleHAiOjE1OTIyMjYwODN9.g4Unsb8t9N9oZKawDG46_YPiMzrhxDd555YfWYfaLHE",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/users?page=1&limit=10&filter[role]=business",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "filter[role]",
+											"value": "business"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5333a0dd-3f36-450b-8caa-ff2c6f7d3fd1",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "53cc7699-7eea-4fa6-96c3-c90bda38bbeb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "claims",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjM0MDA3LCJleHAiOjE1OTIyMzQ5MDd9.hO3rf7SnKErSouBbR-PzMacnCOyOZZH3auAK2iDzfKc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/claims",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"claims"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "accept",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjMyMDA0LCJleHAiOjE1OTIyMzI5MDR9.yfJ0ZmXx-S5tSqVKPfM6gbI5TKv94b1rNZWLP5l8cnI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/claims/accept/5eb18b9e1bb9ba002aa6fe73",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"claims",
+										"accept",
+										"5eb18b9e1bb9ba002aa6fe73"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "decline",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMjMyMDA0LCJleHAiOjE1OTIyMzI5MDR9.yfJ0ZmXx-S5tSqVKPfM6gbI5TKv94b1rNZWLP5l8cnI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/claims/decline/5eb18b9e1bb9ba002aa6fe73",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"claims",
+										"decline",
+										"5eb18b9e1bb9ba002aa6fe73"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "reviews",
+					"item": [
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkyMzEzNzQ5LCJleHAiOjE1OTIzMTQ2NDl9.vkhJ4DWVRT9J8h92cD8hJv7MGgZDNfdvVrvSCHiR9yQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/reviews",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"reviews"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/reviews/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"reviews",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get by business",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/reviews/business/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"reviews",
+										"business",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"stars\":5,\n\t\"comment\": \"nice one\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/reviews/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"reviews",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "profiles",
+					"item": [
+						{
+							"name": "permissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/profiles/permissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"profiles",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "stats",
+					"item": [
+						{
+							"name": "get registered stat",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "businessTypes",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkzMTc0Njk3LCJleHAiOjE1OTMxNzU1OTd9.T9QSdOClkFHJtLKWpdSXCBIrTNJvvRePXMdp6mjW2gI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business-types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkzMTc0OTEzLCJleHAiOjE1OTMxNzU4MTN9.9HY3GP9rJ2drURQJKDnYtl2Os_LwezpAX-BGcU94Vts",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/business-types/5ef5eb6384ccef0924960bd9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business-types",
+										"5ef5eb6384ccef0924960bd9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkzMTc0OTEzLCJleHAiOjE1OTMxNzU4MTN9.9HY3GP9rJ2drURQJKDnYtl2Os_LwezpAX-BGcU94Vts",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/business-types",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business-types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "icon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/oleg/Pictures/Screenshot from 2020-06-25 18-21-49.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business-types/icon/5ef5de7a4b200105891bc641",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business-types",
+										"icon",
+										"5ef5de7a4b200105891bc641"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWUzZDI2ZjQzNjdiZDAwNmY5ODdiOTEiLCJyb2xlIjoiYWRtaW4iLCJwcm9maWxlVHlwZSI6ImJhc2ljIiwiaWF0IjoxNTkzMTc0OTEzLCJleHAiOjE1OTMxNzU4MTN9.9HY3GP9rJ2drURQJKDnYtl2Os_LwezpAX-BGcU94Vts",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"laundryy\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/business-types/5ef5de7a4b200105891bc641",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"business-types",
+										"5ef5de7a4b200105891bc641"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "system",
+					"item": [
+						{
+							"name": "Update system logo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/octet-stream",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/system/logo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"system",
+										"logo"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1fc84e39-239a-4d06-8d97-0740b602a0ed",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0a55300a-e764-4af9-94ab-6b0fef1e2c65",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

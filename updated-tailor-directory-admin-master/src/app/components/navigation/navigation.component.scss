@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+
+:host {
+  background: rgba(220, 233, 255, .3);
+  width: 40%;
+  max-width: 350px;
+  padding: 20px;
+
+  &.close {
+    display: none;
+    width: 0;
+  }
+}
+
+.navigation {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      a {
+        display: block;
+        padding: 10px;
+        border-top: 1px solid transparent;
+        border-radius: 3px;
+        margin-bottom: 1px;
+
+        &:hover {
+          background: rgba(220, 233, 255, .5);
+          border-top: 1px solid rgba(220, 233, 255, .9);
+        }
+
+        &.active {
+          background: $primary-button-background;
+          border-color: $primary-button-border-color;
+          color: $primary-button-color;
+        }
+      }
+    }
+  }
+}

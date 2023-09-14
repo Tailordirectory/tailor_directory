@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.find {
+  margin-left: 15px;
+}
+
+.table {
+  .business {
+    min-width: 150px;
+    width: 25%;
+  }
+
+  .client {
+    min-width: 150px;
+    width: 25%;
+  }
+
+  .comment {
+    min-width: 150px;
+    width: 25%;
+  }
+
+  .date {
+    min-width: 110px;
+    width: 15%;
+  }
+
+  .actions {
+    min-width: 100px;
+    width: 10%;
+
+    span {
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .confirm {
+      color: $primary-button-background;
+    }
+
+    .delete {
+      margin-left: 15px;
+      color: red;
+    }
+  }
+}

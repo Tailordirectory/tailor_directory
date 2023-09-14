@@ -1,0 +1,434 @@
+[
+  {
+    "group": "admin",
+    "permissions": [
+      {
+        "resource": "*",
+        "methods": "*",
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "user",
+    "permissions": [
+      {
+        "resource": "/users",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+
+      {
+        "resource": "devices/me",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "devices/me/:deviceId",
+        "methods": ["DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/me",
+        "methods": ["GET", "PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/me/password",
+        "methods": ["PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/:id",
+        "methods": ["GET", "PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/me",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/business/is-exists/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/business/:id",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/:id",
+        "methods": ["PATCH", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/auth/resend-verification-email",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/auth/signin/refresh",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/types",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/tags",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/me",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/reply",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/reply/:replyId",
+        "methods": ["PATCH", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/accept",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id",
+        "methods": ["GET", "PATCH", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/en",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/de",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/confirm-email/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/another/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/users/link/google",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/users/link/facebook",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/me/init-email",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/claim-request",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/profiles/permissions",
+        "methods": ["GET"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "business",
+    "permissions": [
+      {
+        "resource": "/users",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+
+      {
+        "resource": "devices/me",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "devices/me/:deviceId",
+        "methods": ["DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/me",
+        "methods": ["GET", "PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/me/password",
+        "methods": ["PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "users/:id",
+        "methods": ["GET", "PATCH"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/business/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/auth/resend-verification-email",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/auth/signin/refresh",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/types",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/me",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/icon/:id",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/media/:id",
+        "methods": ["POST", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/:id",
+        "methods": ["GET", "PATCH", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business",
+        "methods": ["GET", "POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/tags",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/me",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/reply",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/reply/:replyId",
+        "methods": ["PATCH", "DELETE"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/accept",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id/decline",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/proposal-request/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/en",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/de",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/media/upload",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/init-phone/:id",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/init-email/:id",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/confirm-email/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/confirm-phone/:id'",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/another/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/users/link/google",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/users/link/facebook",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/me/init-email",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/claim-request",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/profiles/permissions",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/profiles/profile-type",
+        "methods": ["POST"],
+        "action": "allow"
+      }
+    ]
+  },
+  {
+    "group": "guest",
+    "permissions": [
+      {
+        "resource": "/auth/signin/refresh",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/types",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/another/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/business",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/reviews/business/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "url": "/auth/signup/tailor",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/tags",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/en",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/i18n/de",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/confirm-email/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/confirm-phone/:id'",
+        "methods": ["POST"],
+        "action": "allow"
+      },
+      {
+        "resource": "/one-time-pass/me/confirm-email/:id",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/profiles/permissions",
+        "methods": ["GET"],
+        "action": "allow"
+      },
+      {
+        "resource": "/admin/auth/refresh",
+        "methods": ["POST"],
+        "action": "allow"
+      }
+    ]
+  }
+]
